@@ -2,8 +2,6 @@
 
 Shows a clickable element to the user.
 
-![Button Light](/images/Buttons-light.png)![Button Light](/images/Buttons-dark.png)
-
 ## Quick use
 
 ```jsx
