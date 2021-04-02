@@ -27,7 +27,7 @@ function App() {
 
 ## Todo
 
-- [ ] size
+- [ x ] size
 - [ ] shape
 - [ ] prefix & suffix
 - [ ] trim
@@ -39,7 +39,6 @@ function App() {
 ## Tests suites
 
 - [ ] should render correctly
-- [ ] should render correct size
 - [ ] should render empty button without errors
 - [ ] should render a spinner when `loading` is set to `true`
 - [ ] should not be clickable when button is loading

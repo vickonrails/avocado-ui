@@ -11,4 +11,4 @@ const theme = {
 }
 
 export type ThemeProps = typeof theme
-export default theme
+export { theme }

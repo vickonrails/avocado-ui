@@ -1,19 +1,55 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { Button } from 'avocado-ui'
+import {
+  Button,
+  ThemeProvider,
+  theme,
+  ThemeContext,
+  ThemeProps
+} from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
+
+const customTheme: ThemeProps = {
+  ...theme,
+  colors: {
+    ...theme.colors
+  },
+  components: {
+    ...theme.components,
+    buttonTheme: {
+      ...theme.components.buttonTheme,
+      variants: {
+        primary: '#fff'
+      }
+    }
+  }
+}
 
 const App = () => {
   return (
-    <div className='container btn-group'>
-      <Button variant='primary'>Something</Button>
-      <Button variant='secondary'>Something</Button>
-      <Button variant='warning'>Something</Button>
-      <Button variant='error'>Something</Button>
-      <Button variant='ghost'>Something</Button>
-      <Button variant='link'>Something</Button>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <div className='container btn-group'>
+        <Button variant='primary' size='sm'>
+          Something
+        </Button>
+        <Button variant='primary' size='md'>
+          Something
+        </Button>
+        <Button variant='primary' size='lg'>
+          Something
+        </Button>
+        <ButtonEnquire variant='primary' size='lg'>
+          Something
+        </ButtonEnquire>
+      </div>
+    </ThemeProvider>
   )
+}
+
+const ButtonEnquire = ({ children, ...props }: any) => {
+  const theme = useContext(ThemeContext)
+  console.log(theme)
+  return <Button {...props}>{children}</Button>
 }
 
 export default App

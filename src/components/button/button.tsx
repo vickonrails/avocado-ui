@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import theme from '../theme'
+import { theme } from '../theme'
 
 const Button: React.FC<ButtonProps> = ({ loading, shape, type, ...props }) => {
   return <StyledButton {...props}>{props.children}</StyledButton>
 }
 
 type Type = 'submit' | 'button' | 'reset'
-type Size = 'sm' | 'md' | 'lg'
+export type Size = 'sm' | 'md' | 'lg'
 type Shape = 'round' | 'border' | 'square'
 type Variant = 'primary' | 'secondary' | 'warning' | 'error' | 'link' | 'ghost'
 
@@ -53,17 +53,21 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 /**
  * style for base button
  */
-const BaseButtonStyles = css`
-  padding: 0.43em 0.5em;
+const BaseButton = css`
+  padding: 0.43em 0.8em;
   font: inherit;
   cursor: pointer;
   border: none;
   border-radius: ${theme.borders.sm};
 `
 
-const ButtonSizeSmall = ({ size }: ButtonProps) => size && css``
+const ButtonSize = ({ size }: ButtonProps) =>
+  size &&
+  css`
+    padding: ${`${theme.components.buttonTheme.size[size]} ${theme.components.buttonTheme.size[size]}`};
+  `
 
-const ButtonVariantPrimary = ({ variant }: ButtonProps) =>
+const ButtonVariant = ({ variant }: ButtonProps) =>
   variant === 'primary' &&
   css`
     color: ${theme.colors.white};
@@ -71,9 +75,9 @@ const ButtonVariantPrimary = ({ variant }: ButtonProps) =>
   `
 
 const StyledButton = styled.button<ButtonProps>`
-  ${BaseButtonStyles};
-  ${ButtonSizeSmall};
-  ${ButtonVariantPrimary}
+  ${BaseButton};
+  ${ButtonSize};
+  ${ButtonVariant}
 `
 
 Button.defaultProps = {
