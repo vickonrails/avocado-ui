@@ -4,7 +4,7 @@ import { Button } from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
 
 const App = () => {
-  return <Button>Something</Button>
+  return <Button size='lg'>Something</Button>
 }
 
 export default App
