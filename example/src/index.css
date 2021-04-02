@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  max-width: 800px;
+  margin: 1em auto 0;
+}
+.container.btn-group > * {
+  margin-right: 1em;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+import theme from '../theme'
 
 const Button: React.FC<ButtonProps> = ({ loading, shape, type, ...props }) => {
   return <StyledButton {...props}>{props.children}</StyledButton>
@@ -56,15 +57,23 @@ const BaseButtonStyles = css`
   padding: 0.43em 0.5em;
   font: inherit;
   cursor: pointer;
+  border: none;
+  border-radius: ${theme.borders.sm};
 `
 
-const ButtonSizeSmall = ({ size }: ButtonProps) => css`
-  padding: ${size === 'lg' ? `2em` : `1em`};
-`
+const ButtonSizeSmall = ({ size }: ButtonProps) => size && css``
+
+const ButtonVariantPrimary = ({ variant }: ButtonProps) =>
+  variant === 'primary' &&
+  css`
+    color: ${theme.colors.white};
+    background: ${theme.components.buttonTheme.variants[variant]};
+  `
 
 const StyledButton = styled.button<ButtonProps>`
   ${BaseButtonStyles};
-  ${ButtonSizeSmall}
+  ${ButtonSizeSmall};
+  ${ButtonVariantPrimary}
 `
 
 Button.defaultProps = {
