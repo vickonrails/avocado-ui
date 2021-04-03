@@ -29,7 +29,7 @@ function App() {
 
 ## Todo
 
-- [ x ] size
+- [x] size
 - [ ] shape
 - [ ] prefix & suffix
 - [ ] trim
