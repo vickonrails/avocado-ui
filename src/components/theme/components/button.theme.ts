@@ -11,9 +11,9 @@ const buttonTheme = {
     circle: borders.circle
   },
   size: {
-    sm: `${spacing[2]} ${spacing[3]}`,
-    md: `${spacing[3]} ${spacing[4]}`,
-    lg: `${spacing[4]} ${spacing[5]}`
+    sm: `${spacing['x-small']} ${spacing.small}`,
+    md: `${spacing.small} ${spacing.medium}`,
+    lg: `${spacing.medium} ${spacing.large}`
   }
 }
 

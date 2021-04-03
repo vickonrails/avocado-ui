@@ -77,7 +77,7 @@ const ButtonVariant = ({ variant }: ButtonProps) =>
 const StyledButton = styled.button<ButtonProps>`
   ${BaseButton};
   ${ButtonSize};
-  ${ButtonVariant}
+  ${ButtonVariant};
 `
 
 Button.defaultProps = {

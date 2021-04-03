@@ -1,12 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import {
-  Button,
-  ThemeProvider,
-  theme,
-  ThemeContext,
-  ThemeProps
-} from 'avocado-ui'
+import { Button, ThemeProvider, theme, ThemeProps } from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
 
 const customTheme: ThemeProps = {
@@ -30,7 +24,7 @@ const App = () => {
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
         <Button variant='primary' size='sm'>
-          Something
+          Text
         </Button>
         <Button variant='primary' size='md'>
           Something
@@ -38,18 +32,9 @@ const App = () => {
         <Button variant='primary' size='lg'>
           Something
         </Button>
-        <ButtonEnquire variant='primary' size='lg'>
-          Something
-        </ButtonEnquire>
       </div>
     </ThemeProvider>
   )
-}
-
-const ButtonEnquire = ({ children, ...props }: any) => {
-  const theme = useContext(ThemeContext)
-  console.log(theme)
-  return <Button {...props}>{children}</Button>
 }
 
 export default App
