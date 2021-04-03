@@ -2,21 +2,23 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
+import { getButtonShape } from '../../utils/button'
 
-const Button: React.FC<ButtonProps> = ({ loading, shape, type, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ loading, ...props }) => {
   return <StyledButton {...props}>{props.children}</StyledButton>
 }
 
-type Type = 'submit' | 'button' | 'reset'
 export type Size = 'sm' | 'md' | 'lg'
-type Shape = 'round' | 'border' | 'square'
-type Variant = 'primary' | 'secondary' | 'warning' | 'error' | 'link' | 'ghost'
+export type ButtonShape = 'round' | 'curve' | 'square'
+type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
+type Variant = 'primary' | 'warning' | 'error' | 'success'
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * default type of button. Can be submit, button, reset
    */
-  type?: Type
+
+  buttonType?: ButtonType
   /**
    *  size of button. Can be sm, lg, md
    */
@@ -24,7 +26,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
    * shape of the button. can be round, border, square
    */
-  shape?: Shape
+  shape?: ButtonShape
   /**
    * trim text on button if more than specified length
    */
@@ -59,6 +61,8 @@ const BaseButton = css`
   cursor: pointer;
   border: none;
   border-radius: ${theme.borders.sm};
+  color: inherit;
+  border: 1px solid ${theme.colors.gray[3]};
 `
 
 const ButtonSize = ({ size }: ButtonProps) =>
@@ -68,23 +72,61 @@ const ButtonSize = ({ size }: ButtonProps) =>
   `
 
 const ButtonVariant = ({ variant }: ButtonProps) =>
-  variant === 'primary' &&
+  variant &&
   css`
     color: ${theme.colors.white};
     background: ${theme.components.buttonTheme.variants[variant]};
+    transition: background, transform, border, color;
+    transition-duration: 0.2s;
+
+    &:hover {
+      background: inherit;
+      border: 1px solid ${theme.components.buttonTheme.variants[variant]};
+      color: ${theme.components.buttonTheme.variants[variant]};
+    }
+
+    &:active {
+      background: ${theme.colors.gray[4]};
+      color: ${theme.components.buttonTheme.variants[variant]};
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+      transform: translateY(-1px);
+    }
   `
 
-const StyledButton = styled.button<ButtonProps>`
+const ButtonType = ({ buttonType, variant }: ButtonProps) =>
+  buttonType &&
+  css`
+    background: ${buttonType === 'outline' && 'inherit'};
+    color: ${buttonType === 'outline' &&
+    `${
+      variant ? theme.components.buttonTheme.variants[variant] : `currentColor`
+    } `};
+    border: ${buttonType === 'outline' && `1px solid currentColor`};
+  `
+
+const ButtonShape = ({ shape }: ButtonProps) =>
+  shape &&
+  css`
+    border-radius: ${getButtonShape(shape)};
+  `
+
+const StyledButton = styled('button')<ButtonProps>`
   ${BaseButton};
   ${ButtonSize};
   ${ButtonVariant};
+  ${ButtonType};
+  ${ButtonShape};
 `
 
 Button.defaultProps = {
-  type: 'submit',
   size: 'md',
-  shape: 'border',
-  variant: 'secondary',
+  shape: 'curve',
+  buttonType: 'solid',
+  variant: 'primary',
   loading: false
 }
 

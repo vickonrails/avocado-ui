@@ -1,6 +1,6 @@
 const border = {
   sm: '4px',
-  circle: '50%'
+  full: '10000px'
 }
 
 export type BorderProps = typeof border

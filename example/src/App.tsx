@@ -23,13 +23,16 @@ const App = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
-        <Button variant='primary' size='sm'>
-          Text
+        <Button buttonType='solid' variant='primary' shape='round'>
+          Button Text
         </Button>
-        <Button variant='primary' size='md'>
+        <Button variant='error' buttonType='ghost' shape='round' size='lg'>
           Something
         </Button>
-        <Button variant='primary' size='lg'>
+        <Button variant='success' buttonType='outline' size='sm'>
+          Something
+        </Button>
+        <Button variant='warning' buttonType='link'>
           Something
         </Button>
       </div>

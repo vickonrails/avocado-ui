@@ -30,18 +30,18 @@ function App() {
 ## Todo
 
 - [x] size
-- [ ] shape
+- [x] shape
 - [ ] prefix & suffix
 - [ ] trim
-- [ ] variant
+- [x] variant
 - [ ] loading
 - [ ] disabled
 - [ ] write tests
 
 ## Tests suites
 
-- [ ] should render correctly
-- [ ] should render empty button without errors
+- [x] should render correctly
+- [x] should render empty button without errors
 - [ ] should render a spinner when `loading` is set to `true`
 - [ ] should not be clickable when button is loading
 - [ ] should render a link when `type` is set to link

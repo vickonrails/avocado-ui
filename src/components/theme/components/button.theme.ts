@@ -4,11 +4,14 @@ import { spacing } from '../spacing'
 
 const buttonTheme = {
   variants: {
-    primary: colors.primary
+    primary: colors.primary,
+    error: colors.red[400],
+    success: colors.green[500],
+    warning: colors.yellow[500]
   },
   borders: {
-    round: borders.sm,
-    circle: borders.circle
+    round: borders.full,
+    curve: borders.sm
   },
   size: {
     sm: `${spacing['x-small']} ${spacing.small}`,
