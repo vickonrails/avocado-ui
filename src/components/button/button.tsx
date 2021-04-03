@@ -2,16 +2,25 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
-import { getButtonShape } from '../../utils/button'
+import {
+  getButtonShape,
+  getButtonTypeBackground,
+  getButtonTypeBorder,
+  getButtonTypeColor
+} from '../../utils/button'
 
-const Button: React.FC<ButtonProps> = ({ loading, ...props }) => {
-  return <StyledButton {...props}>{props.children}</StyledButton>
+const Button: React.FC<ButtonProps> = ({ loading, disabled, ...props }) => {
+  return (
+    <StyledButton data-disabled={disabled} {...props}>
+      {props.children}
+    </StyledButton>
+  )
 }
 
 export type Size = 'sm' | 'md' | 'lg'
 export type ButtonShape = 'round' | 'curve' | 'square'
-type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
-type Variant = 'primary' | 'warning' | 'error' | 'success'
+export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
+export type Variant = 'primary' | 'warning' | 'error' | 'success'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -62,7 +71,7 @@ const BaseButton = css`
   border: none;
   border-radius: ${theme.borders.sm};
   color: inherit;
-  border: 1px solid ${theme.colors.gray[3]};
+  user-select: none;
 `
 
 const ButtonSize = ({ size }: ButtonProps) =>
@@ -71,7 +80,7 @@ const ButtonSize = ({ size }: ButtonProps) =>
     padding: ${`${theme.components.buttonTheme.size[size]} ${theme.components.buttonTheme.size[size]}`};
   `
 
-const ButtonVariant = ({ variant }: ButtonProps) =>
+const ButtonVariant = ({ variant, buttonType }: ButtonProps) =>
   variant &&
   css`
     color: ${theme.colors.white};
@@ -81,7 +90,8 @@ const ButtonVariant = ({ variant }: ButtonProps) =>
 
     &:hover {
       background: inherit;
-      border: 1px solid ${theme.components.buttonTheme.variants[variant]};
+      border: ${buttonType !== 'link' &&
+      `1px solid ${theme.components.buttonTheme.variants[variant]}`};
       color: ${theme.components.buttonTheme.variants[variant]};
     }
 
@@ -92,20 +102,18 @@ const ButtonVariant = ({ variant }: ButtonProps) =>
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+      box-shadow: 0 0 0 4px ${theme.colors.blue[100]};
       transform: translateY(-1px);
     }
   `
 
 const ButtonType = ({ buttonType, variant }: ButtonProps) =>
   buttonType &&
+  variant &&
   css`
-    background: ${buttonType === 'outline' && 'inherit'};
-    color: ${buttonType === 'outline' &&
-    `${
-      variant ? theme.components.buttonTheme.variants[variant] : `currentColor`
-    } `};
-    border: ${buttonType === 'outline' && `1px solid currentColor`};
+    background: ${getButtonTypeBackground(buttonType, variant)};
+    color: ${getButtonTypeColor(buttonType, variant)};
+    border: ${getButtonTypeBorder(buttonType, variant)};
   `
 
 const ButtonShape = ({ shape }: ButtonProps) =>
