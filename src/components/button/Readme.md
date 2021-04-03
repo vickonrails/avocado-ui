@@ -2,6 +2,8 @@
 
 Shows a clickable element to the user.
 
+![Buttons](/images/Buttons.png)
+
 ## Quick use
 
 ```jsx
