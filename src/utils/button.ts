@@ -13,3 +13,10 @@ export const getButtonShape = (shape: ButtonShape): string => {
       throw new Error('Please pass in an appropriate buttton shape')
   }
 }
+
+export const trimButtonText = (text: string, limit = 6) => {
+  if (limit > text.length) {
+    return text
+  }
+  return `${text.substr(0, limit)}...`
+}

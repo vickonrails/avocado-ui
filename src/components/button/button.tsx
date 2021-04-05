@@ -2,12 +2,19 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
-import { getButtonShape } from '../../utils/button'
+import { getButtonShape, trimButtonText } from '../../utils/button'
 
-const Button: React.FC<ButtonProps> = ({ loading, buttonType, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  loading,
+  buttonType,
+  trim,
+  ...props
+}) => {
   return (
     <StyledButton buttonType={buttonType} {...props}>
-      {props.children}
+      {typeof props.children === 'string' && trim
+        ? trimButtonText(props.children, trim)
+        : props.children}
     </StyledButton>
   )
 }

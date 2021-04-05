@@ -24,13 +24,13 @@ const App = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
-        <Button buttonType='outline' variant='primary' shape='curve'>
+        <Button buttonType='outline' variant='primary' shape='curve' trim={5}>
           Button Text
         </Button>
         <Button variant='error' buttonType='outline' size='sm'>
           Something
         </Button>
-        <Button variant='success' buttonType='ghost' shape='round'>
+        <Button variant='success' buttonType='ghost' shape='round' trim={5}>
           Something
         </Button>
         <Button variant='success' buttonType='solid' shape='curve' size='lg'>

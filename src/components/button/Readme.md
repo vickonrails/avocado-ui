@@ -32,10 +32,10 @@ function App() {
 - [x] size
 - [x] shape
 - [ ] prefix & suffix
-- [ ] trim
+- [x] trim
 - [x] variant
 - [ ] loading
-- [ ] disabled
+- [x] disabled
 - [ ] write tests
 
 ## Tests suites
