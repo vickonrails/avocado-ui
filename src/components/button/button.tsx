@@ -4,14 +4,9 @@ import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { getButtonShape } from '../../utils/button'
 
-const Button: React.FC<ButtonProps> = ({
-  loading,
-  buttonType,
-  disabled,
-  ...props
-}) => {
+const Button: React.FC<ButtonProps> = ({ loading, buttonType, ...props }) => {
   return (
-    <StyledButton data-disabled={disabled} buttonType={buttonType} {...props}>
+    <StyledButton buttonType={buttonType} {...props}>
       {props.children}
     </StyledButton>
   )
@@ -81,9 +76,7 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
     size && theme.components.buttonTheme.size[size]
   }`};
 
-  :hover {
-    transform: translateY(-1px);
-  }
+
   :focus {
     outline: none;
     transform: none;
@@ -92,6 +85,19 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
 
   :active {
     background: ${theme.colors.gray[4]}
+  }
+
+  :hover {
+    transform: translateY(-1px); 
+  } 
+  :disabled,
+  :disabled:hover {
+    cursor: not-allowed;
+    border: 1px solid ${theme.colors.gray[6]};
+    color: ${theme.colors.gray[8]};
+    background: ${theme.colors.gray[3]};
+    transform: none;
+    text-decoration: none;
   }
 `
 const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
