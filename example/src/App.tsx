@@ -1,4 +1,5 @@
 import React from 'react'
+import { Activity, Save } from 'react-feather'
 
 import { Button, ThemeProvider, theme, ThemeProps } from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
@@ -24,16 +25,37 @@ const App = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
-        <Button buttonType='outline' variant='primary' shape='curve' trim={5}>
+        <Button
+          buttonType='solid'
+          variant='primary'
+          shape='curve'
+          prefixIcon={<Activity />}
+        >
           Button Text
         </Button>
-        <Button variant='error' buttonType='outline' size='sm'>
+        <Button
+          variant='primary'
+          buttonType='solid'
+          size='sm'
+          suffixIcon={<Save />}
+        >
           Something
         </Button>
-        <Button variant='success' buttonType='ghost' shape='round' trim={5}>
+        <Button
+          variant='primary'
+          buttonType='solid'
+          shape='round'
+          prefixIcon={<Activity />}
+        >
           Something
         </Button>
-        <Button variant='success' buttonType='solid' shape='curve' size='lg'>
+        <Button
+          variant='primary'
+          buttonType='solid'
+          shape='curve'
+          size='lg'
+          prefixIcon={<Save />}
+        >
           Something
         </Button>
         <Button variant='success' buttonType='link' shape='curve'>

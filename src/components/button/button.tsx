@@ -3,18 +3,27 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
+import ButtonIcon from './button-icon'
 
 const Button: React.FC<ButtonProps> = ({
   loading,
   buttonType,
   trim,
+  prefixIcon,
+  suffixIcon,
   ...props
 }) => {
   return (
     <StyledButton buttonType={buttonType} {...props}>
+      {prefixIcon && (
+        <ButtonIcon className='btn-icon--left'>{prefixIcon}</ButtonIcon>
+      )}
       {typeof props.children === 'string' && trim
         ? trimButtonText(props.children, trim)
         : props.children}
+      {suffixIcon && (
+        <ButtonIcon className='btn-icon--right'>{suffixIcon}</ButtonIcon>
+      )}
     </StyledButton>
   )
 }
@@ -55,12 +64,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * prefix. Show element to the left of the button
    */
-  prefix?: string
+  prefixIcon?: React.ReactNode
 
   /**
    * prefix. Show element to the right of the button
    */
-  suffix?: string
+  suffixIcon?: React.ReactNode
 }
 
 /**
@@ -84,6 +93,10 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
   }`};
 
 
+  display: inline-flex;
+  align-items: center;
+
+
   :focus {
     outline: none;
     transform: none;
@@ -105,6 +118,27 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
     background: ${theme.colors.gray[3]};
     transform: none;
     text-decoration: none;
+  }
+
+  .btn-icon--left,   
+  .btn-icon--right {
+    height:${size === 'sm' ? `18px` : `20px`};
+    width:${size === 'sm' ? `18px` : `20px`};
+
+    display: inline-flex;
+
+    svg {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  .btn-icon--left {
+    margin-right: .5em;
+  }
+  .btn-icon--right {
+    margin-left: .5em;
   }
 `
 const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
@@ -157,7 +191,7 @@ const StyledLinkButton = ({ buttonType }: ButtonProps) =>
   `
 
 const StyledButton = styled('button')<ButtonProps>`
-  ${BaseButton};
+  ${BaseButton}
   ${StyledSolidButton}
   ${StyledOutlineButton}
   ${StyledGhostButton}
