@@ -36,15 +36,13 @@ function App() {
 - [x] variant
 - [x] loading
 - [x] disabled
-- [ ] write tests
+- [x] write tests
 
 ## Tests suites
 
 - [x] should render correctly
 - [x] should render empty button without errors
-- [ ] should render a spinner when `loading` is set to `true`
-- [ ] should not be clickable when button is loading
+- [x] should render a spinner when `loading` is set to `true`
+- [x] should not be clickable when button is loading
 - [ ] should render a link when `type` is set to link
 - [ ] should not render as link when href is undefined
-- [ ] should render correct variant
-- [ ] should render correct size
