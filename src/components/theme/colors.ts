@@ -79,7 +79,7 @@ const gray = {
   '13': '#000000'
 }
 
-const primary = blue[400]
+const primary = blue[500]
 const white = gray[1]
 const black = gray[13]
 

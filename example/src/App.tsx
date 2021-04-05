@@ -24,16 +24,19 @@ const App = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
-        <Button buttonType='solid' variant='primary' shape='curve'>
+        <Button buttonType='outline' variant='primary' shape='curve'>
           Button Text
         </Button>
-        <Button variant='error' buttonType='ghost' shape='round'>
+        <Button variant='error' buttonType='outline' size='sm'>
           Something
         </Button>
-        <Button variant='success' buttonType='outline' size='sm' shape='square'>
+        <Button variant='success' buttonType='ghost' shape='round'>
           Something
         </Button>
-        <Button variant='warning' buttonType='solid' shape='round'>
+        <Button variant='success' buttonType='solid' shape='curve' size='lg'>
+          Something
+        </Button>
+        <Button variant='success' buttonType='link' shape='curve'>
           Something
         </Button>
       </div>

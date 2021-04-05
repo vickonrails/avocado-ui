@@ -2,16 +2,16 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
-import {
-  getButtonShape,
-  getButtonTypeBackground,
-  getButtonTypeBorder,
-  getButtonTypeColor
-} from '../../utils/button'
+import { getButtonShape } from '../../utils/button'
 
-const Button: React.FC<ButtonProps> = ({ loading, disabled, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  loading,
+  buttonType,
+  disabled,
+  ...props
+}) => {
   return (
-    <StyledButton data-disabled={disabled} {...props}>
+    <StyledButton data-disabled={disabled} buttonType={buttonType} {...props}>
       {props.children}
     </StyledButton>
   )
@@ -64,70 +64,91 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * style for base button
  */
-const BaseButton = css`
-  padding: 0.43em 0.8em;
-  font: inherit;
+const BaseButton = ({ shape, size }: ButtonProps) => css`
+  padding: 0.5em 0.8em;
+  font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
-  border: none;
-  border-radius: ${theme.borders.sm};
-  color: inherit;
+  border: none;  
+  color: ${theme.colors.gray[8]};
+  background: ${theme.colors.gray[4]}
   user-select: none;
+  transition: background, color, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+
+  border-radius: ${shape && getButtonShape(shape)};
+  padding: ${`${size && theme.components.buttonTheme.size[size]} ${
+    size && theme.components.buttonTheme.size[size]
+  }`};
+
+  :hover {
+    transform: translateY(-1px);
+  }
+  :focus {
+    outline: none;
+    transform: none;
+    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+  }
+
+  :active {
+    background: ${theme.colors.gray[4]}
+  }
 `
-
-const ButtonSize = ({ size }: ButtonProps) =>
-  size &&
+const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
+  buttonType === 'solid' &&
   css`
-    padding: ${`${theme.components.buttonTheme.size[size]} ${theme.components.buttonTheme.size[size]}`};
-  `
-
-const ButtonVariant = ({ variant, buttonType }: ButtonProps) =>
-  variant &&
-  css`
+    background: ${variant &&
+    theme.components.buttonTheme.variants[variant].default};
     color: ${theme.colors.white};
-    background: ${theme.components.buttonTheme.variants[variant]};
-    transition: background, transform, border, color;
-    transition-duration: 0.2s;
 
     &:hover {
-      background: inherit;
-      border: ${buttonType !== 'link' &&
-      `1px solid ${theme.components.buttonTheme.variants[variant]}`};
-      color: ${theme.components.buttonTheme.variants[variant]};
-    }
-
-    &:active {
-      background: ${theme.colors.gray[4]};
-      color: ${theme.components.buttonTheme.variants[variant]};
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 4px ${theme.colors.blue[100]};
-      transform: translateY(-1px);
+      background: ${variant &&
+      theme.components.buttonTheme.variants[variant].hover};
     }
   `
 
-const ButtonType = ({ buttonType, variant }: ButtonProps) =>
-  buttonType &&
-  variant &&
+const StyledOutlineButton = ({ buttonType, variant }: ButtonProps) =>
+  buttonType === 'outline' &&
   css`
-    background: ${getButtonTypeBackground(buttonType, variant)};
-    color: ${getButtonTypeColor(buttonType, variant)};
-    border: ${getButtonTypeBorder(buttonType, variant)};
+    background: inherit;
+    border: 1px solid
+      ${variant && theme.components.buttonTheme.variants[variant].hover};
+    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
   `
 
-const ButtonShape = ({ shape }: ButtonProps) =>
-  shape &&
+const StyledGhostButton = ({ buttonType, variant }: ButtonProps) =>
+  buttonType === 'ghost' &&
   css`
-    border-radius: ${getButtonShape(shape)};
+    background: inherit;
+    border: 2px solid ${theme.colors.gray[3]};
+    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
+
+    :hover {
+      border-color: ${theme.colors.gray[4]};
+    }
+  `
+
+const StyledLinkButton = ({ buttonType }: ButtonProps) =>
+  buttonType === 'link' &&
+  css`
+    background: none;
+    padding: 0;
+    color: ${theme.colors.blue[400]};
+
+    :hover {
+      text-decoration: underline;
+    }
+    :active {
+      text-decoration: none;
+    }
   `
 
 const StyledButton = styled('button')<ButtonProps>`
   ${BaseButton};
-  ${ButtonSize};
-  ${ButtonVariant};
-  ${ButtonType};
-  ${ButtonShape};
+  ${StyledSolidButton}
+  ${StyledOutlineButton}
+  ${StyledGhostButton}
+  ${StyledLinkButton}
 `
 
 Button.defaultProps = {
