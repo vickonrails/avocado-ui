@@ -31,10 +31,10 @@ function App() {
 
 - [x] size
 - [x] shape
-- [ ] prefix & suffix
+- [x] prefix & suffix
 - [x] trim
 - [x] variant
-- [ ] loading
+- [x] loading
 - [x] disabled
 - [ ] write tests
 

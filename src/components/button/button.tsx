@@ -4,24 +4,41 @@ import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
+import Spinner from '../spinner/spinner'
 
+/**
+ * Button - Renders a clickable item to the browser
+ */
 const Button: React.FC<ButtonProps> = ({
-  loading,
   buttonType,
   trim,
   prefixIcon,
   suffixIcon,
+  disabled,
+  loading,
   ...props
 }) => {
   return (
-    <StyledButton buttonType={buttonType} {...props}>
-      {prefixIcon && (
+    <StyledButton
+      buttonType={buttonType}
+      {...props}
+      disabled={disabled || loading}
+      loading={loading}
+    >
+      {/* Show prefix icon if prefix icon is present and loading state is not true */}
+      {prefixIcon && !loading && (
         <ButtonIcon className='btn-icon--left'>{prefixIcon}</ButtonIcon>
       )}
+      {/* Render loading spinner */}
+      {loading && buttonType !== 'link' && (
+        <Spinner className='avocado-btn__spinner' variant={props.variant} />
+      )}
+      {/* Truncate text as user specifies from the button */}
       {typeof props.children === 'string' && trim
         ? trimButtonText(props.children, trim)
         : props.children}
-      {suffixIcon && (
+      {/* Show suffix icon if suffix icon is present and loading state is not true */}
+      {suffixIcon && !loading && (
         <ButtonIcon className='btn-icon--right'>{suffixIcon}</ButtonIcon>
       )}
     </StyledButton>
@@ -55,17 +72,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    * variant of button. Can be primary, seconary, warning, error, link, ghost
    */
   variant?: Variant
-
   /**
    * loading state of button. When set to true, loading spinner is shown
    */
   loading?: boolean
-  // FIXME: use appropriate types for prefix & suffix
   /**
    * prefix. Show element to the left of the button
    */
   prefixIcon?: React.ReactNode
-
   /**
    * prefix. Show element to the right of the button
    */
@@ -75,7 +89,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size }: ButtonProps) => css`
+const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   padding: 0.5em 0.8em;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
@@ -92,38 +106,17 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
     size && theme.components.buttonTheme.size[size]
   }`};
 
+  opacity: ${loading && 0.4};
 
   display: inline-flex;
   align-items: center;
 
-
-  :focus {
-    outline: none;
-    transform: none;
-    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
-  }
-
-  :active {
-    background: ${theme.colors.gray[4]}
-  }
-
-  :hover {
-    transform: translateY(-1px); 
-  } 
-  :disabled,
-  :disabled:hover {
-    cursor: not-allowed;
-    border: 1px solid ${theme.colors.gray[6]};
-    color: ${theme.colors.gray[8]};
-    background: ${theme.colors.gray[3]};
-    transform: none;
-    text-decoration: none;
-  }
+  
 
   .btn-icon--left,   
   .btn-icon--right {
-    height:${size === 'sm' ? `18px` : `20px`};
-    width:${size === 'sm' ? `18px` : `20px`};
+    height: 15px;
+    width: 15px;
 
     display: inline-flex;
 
@@ -140,7 +133,36 @@ const BaseButton = ({ shape, size }: ButtonProps) => css`
   .btn-icon--right {
     margin-left: .5em;
   }
+
+  .avocado-btn__spinner {
+    margin-right: .5em;
+  }
+
+  :focus {
+    outline: none;
+    transform: none;
+    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+  }
+
+  :disabled,
+  :disabled:hover {
+    cursor: not-allowed;
+    border: ${!loading && `1px solid ${theme.colors.gray[6]}`};
+    color: ${!loading && theme.colors.gray[8]};
+    background: ${!loading && theme.colors.gray[3]};
+    transform: none;
+    text-decoration: none;
+   }
+
+  :active {
+    background: ${theme.colors.gray[4]}
+  }
+
+  :hover {
+    transform: ${!loading && !disabled && `translateY(-1px)`}; 
+  }
 `
+
 const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
   buttonType === 'solid' &&
   css`

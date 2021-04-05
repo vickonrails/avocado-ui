@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Activity, Save } from 'react-feather'
 
 import { Button, ThemeProvider, theme, ThemeProps } from 'avocado-ui'
@@ -22,30 +22,36 @@ const customTheme: ThemeProps = {
 }
 
 const App = () => {
+  const [loading, setLoading] = useState(false)
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container btn-group'>
+        <button onClick={() => setLoading(!loading)}>Set loading</button>
         <Button
           buttonType='solid'
-          variant='primary'
+          variant='warning'
           shape='curve'
           prefixIcon={<Activity />}
+          loading={loading}
         >
           Button Text
         </Button>
         <Button
-          variant='primary'
+          variant='error'
           buttonType='solid'
-          size='sm'
           suffixIcon={<Save />}
+          loading={loading}
+          disabled
         >
           Something
         </Button>
         <Button
           variant='primary'
-          buttonType='solid'
+          buttonType='outline'
+          size='sm'
           shape='round'
-          prefixIcon={<Activity />}
+          loading={loading}
+          suffixIcon={<Save />}
         >
           Something
         </Button>
@@ -54,11 +60,16 @@ const App = () => {
           buttonType='solid'
           shape='curve'
           size='lg'
-          prefixIcon={<Save />}
+          loading={loading}
         >
           Something
         </Button>
-        <Button variant='success' buttonType='link' shape='curve'>
+        <Button
+          variant='success'
+          buttonType='link'
+          shape='curve'
+          loading={loading}
+        >
           Something
         </Button>
       </div>

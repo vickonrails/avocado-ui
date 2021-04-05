@@ -26,7 +26,7 @@ const buttonTheme = {
     curve: borders.sm
   },
   size: {
-    sm: `${spacing.small} ${spacing.small}`,
+    sm: `${spacing.small} ${spacing.medium}`,
     md: `${spacing.small} ${spacing.medium}`,
     lg: `${spacing.medium} ${spacing.large}`
   }
