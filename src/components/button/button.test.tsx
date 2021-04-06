@@ -8,14 +8,14 @@ describe('Button', () => {
     const { getByTestId } = render(<Button data-testid={testId}>Test</Button>)
     const node = getByTestId(testId)
 
-    expect(node).toBeDefined()
+    expect(node).toBeInTheDocument()
   })
 
   test('should render empty button without errors', () => {
     const testId = 'btn'
     const { getByTestId } = render(<Button data-testid={testId} />)
     const node = getByTestId(testId)
-    expect(node).toBeDefined()
+    expect(node).toBeInTheDocument()
   })
   test('should render a prefixIcon', () => {
     // Maybe I could switch to an actual icon later. That would involve me bringing in some other icon library
@@ -25,7 +25,7 @@ describe('Button', () => {
       <Button prefixIcon={prefixIcon}>Something</Button>
     )
     const node = getByTestId(testId)
-    expect(node).toBeDefined()
+    expect(node).toBeInTheDocument()
   })
 
   test('should render a sufixIcon', () => {
@@ -36,7 +36,7 @@ describe('Button', () => {
       <Button suffixIcon={prefixIcon}>Something</Button>
     )
     const node = getByTestId(testId)
-    expect(node).toBeDefined()
+    expect(node).toBeInTheDocument()
   })
 
   test('should render a spinner when `loading` is set to `true`', () => {})
