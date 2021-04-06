@@ -76,30 +76,35 @@ const App = () => {
           </Button>
         </div>
         <hr />
-        <div className='input-group'>
+        <div>
           <form
             onSubmit={(e) => {
               e.preventDefault()
               console.log(inputValue)
             }}
+            className='input-group'
           >
             <Input
               placeholder='Something new'
               onChange={(e) => setValue(e.target.value)}
               value={inputValue}
               variant='fill'
-              inputSize='md'
+              inputSize='sm'
               borderRadius='curve'
+              suffixIcon={<Save />}
               prefixIcon={<Save />}
-              suffixIcon={<Activity />}
+              required
             />
             <Input
               placeholder='Something new'
               onChange={(e) => setValue(e.target.value)}
               value={inputValue}
               required
+              variant='fill'
               inputSize='md'
-              borderRadius='curve'
+              borderRadius='round'
+              prefixIcon={<Save />}
+              suffixIcon={<Activity />}
             />
             <Input
               placeholder='Something new'
@@ -109,22 +114,10 @@ const App = () => {
               fullWidth
               borderRadius='round'
               type='password'
-              disabled
-            />
-            <Input
-              placeholder='Something new'
-              onChange={(e) => setValue(e.target.value)}
-              value={inputValue}
-              variant='unstyled'
-              inputSize='sm'
-              borderRadius='square'
-            />
-            <Input
-              placeholder='Something new'
-              onChange={(e) => setValue(e.target.value)}
-              value={inputValue}
-              disabled
-              inputSize='sm'
+              required
+              inputSize='lg'
+              prefixIcon={<Save />}
+              suffixIcon={<Activity />}
             />
             <Button>Submit</Button>
           </form>

@@ -3,23 +3,39 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { Size } from '../button'
-import { getBorderRadius } from '../../utils/input'
+import { getBorderRadius, getInputIconSize } from '../../utils/input'
 import InputIcon from './input-icon'
 
 const { inputTheme } = theme.components
 
-const Input: FC<Input> = ({ prefixIcon, suffixIcon, ...props }) => {
-  if (props.variant === 'unstyled') return <input {...props} />
+const Input: FC<Input> = ({
+  prefixIcon,
+  suffixIcon,
+  borderRadius,
+  inputSize,
+  variant,
+  fullWidth,
+  ...props
+}) => {
+  if (variant === 'unstyled') return <input {...props} />
   const _className = props.className
     ? `${props.className} avocado-input__control`
     : `avocado-input__control`
 
   return (
-    <span className='avocado-input'>
-      {prefixIcon && <InputIcon>{prefixIcon}</InputIcon>}
-      <StyledInput {...props} className={_className} />
-      {suffixIcon && <InputIcon>{suffixIcon}</InputIcon>}
-    </span>
+    <StyledInput
+      className='avocado-input'
+      variant={variant}
+      inputSize={inputSize}
+      borderRadius={borderRadius}
+      fullWidth={fullWidth}
+      prefixIcon={prefixIcon}
+      suffixIcon={suffixIcon}
+    >
+      {prefixIcon && <InputIcon className='left'>{prefixIcon}</InputIcon>}
+      <input className={_className} {...props} />
+      {suffixIcon && <InputIcon className='right'>{suffixIcon}</InputIcon>}
+    </StyledInput>
   )
 }
 
@@ -42,11 +58,11 @@ interface Input extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * renders a react node to the right of the input element
    */
-  suffixIcon?: React.ReactNode
+  suffixIcon?: JSX.Element
   /**
    * renders a react node to the left of the input element
    */
-  prefixIcon?: React.ReactNode
+  prefixIcon?: JSX.Element
   /**
    * setting to `true` makes the input inactive
    */
@@ -62,63 +78,108 @@ const StyledBaseInput = ({
   disabled,
   inputSize,
   borderRadius,
-  fullWidth
+  prefixIcon,
+  fullWidth,
+  suffixIcon
 }: Input) => css`
-  border: 1px solid ${theme.colors.gray[5]};
-  font: inherit;
-  font-size: ${inputSize === 'sm' && '14px'};
-  padding: ${inputSize && inputTheme.size[inputSize].verticalPadding}
-    ${inputSize && inputTheme.size[inputSize].horizontalPadding};
-  transition: border-color, background;
-  transition-duration: 0.25s;
-  border-radius: ${borderRadius && getBorderRadius(borderRadius)};
-  width: ${fullWidth ? '100%' : 'auto'};
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 
-  transition-timing-function: ease-out;
+  .avocado-input__control {
+    border: 1px solid ${theme.colors.gray[5]};
+    font: inherit;
+    font-size: ${inputSize === 'sm' && '14px'};
+    padding: ${inputSize && inputTheme.size[inputSize].verticalPadding}
+      ${inputSize && inputTheme.size[inputSize].horizontalPadding};
 
-  &:hover {
-    border: ${!disabled && `1px solid ${theme.colors.blue[500]}`};
-  }
+    padding-left: ${prefixIcon && inputSize === 'sm'
+      ? theme.spacing['3x-large']
+      : theme.spacing['3.3x-large']};
+    padding-right: ${suffixIcon && inputSize === 'sm'
+      ? theme.spacing['3x-large']
+      : theme.spacing['3.3x-large']};
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px ${theme.colors.blue[200]};
-  }
+    transition: border-color, background;
+    transition-duration: 0.25s;
+    border-radius: ${borderRadius && getBorderRadius(borderRadius)};
+    width: ${fullWidth ? '100%' : 'auto'};
 
-  :disabled {
-    cursor: not-allowed;
-    background: ${theme.colors.gray[3]};
-    border: none;
-    user-select: none;
+    transition-timing-function: ease-out;
+
+    :hover {
+      border: ${!disabled && `1px solid ${theme.colors.blue[500]}`};
+    }
+
+    :focus {
+      outline: none;
+      box-shadow: 0 0 0 2px ${theme.colors.blue[200]};
+    }
+
+    :disabled {
+      cursor: not-allowed;
+      background: ${theme.colors.gray[3]};
+      border: none;
+      user-select: none;
+    }
   }
 
   .avocado-input__icon {
-    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+
+    width: ${inputSize && getInputIconSize(inputSize)};
+    height: ${inputSize && getInputIconSize(inputSize)};
+
+    pointer-events: none;
+    color: ${theme.colors.gray[6]};
+    > * {
+      margin: auto;
+    }
+    font-size: 0.875em;
+  }
+  .avocado-input__icon.left {
+    left: 0;
+    padding-left: 0.5em;
+  }
+  .avocado-input__icon.right {
+    right: 0;
+    padding-right: 0.5em;
+  }
+
+  svg {
+    height: 100%;
+    width: 100%;
+    margin: auto;
   }
 `
 
 const StyledFilledInput = ({ variant, disabled }: Input) =>
   variant === 'fill' &&
   css`
-    border: none;
-    background: ${theme.colors.gray[4]};
-    border: 1px solid transparent;
-
-    &:hover {
+    .avocado-input__control {
       border: none;
-      border: ${!disabled && `1px solid ${theme.colors.gray[5]}`};
-    }
+      background: ${theme.colors.gray[4]};
+      border: 1px solid transparent;
 
-    &:active,
-    &:focus {
-      background: ${!disabled && `inherit`};
+      &:hover {
+        border: none;
+        border: ${!disabled && `1px solid ${theme.colors.gray[5]}`};
+      }
+
+      &:active,
+      &:focus {
+        background: ${!disabled && `inherit`};
+      }
     }
   `
 
 const StyledOutlineInput = ({ variant }: Input) =>
   variant === 'outline' && css``
 
-const StyledInput = styled.input<Input>`
+const StyledInput = styled.span<Input>`
   ${StyledBaseInput};
   ${StyledFilledInput};
   ${StyledOutlineInput};

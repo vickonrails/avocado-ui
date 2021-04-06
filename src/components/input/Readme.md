@@ -34,8 +34,8 @@ const App: FC = () => (
 
 - [x] variant
 - [x] fullWidth
-- [ ] required
-- [ ] prefix & suffix icons
+- [x] required
+- [x] prefix & suffix icons
 - [x] disabled
 - [x] inputSize
 - [x] borderRadius
