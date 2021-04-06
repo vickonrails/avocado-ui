@@ -90,6 +90,8 @@ const App = () => {
               variant='fill'
               inputSize='md'
               borderRadius='curve'
+              prefixIcon={<Save />}
+              suffixIcon={<Activity />}
             />
             <Input
               placeholder='Something new'
@@ -103,7 +105,7 @@ const App = () => {
               placeholder='Something new'
               onChange={(e) => setValue(e.target.value)}
               value={inputValue}
-              variant='fill'
+              variant='outline'
               fullWidth
               borderRadius='round'
               type='password'

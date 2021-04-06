@@ -4,12 +4,23 @@ import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { Size } from '../button'
 import { getBorderRadius } from '../../utils/input'
+import InputIcon from './input-icon'
 
 const { inputTheme } = theme.components
 
-const Input: FC<Input> = ({ size, ...props }) => {
+const Input: FC<Input> = ({ prefixIcon, suffixIcon, ...props }) => {
   if (props.variant === 'unstyled') return <input {...props} />
-  return <StyledInput {...props} />
+  const _className = props.className
+    ? `${props.className} avocado-input__control`
+    : `avocado-input__control`
+
+  return (
+    <span className='avocado-input'>
+      {prefixIcon && <InputIcon>{prefixIcon}</InputIcon>}
+      <StyledInput {...props} className={_className} />
+      {suffixIcon && <InputIcon>{suffixIcon}</InputIcon>}
+    </span>
+  )
 }
 
 type Variant = 'fill' | 'outline' | 'unstyled'
@@ -79,6 +90,10 @@ const StyledBaseInput = ({
     background: ${theme.colors.gray[3]};
     border: none;
     user-select: none;
+  }
+
+  .avocado-input__icon {
+    display: none;
   }
 `
 
