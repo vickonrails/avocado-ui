@@ -2,10 +2,12 @@
 
 Renders a textbox for the user to enter text
 
+![Buttons](/images/inputs.png)
+
 ## Quick Use
 
 ```jsx
-import { Input } from 'input'
+import { Input } from 'avocado-ui'
 const [name, setName] = useState('')
 
 const App: FC = () => (
