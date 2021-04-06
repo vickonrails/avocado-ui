@@ -1,8 +1,9 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-import { Variant } from '../button'
+
 import { theme } from '../theme'
+import { Variant } from '../button'
 
 const spin = keyframes`
     0% { -webkit-transform: rotate(0deg); }

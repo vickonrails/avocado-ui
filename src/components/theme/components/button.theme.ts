@@ -1,6 +1,6 @@
 import colors from '../colors'
 import borders from '../borders'
-import { spacing } from '../spacing'
+import spacing from '../spacing'
 
 const buttonTheme = {
   variants: {

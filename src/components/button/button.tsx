@@ -100,6 +100,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   transition: background, color, transform;
   transition-duration: 0.15s;
   transition-timing-function: ease-out;
+  user-select: none;
 
   border-radius: ${shape && getButtonShape(shape)};
   padding: ${`${size && theme.components.buttonTheme.size[size]} ${

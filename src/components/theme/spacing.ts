@@ -16,4 +16,4 @@ const spacing = {
 }
 
 export type SpacingProps = typeof spacing
-export { spacing }
+export default spacing

@@ -17,6 +17,7 @@ code {
   max-width: 800px;
   margin: 1em auto 0;
 }
-.container.btn-group > * {
+.btn-group > *,
+.input-group > * {
   margin-right: 1em;
 }
