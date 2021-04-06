@@ -153,12 +153,15 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
     text-decoration: none;
    }
 
-  :active {
-    background: ${theme.colors.gray[4]}
-  }
-
   :hover {
     transform: ${!loading && !disabled && `translateY(-1px)`}; 
+  }
+
+  :hover:active {
+    transform: translateY(0px);
+  }
+  :active {
+    background: ${theme.colors.gray[4]};
   }
 `
 
