@@ -32,13 +32,13 @@ const App: FC = () => (
 
 ## Todo
 
-- [ ] variant
-- [ ] fullWidth
+- [x] variant
+- [x] fullWidth
 - [ ] required
 - [ ] prefix & suffix icons
-- [ ] disabled
-- [ ] inputSize
-- [ ] borderRadius
+- [x] disabled
+- [x] inputSize
+- [x] borderRadius
 
 ## Test Suites
 

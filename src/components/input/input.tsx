@@ -3,13 +3,17 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
 import { Size } from '../button'
+import { getBorderRadius } from '../../utils/input'
+
+const { inputTheme } = theme.components
 
 const Input: FC<Input> = ({ size, ...props }) => {
+  if (props.variant === 'unstyled') return <input {...props} />
   return <StyledInput {...props} />
 }
 
 type Variant = 'fill' | 'outline' | 'unstyled'
-type BorderRadius = 'curve' | 'square' | 'round'
+export type BorderRadius = 'curve' | 'square' | 'round'
 
 interface Input extends InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -43,12 +47,22 @@ interface Input extends InputHTMLAttributes<HTMLInputElement> {
   borderRadius?: BorderRadius
 }
 
-const StyledBaseInput = ({ disabled }: Input) => css`
+const StyledBaseInput = ({
+  disabled,
+  inputSize,
+  borderRadius,
+  fullWidth
+}: Input) => css`
   border: 1px solid ${theme.colors.gray[5]};
   font: inherit;
-  padding: ${theme.spacing.small} ${theme.spacing.medium};
-  transition: border-color;
+  font-size: ${inputSize === 'sm' && '14px'};
+  padding: ${inputSize && inputTheme.size[inputSize].verticalPadding}
+    ${inputSize && inputTheme.size[inputSize].horizontalPadding};
+  transition: border-color, background;
   transition-duration: 0.25s;
+  border-radius: ${borderRadius && getBorderRadius(borderRadius)};
+  width: ${fullWidth ? '100%' : 'auto'};
+
   transition-timing-function: ease-out;
 
   &:hover {
@@ -64,15 +78,35 @@ const StyledBaseInput = ({ disabled }: Input) => css`
     cursor: not-allowed;
     background: ${theme.colors.gray[3]};
     border: none;
+    user-select: none;
   }
 `
+
+const StyledFilledInput = ({ variant, disabled }: Input) =>
+  variant === 'fill' &&
+  css`
+    border: none;
+    background: ${theme.colors.gray[4]};
+    border: 1px solid transparent;
+
+    &:hover {
+      border: none;
+      border: ${!disabled && `1px solid ${theme.colors.gray[5]}`};
+    }
+
+    &:active,
+    &:focus {
+      background: ${!disabled && `inherit`};
+    }
+  `
 
 const StyledOutlineInput = ({ variant }: Input) =>
   variant === 'outline' && css``
 
 const StyledInput = styled.input<Input>`
-  ${StyledBaseInput}
-  ${StyledOutlineInput}
+  ${StyledBaseInput};
+  ${StyledFilledInput};
+  ${StyledOutlineInput};
 `
 
 Input.defaultProps = {

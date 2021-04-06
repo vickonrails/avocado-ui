@@ -1,14 +1,15 @@
 import colors from './colors'
 import borders from './borders'
 import spacing from './spacing'
-import { buttonTheme } from './components'
+import { buttonTheme, inputTheme } from './components'
 
 const theme = {
   colors,
   borders,
   spacing,
   components: {
-    buttonTheme
+    buttonTheme,
+    inputTheme
   }
 }
 

@@ -77,31 +77,55 @@ const App = () => {
         </div>
         <hr />
         <div className='input-group'>
-          <Input
-            placeholder='Something new'
-            onChange={(e) => setValue(e.target.value)}
-            value={inputValue}
-            variant='fill'
-          />
-          <Input
-            placeholder='Something new'
-            onChange={(e) => setValue(e.target.value)}
-            value={inputValue}
-            variant='outline'
-          />
-          <Input
-            placeholder='Something new'
-            onChange={(e) => setValue(e.target.value)}
-            value={inputValue}
-            variant='unstyled'
-          />
-          <Input
-            placeholder='Something new'
-            onChange={(e) => setValue(e.target.value)}
-            value={inputValue}
-            variant='unstyled'
-            disabled
-          />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              console.log(inputValue)
+            }}
+          >
+            <Input
+              placeholder='Something new'
+              onChange={(e) => setValue(e.target.value)}
+              value={inputValue}
+              variant='fill'
+              inputSize='md'
+              borderRadius='curve'
+            />
+            <Input
+              placeholder='Something new'
+              onChange={(e) => setValue(e.target.value)}
+              value={inputValue}
+              required
+              inputSize='md'
+              borderRadius='curve'
+            />
+            <Input
+              placeholder='Something new'
+              onChange={(e) => setValue(e.target.value)}
+              value={inputValue}
+              variant='fill'
+              fullWidth
+              borderRadius='round'
+              type='password'
+              disabled
+            />
+            <Input
+              placeholder='Something new'
+              onChange={(e) => setValue(e.target.value)}
+              value={inputValue}
+              variant='unstyled'
+              inputSize='sm'
+              borderRadius='square'
+            />
+            <Input
+              placeholder='Something new'
+              onChange={(e) => setValue(e.target.value)}
+              value={inputValue}
+              disabled
+              inputSize='sm'
+            />
+            <Button>Submit</Button>
+          </form>
         </div>
       </div>
     </ThemeProvider>

@@ -112,8 +112,6 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   display: inline-flex;
   align-items: center;
 
-  
-
   .btn-icon--left,   
   .btn-icon--right {
     height: 15px;
