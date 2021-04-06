@@ -19,8 +19,8 @@ const Input: FC<Input> = ({
 }) => {
   if (variant === 'unstyled') return <input {...props} />
   const _className = props.className
-    ? `${props.className} avocado-input__control`
-    : `avocado-input__control`
+    ? `${props.className} avocado-input__control avocado-input__control--${variant}`
+    : `avocado-input__control avocado-input__control--${variant}`
 
   return (
     <StyledInput

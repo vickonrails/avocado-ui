@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from './button'
 import { render, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
 
 describe('Button', () => {
   test('should render correctly', () => {
