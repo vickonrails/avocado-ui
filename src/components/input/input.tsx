@@ -8,6 +8,9 @@ import InputIcon from './input-icon'
 
 const { inputTheme } = theme.components
 
+// Something about this input component. We really want this component to only be used for inputs
+// Any other component apart from an input (checkbox, radiobutton, etc) should not even be allowed
+// FIXME: Disable passing in of other type values (radio, checkbox, etc)
 const Input: FC<Input> = ({
   prefixIcon,
   suffixIcon,

@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
 import { Activity, Save } from 'react-feather'
 
-import { Button, ThemeProvider, theme, ThemeProps, Input } from 'avocado-ui'
+import {
+  Button,
+  ThemeProvider,
+  theme,
+  ThemeProps,
+  Input,
+  Radio
+  // RadioGroup
+} from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
 
 const customTheme: ThemeProps = {
@@ -23,12 +31,19 @@ const customTheme: ThemeProps = {
 const App = () => {
   const [loading, setLoading] = useState(false)
   const [inputValue, setValue] = useState('')
+  const [formLoading, setFormLoading] = useState(false)
 
   return (
     <ThemeProvider theme={customTheme}>
       <div className='container'>
         <div className='btn-group'>
-          <button onClick={() => setLoading(!loading)}>Set loading</button>
+          <button
+            onClick={() => {
+              setLoading(!loading)
+            }}
+          >
+            Set loading
+          </button>
           <Button
             buttonType='solid'
             variant='warning'
@@ -80,7 +95,10 @@ const App = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              console.log(inputValue)
+              setFormLoading(true)
+              setTimeout(() => {
+                setFormLoading(false)
+              }, 3000)
             }}
             className='input-group'
           >
@@ -119,7 +137,18 @@ const App = () => {
               prefixIcon={<Save />}
               suffixIcon={<Activity />}
             />
-            <Button>Submit</Button>
+            {/* <RadioGroup defaultValue='male'> */}
+            <Radio value='male' name='gender'>
+              Male
+            </Radio>
+
+            <Radio value='female' name='gender'>
+              Female
+            </Radio>
+
+            <input />
+            {/* </RadioGroup> */}
+            <Button loading={formLoading}>Submit</Button>
           </form>
         </div>
       </div>
