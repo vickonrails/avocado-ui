@@ -7,10 +7,18 @@ import {
   theme,
   ThemeProps,
   Input,
+  ISelectOptions,
+  Select,
   Radio
   // RadioGroup
 } from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
+
+const genderOptions: ISelectOptions[] = [
+  { value: 'male', displayText: 'Male' },
+  { value: 'female', displayText: 'Female' },
+  { value: 'other', displayText: 'Other' }
+]
 
 const customTheme: ThemeProps = {
   ...theme,
@@ -142,16 +150,20 @@ const App = () => {
               Male
             </Radio>
 
-            <Radio value='female' name='gender'>
+            <Radio value='male' name='gender'>
               Female
             </Radio>
 
             <input />
-            {/* </RadioGroup> */}
+            <Select
+              placeholder='Select an option'
+              selectOptions={genderOptions}
+            />
             <Button loading={formLoading}>Submit</Button>
           </form>
         </div>
       </div>
+      {}
     </ThemeProvider>
   )
 }
