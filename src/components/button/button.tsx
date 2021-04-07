@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
 export type Size = 'sm' | 'md' | 'lg'
 export type ButtonShape = 'round' | 'curve' | 'square'
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
-export type Variant = 'primary' | 'warning' | 'error' | 'success'
+export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -71,7 +71,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * variant of button. Can be primary, seconary, warning, error, link, ghost
    */
-  variant?: Variant
+  variant?: ButtonVariant
   /**
    * loading state of button. When set to true, loading spinner is shown
    */

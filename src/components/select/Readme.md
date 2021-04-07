@@ -2,7 +2,7 @@
 
 Renders a select for the user to choose from a range of options
 
-![Buttons](/images/inputs.png)
+<!-- ![Selects](/images/inputs.png) -->
 
 ## Quick Use
 

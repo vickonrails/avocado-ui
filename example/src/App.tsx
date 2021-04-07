@@ -190,7 +190,6 @@ const App = () => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
               required
-              disabled
             />
             <Select
               placeholder='Select an option'
@@ -198,7 +197,6 @@ const App = () => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
               required
-              disabled
             />
 
             <span>{inputValue}</span>

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 
 import { theme } from '../theme'
-import { Variant } from '../button'
+import { ButtonVariant } from '../button'
 
 const spin = keyframes`
     0% { -webkit-transform: rotate(0deg); }
@@ -25,7 +25,7 @@ const Spinner: FC<Spinner> = ({ className, variant, ...props }) => {
 }
 
 interface Spinner extends HTMLAttributes<HTMLSpanElement> {
-  variant?: Variant
+  variant?: ButtonVariant
 }
 
 const StyledSpinner = styled.span<Spinner>`

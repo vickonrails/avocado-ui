@@ -10,8 +10,9 @@ import { selectTheme } from '../theme/components/select.theme'
 
 const Select: FC<Select> = ({ className, options, ...props }) => {
   const _className = className
-    ? `avocado-select ${className}`
-    : 'avocado-select'
+    ? `avocado-select avocado-select--${props.variant} ${className}`
+    : `avocado-select avocado-select--${props.variant}`
+
   if (props.variant === 'unstyled')
     return <select {...props} className={_className} />
   return (
