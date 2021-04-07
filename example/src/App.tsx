@@ -10,7 +10,6 @@ import {
   ISelectOptions,
   Select,
   Radio
-  // RadioGroup
 } from 'avocado-ui'
 import 'avocado-ui/dist/index.css'
 
@@ -40,6 +39,7 @@ const App = () => {
   const [loading, setLoading] = useState(false)
   const [inputValue, setValue] = useState('')
   const [formLoading, setFormLoading] = useState(false)
+  const [gender, setGender] = useState('')
 
   return (
     <ThemeProvider theme={customTheme}>
@@ -103,6 +103,7 @@ const App = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault()
+              console.log(inputValue, gender)
               setFormLoading(true)
               setTimeout(() => {
                 setFormLoading(false)
@@ -145,7 +146,6 @@ const App = () => {
               prefixIcon={<Save />}
               suffixIcon={<Activity />}
             />
-            {/* <RadioGroup defaultValue='male'> */}
             <Radio value='male' name='gender'>
               Male
             </Radio>
@@ -157,13 +157,57 @@ const App = () => {
             <input />
             <Select
               placeholder='Select an option'
-              selectOptions={genderOptions}
+              options={genderOptions}
+              selectSize='sm'
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              disabled
             />
+            <Select
+              placeholder='Select an option'
+              options={genderOptions}
+              variant='outline'
+              selectSize='md'
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              disabled
+            />
+            <Select
+              placeholder='Select an option'
+              options={genderOptions}
+              selectSize='lg'
+              variant='fill'
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              disabled
+            />
+            <Select
+              placeholder='Select an option'
+              options={genderOptions}
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              disabled
+            />
+            <Select
+              placeholder='Select an option'
+              options={genderOptions}
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+              disabled
+            />
+
+            <span>{inputValue}</span>
+            <span>{gender}</span>
+
             <Button loading={formLoading}>Submit</Button>
           </form>
         </div>
       </div>
-      {}
     </ThemeProvider>
   )
 }

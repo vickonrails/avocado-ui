@@ -42,7 +42,7 @@ const Input: FC<Input> = ({
   )
 }
 
-type Variant = 'fill' | 'outline' | 'unstyled'
+export type Variant = 'fill' | 'outline' | 'unstyled'
 export type BorderRadius = 'curve' | 'square' | 'round'
 
 interface Input extends InputHTMLAttributes<HTMLInputElement> {
