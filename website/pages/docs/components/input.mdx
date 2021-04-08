@@ -4,17 +4,116 @@ section: Components
 ---
 
 import { LiveConfig } from 'smooth-doc/components'
+import { Input, Button } from '@avocado-ui/react'
+import { Activity, Save, Heart, User } from 'react-feather'
 
-<!-- Define `@avocado-ui/react` module as `{ Input }` -->
+<!-- Define `@avocado-ui/react` module as `{ Input, Button }` -->
 
-<LiveConfig modules={{ '@avocado-ui/react': { Input } }} />
+<LiveConfig modules={{ '@avocado-ui/react': { Input, Button } }} />
+<LiveConfig modules={{ 'react-feather': { Activity, Save, Heart, User } }} />
 
 # Input
 
-Input Component
+This component extends the `input` HTML element. Use `Input` to receive user's input (no pun intended)
 
-<Input
-  type='email'
-  borderRadius='round'
-  placeholder="Something You don't want to joke with"
-/>
+## Usage
+
+> This demo is not perfect because theming is off and still a work in progress
+
+Import the `Input` component from `@avocado-ui/react` and render like so
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+render(<Input placeholder='Enter your name' />)
+```
+
+> You get an uncontrolled input by default so you'll need to handle input state the way you desire
+
+### Shape
+
+The `Input` component can be in one of 3 shapes - `round`, `curve` and `square`. Use the `shape` prop to specified the desired border shape.
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+render(
+  <>
+    <Input placeholder='Rounded' borderRadius='round' />
+    <Input placeholder='Squared' borderRadius='square' />
+    <Input placeholder='Curved' borderRadius='curve' />
+  </>
+)
+```
+
+### Input Size
+
+The `Input` comes in 3 sizes - `sm`, `md` and `lg` respectively. Set the desired size with the `size` prop.
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+render(
+  <>
+    <Input placeholder='Enter name' inputSize='sm' />
+    <Input placeholder='Enter name' inputSize='md' />
+    <Input placeholder='Enter name' inputSize='lg' />
+  </>
+)
+```
+
+### Input Variant
+
+You can set the type of the `Input` with the `variant` prop. Set it to `unstyled`, `solid` or `outline` to get the desired `Input` type.
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+render(
+  <>
+    <Input placeholder='Enter Name' variant='unstyled' />
+    <Input placeholder='Enter Name' variant='fill' />
+    <Input placeholder='Enter Name' variant='outline' />
+  </>
+)
+```
+
+### Input With Icon
+
+The `Input` component is commonly paired with icons. You can do this with the `prefixIcon` and `suffixIcon` prop. You'll have to set this to a `React.ReactNode` component, but it's more advisable to use an icon. Here's it working with [feather icons.](https://feathericons.com/)
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+import { Activity, Save, Heart, User } from 'react-feather'
+
+render(
+  <>
+    <Input placeholder='Enter Name' prefixIcon={<Activity />} />
+    <Input
+      inputSize='sm'
+      placeholder='Enter Name'
+      prefixIcon={<Save />}
+      suffixIcon={<Heart />}
+    />
+    <Input placeholder='Enter Name' suffixIcon={<User />} />
+  </>
+)
+```
+
+### Disabled Input
+
+A disabled `Input` does not respond to user's actions - hover, focus, etc and shows a `not-allowed` cursor.
+
+```jsx live noInline
+import { Input } from '@avocado-ui/react'
+render(<Input placeholder='Enter your name' disabled />)
+```
+
+## Props Table
+
+| property     | description                              | type                           | default   |
+| ------------ | ---------------------------------------- | ------------------------------ | --------- |
+| variant      | variant of input                         | `filled`, `unstyled`,`outline` | `outline` |
+| fullWidth    | should input span entire block           | `true`, `false`                | `false`   |
+| required     | is input required                        | `true`, `false`                | `false`   |
+| prefixIcon   | icon by the left of the input component  | React.ReactNode                | `null`    |
+| suffixIcon   | icon by the right of the input component | React.ReactNode                | `null`    |
+| disabled     | makes input inactive                     | `true`, `false`                | `false`   |
+| inputSize    | size of the input                        | `sm`, `md`, `lg`               | `md`      |
+| borderRadius | controls the appearance of the borders   | `round`, `curve`, `square`     | `curve`   |
