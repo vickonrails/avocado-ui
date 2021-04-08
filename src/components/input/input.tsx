@@ -37,7 +37,7 @@ const Input: FC<Input> = ({
       suffixIcon={suffixIcon}
     >
       {prefixIcon && <InputIcon className='left'>{prefixIcon}</InputIcon>}
-      <input className={_className} {...props} />
+      <input {...props} className={_className} />
       {suffixIcon && <InputIcon className='right'>{suffixIcon}</InputIcon>}
     </StyledInput>
   )
