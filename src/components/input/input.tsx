@@ -25,6 +25,7 @@ const Input: FC<Input> = ({
     ? `${props.className} avocado-input__control avocado-input__control--${variant}`
     : `avocado-input__control avocado-input__control--${variant}`
 
+  console.log(prefixIcon, suffixIcon)
   return (
     <StyledInput
       className='avocado-input'
@@ -96,12 +97,15 @@ const StyledBaseInput = ({
     padding: ${inputSize && inputTheme.size[inputSize].verticalPadding}
       ${inputSize && inputTheme.size[inputSize].horizontalPadding};
 
-    padding-left: ${prefixIcon && inputSize === 'sm'
+    padding-left: ${prefixIcon &&
+    (inputSize === 'sm'
       ? theme.spacing['3x-large']
-      : theme.spacing['3.3x-large']};
-    padding-right: ${suffixIcon && inputSize === 'sm'
+      : theme.spacing['3.3x-large'])};
+
+    padding-right: ${suffixIcon &&
+    (inputSize === 'sm'
       ? theme.spacing['3x-large']
-      : theme.spacing['3.3x-large']};
+      : theme.spacing['3.3x-large'])};
 
     transition: border-color, background;
     transition-duration: 0.25s;

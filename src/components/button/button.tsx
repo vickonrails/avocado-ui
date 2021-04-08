@@ -224,7 +224,7 @@ const StyledButton = styled('button')<ButtonProps>`
 
 Button.defaultProps = {
   size: 'md',
-  shape: 'curve',
+  shape: 'round',
   buttonType: 'solid',
   variant: 'primary',
   loading: false

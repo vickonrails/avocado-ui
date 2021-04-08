@@ -1,10 +1,13 @@
 {
   "name": "@avocado-ui/react",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "experimental design system for hobbiests and side projects.",
   "author": "vick_onrails",
   "license": "MIT",
-  "repository": "vick_onrails/avocado-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vick_onrails/avocado-ui.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -63,5 +66,16 @@
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/vick_onrails/avocado-ui/issues"
+  },
+  "homepage": "https://github.com/vick_onrails/avocado-ui#readme",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "design-system",
+    "react"
+  ]
 }

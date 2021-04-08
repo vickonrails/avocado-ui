@@ -118,8 +118,6 @@ const App = () => {
               variant='fill'
               inputSize='sm'
               borderRadius='curve'
-              suffixIcon={<Save />}
-              prefixIcon={<Save />}
               required
             />
             <Input
