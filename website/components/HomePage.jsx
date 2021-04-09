@@ -19,7 +19,7 @@ const HomePage = () => {
               accessible, themeable and beautiful interfaces with ease.
             </p>
             <div className='btn-group'>
-              <Link to='/docs/getting-started'>
+              <Link to='/docs/'>
                 <Button prefixIcon={<BookOpen />}>Get Started</Button>
               </Link>
               <a

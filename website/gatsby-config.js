@@ -3,10 +3,14 @@ module.exports = {
     {
       resolve: 'smooth-doc',
       options: {
-        name: 'Smooth DOC Starter',
-        description: 'Use your own description...',
-        siteUrl: 'https://example.com',
-        sections: ['Getting-Started', 'Open-Source', 'Components']
+        name: 'Avocado-ui',
+        description:
+          'Accessible, Themeable and beautiful Design System for your side projects.',
+        siteUrl: 'http://avocado-ui.vercel.app/',
+        navItems: [{ title: 'Docs', url: '/docs/' }],
+        githubRepositoryURL: 'https://github.com/vickOnRails/avocado-ui',
+        sections: ['Getting-Started', 'Components', 'Open-Source'],
+        twitterAccount: 'vick_onrails'
       }
     },
     {
