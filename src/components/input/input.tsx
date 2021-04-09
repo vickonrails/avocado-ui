@@ -195,7 +195,7 @@ const StyledInput = styled.span<Input>`
 Input.defaultProps = {
   variant: 'outline',
   inputSize: 'md',
-  borderRadius: 'curve'
+  borderRadius: 'round'
 }
 
 export { Input }
