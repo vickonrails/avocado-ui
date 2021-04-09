@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@avocado-ui/react": "^0.1.2",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
     "gatsby": "^2.15.18",
+    "gatsby-plugin-emotion": "^6.2.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
