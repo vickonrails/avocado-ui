@@ -18,6 +18,13 @@ npm install @avocado-ui/react
 yarn add @avocado-ui/react
 ```
 
+## Features
+
+- **♿ Accessible**: Accessibility is not an after taught in `avocado`. All components have accessible names and are called out correctly by screen readers. I ensure colors are accessibile, focus indicators are present on all components and they are in the right tab order.
+- **💅🏼 Themeable**: `avocado` is highly themeable and the entire look can be controlled by tokens. I'm currently researching about `styled-system` and the goal is to ensure `avocado` follows the spec.
+- **🌃 Dark Mode**: Good design systems handle darkmode excellently. I'm also researching & learning the best way to implement dark mode in avocado.
+- **😎 Modern**: Modern design systems are a combination of tooling, look and feel of the interface. You have to really work hard to make avocado ugly 😋.
+
 ## Usage
 
 ```tsx
@@ -39,12 +46,38 @@ export const App = () => (
 
 - Learn more on the [official documentation](https://avocado-ui-vickonrails.vercel.app/docs/)
 
-## Features
+## Roadmap
 
-- **♿ Accessible**: Accessibility is not an after taught in `avocado`. All components have accessible names and are called out correctly by screen readers. I ensure colors are accessibile, focus indicators are present on all components and they are in the right tab order.
-- **💅🏼 Themeable**: `avocado` is highly themeable and the entire look can be controlled by tokens. I'm currently researching about `styled-system` and the goal is to ensure `avocado` follows the spec.
-- **🌃 Dark Mode**: Good design systems handle darkmode excellently. I'm also researching & learning the best way to implement dark mode in avocado.
-- **😎 Modern**: Modern design systems are a combination of tooling, look and feel of the interface. You have to really work hard to make avocado ugly 😋.
+Foundations
+
+- [ ] Typography
+- [ ] Color
+- [ ] Spacing
+- [ ] Theming
+
+Layout
+
+- [ ] Grid
+- [ ] Stack
+- [ ] Flex
+
+Components
+
+- [ ] Accordion
+- [ ] Avatar
+- [ ] Button
+- [ ] Checkbox
+- [ ] Dialog
+- [ ] Dropdown
+- [ ] Input
+- [ ] Image
+- [ ] Modal
+- [ ] Radio Group
+- [ ] Select
+- [ ] Separator
+- [ ] Spinner
+- [ ] Tabs
+- [ ] Tooltip
 
 ## License
 
