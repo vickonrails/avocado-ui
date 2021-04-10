@@ -1,8 +1,11 @@
 import React, { FC, HTMLAttributes, InputHTMLAttributes } from 'react'
 
 const Radio: FC<RadioProps> = ({ children, ...props }) => {
+  const _className = props.className
+    ? `avocado-radio ${props.className}`
+    : `avocado-radio`
   return (
-    <label className='avocado-radio__label'>
+    <label className={_className}>
       <input {...props} type='radio' className='avocado-radio__control' />
       <span>{children}</span>
     </label>
@@ -21,4 +24,5 @@ interface RadioGroupProps extends HTMLAttributes<HTMLSpanElement> {
   defaultValue: string
 }
 
+Radio.displayName = 'Radio'
 export { Radio }

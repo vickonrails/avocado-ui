@@ -120,4 +120,6 @@ Select.defaultProps = {
   selectSize: 'md',
   variant: 'outline'
 }
+
+Select.displayName = 'Select'
 export { Select }

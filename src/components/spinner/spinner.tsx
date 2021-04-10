@@ -14,14 +14,12 @@ const spin = keyframes`
  * Spinner - show a spinning loading to the user
  *
  */
-const Spinner: FC<Spinner> = ({ className, variant, ...props }) => {
-  return (
-    <StyledSpinner
-      {...props}
-      variant={variant}
-      className='avocado-btn__spinner'
-    />
-  )
+
+const Spinner: FC<Spinner> = ({ variant, ...props }) => {
+  const _className = props.className
+    ? `avocado-spinner ${props.className}`
+    : `avocado-spinner`
+  return <StyledSpinner {...props} variant={variant} className={_className} />
 }
 
 interface Spinner extends HTMLAttributes<HTMLSpanElement> {
@@ -44,4 +42,5 @@ const StyledSpinner = styled.span<Spinner>`
   animation: ${spin} 0.4s linear infinite;
 `
 
+Spinner.displayName = 'Spinner'
 export default Spinner

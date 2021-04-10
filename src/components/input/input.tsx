@@ -25,7 +25,6 @@ const Input: FC<Input> = ({
     ? `${props.className} avocado-input__control avocado-input__control--${variant}`
     : `avocado-input__control avocado-input__control--${variant}`
 
-  console.log(prefixIcon, suffixIcon)
   return (
     <StyledInput
       className='avocado-input'
@@ -198,4 +197,5 @@ Input.defaultProps = {
   borderRadius: 'round'
 }
 
+Input.displayName = 'Input'
 export { Input }

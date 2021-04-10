@@ -18,12 +18,17 @@ const Button: React.FC<ButtonProps> = ({
   loading,
   ...props
 }) => {
+  const _classNames = props.className
+    ? `avocado-btn ${props.className}`
+    : `avocado-btn`
+
   return (
     <StyledButton
       buttonType={buttonType}
       {...props}
       disabled={disabled || loading}
       loading={loading}
+      className={_classNames}
     >
       {/* Show prefix icon if prefix icon is present and loading state is not true */}
       {prefixIcon && !loading && (
@@ -230,4 +235,5 @@ Button.defaultProps = {
   loading: false
 }
 
+Button.displayName = 'Button'
 export { Button }
