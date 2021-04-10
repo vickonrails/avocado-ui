@@ -9,9 +9,10 @@ import {
   Input,
   ISelectOptions,
   Select,
-  Radio
+  Radio,
+  Heading,
+  Text
 } from 'avocado-ui'
-import 'avocado-ui/dist/index.css'
 
 const genderOptions: ISelectOptions[] = [
   { value: 'male', displayText: 'Male' },
@@ -99,6 +100,49 @@ const App = () => {
           </Button>
         </div>
         <hr />
+
+        <Heading level='h1'>Heading 1</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
+        <Heading level='h2'>Heading 2</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
+        <Heading level='h3'>Heading 3</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
+        <Heading level='h4'>Heading 4</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
+        <Heading level='h5'>Heading 5</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
+        <Heading level='h6'>Heading 6</Heading>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsa
+          dolorem laborum impedit dolorum nam eligendi explicabo doloremque esse
+          voluptas nisi, accusamus enim, reiciendis est molestias sit eveniet
+          earum iste.
+        </Text>
         <div>
           <form
             onSubmit={(e) => {
