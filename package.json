@@ -65,6 +65,8 @@
     "dist"
   ],
   "dependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5"
   },
