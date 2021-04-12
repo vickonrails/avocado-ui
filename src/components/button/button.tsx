@@ -55,7 +55,8 @@ export type ButtonShape = 'round' | 'curve' | 'square'
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * default type of button. Can be submit, button, reset
    */
