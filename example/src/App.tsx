@@ -1,31 +1,27 @@
 import React from 'react'
-import { theme, ThemeProps } from 'avocado-ui'
-import { ThemeProvider } from '@emotion/react'
+import { ThemeProvider } from 'theme-ui'
 
+import { Separator } from 'avocado-ui'
 import { Header, Main } from './components'
 
-const customTheme: ThemeProps = {
-  ...theme,
-  colors: {
-    ...theme.colors
+const theme = {
+  fonts: {
+    body: 'system-ui, sans-serif',
+    heading: '"Avenir Next", sans-serif',
+    monospace: 'Menlo, monospace'
   },
-
-  components: {
-    ...theme.components,
-    buttonTheme: {
-      ...theme.components.buttonTheme,
-
-      variants: {
-        ...theme.components.buttonTheme.variants
-      }
-    }
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: 'red'
   }
 }
 
 const App = () => {
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={theme}>
       <Header />
+      <Separator />
       <Main />
     </ThemeProvider>
   )
