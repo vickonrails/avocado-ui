@@ -1,28 +1,37 @@
 import React from 'react'
-import { ThemeProvider } from 'theme-ui'
 
-import { Separator } from 'avocado-ui'
+import { Separator, ThemeProvider, baseTheme, merge, Heading } from 'avocado-ui'
+import { Theme } from 'theme-ui'
 import { Header, Main } from './components'
 
-const theme = {
+const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96]
+
+const extendedTheme = {
   fonts: {
     body: 'system-ui, sans-serif',
     heading: '"Avenir Next", sans-serif',
     monospace: 'Menlo, monospace'
   },
+  fontSizes,
   colors: {
     text: '#000',
     background: '#fff',
-    primary: 'red'
+    primary: 'rebeccapurple'
   }
 }
 
+const theme = merge(baseTheme as Theme, {
+  ...extendedTheme
+})
+
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{ ...baseTheme, ...theme }}>
       <Header />
       <Separator />
       <Main />
+
+      <Heading level='h1'>Something Fishy Going on</Heading>
     </ThemeProvider>
   )
 }

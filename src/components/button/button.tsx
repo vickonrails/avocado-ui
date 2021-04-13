@@ -99,9 +99,9 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   padding: 0.5em 0.8em;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
-  border: none;  
+  border: none;
   color: ${theme.colors.gray[8]};
-  background: ${theme.colors.gray[4]}
+  background: ${theme.colors.gray[4]};
   user-select: none;
   transition: background, color, transform;
   transition-duration: 0.15s;
@@ -118,7 +118,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   display: inline-flex;
   align-items: center;
 
-  .btn-icon--left,   
+  .btn-icon--left,
   .btn-icon--right {
     height: 15px;
     width: 15px;
@@ -133,14 +133,14 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   }
 
   .btn-icon--left {
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
   .btn-icon--right {
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 
   .avocado-btn__spinner {
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
 
   :focus {
@@ -157,10 +157,10 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
     background: ${!loading && theme.colors.gray[3]};
     transform: none;
     text-decoration: none;
-   }
+  }
 
   :hover {
-    transform: ${!loading && !disabled && `translateY(-1px)`}; 
+    transform: ${!loading && !disabled && `translateY(-1px)`};
   }
 
   :hover:active {
@@ -171,11 +171,11 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   }
 `
 
-const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
+const StyledSolidButton = ({ buttonType, variant, theme: theTheme }: any) =>
   buttonType === 'solid' &&
   css`
-    background: ${variant &&
-    theme.components.buttonTheme.variants[variant].default};
+    background: ${theTheme.colors.primary};
+
     color: ${theme.colors.white};
 
     &:hover {

@@ -13,8 +13,9 @@ const Text: FC<TextProps> = ({ children, ...props }) => {
   )
 }
 
-const StyledText = styled.p`
+const StyledText = styled.p<any>`
   margin-top: 0;
+  font-size: ${({ theme }) => `${theme.fontSizes[2]}px`};
 `
 
 interface TextProps extends HTMLAttributes<HTMLParagraphElement> {}

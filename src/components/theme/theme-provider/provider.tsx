@@ -1,22 +1,20 @@
 import React from 'react'
-import { ThemeContext } from '@emotion/react'
+import { ThemeProvider as ThemeUIProvider, merge } from 'theme-ui'
+import { base } from '@theme-ui/presets'
 
-import { theme as AvocadoTheme, theme } from '../../theme'
+import { theme } from '../../theme'
 
-interface Theme {}
+const baseTheme = { ...base }
 
 export interface ThemeProviderProps {
-  theme: Partial<Theme> | ((outerTheme: Theme) => Theme)
+  theme: any
   children?: React.ReactNode
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ theme, children }) => {
-  const finalTheme = { ...AvocadoTheme, ...theme }
-
-  return (
-    <ThemeContext.Provider value={finalTheme}>{children}</ThemeContext.Provider>
-  )
+  return <ThemeUIProvider theme={theme}>{children}</ThemeUIProvider>
 }
 
-export { ThemeProvider, ThemeContext, theme }
+export { ThemeProvider, theme, baseTheme, merge }
+
 export type ThemeProps = typeof theme

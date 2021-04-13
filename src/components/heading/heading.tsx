@@ -2,6 +2,8 @@ import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
+import { Theme } from 'theme-ui'
+
 import { theme } from '../theme'
 
 export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
@@ -59,6 +61,9 @@ const StyledHeadingBase = css`
 
 const StyledH1 = styled.h1`
   font-size: ${theme.typography['6xl']};
+
+  font-size: ${({ theme }: { theme?: Theme }) =>
+    `${theme && theme.fontSizes?.[5]}px`};
   ${StyledHeadingBase};
 `
 const StyledH2 = styled.h2`
