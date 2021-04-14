@@ -5,6 +5,8 @@ import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
 import Spinner from '../spinner/spinner'
+import { Theme } from '@theme-ui/css'
+import { AvocadoTheme } from '../../components/theme/theme-provider/avocado.theme'
 
 /**
  * Button - Renders a clickable item to the browser
@@ -92,16 +94,24 @@ export interface ButtonProps
   suffixIcon?: React.ReactNode
 }
 
+type StyledButtonProps = ButtonProps & { theme?: Theme | AvocadoTheme }
+
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
+const BaseButton = ({
+  shape,
+  size,
+  loading,
+  disabled,
+  theme: theTheme
+}: StyledButtonProps) => css`
   padding: 0.5em 0.8em;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
   border: none;
-  color: ${theme.colors.gray[8]};
-  background: ${theme.colors.gray[4]};
+  color: ${theTheme?.colors?.gray?.[8]};
+  background: ${theTheme?.colors?.gray?.[4]};
   user-select: none;
   transition: background, color, transform;
   transition-duration: 0.15s;
@@ -146,7 +156,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   :focus {
     outline: none;
     transform: none;
-    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+    box-shadow: 0 0 0 3px ${theTheme?.colors?.blue?.[100]};
   }
 
   :disabled,
@@ -171,16 +181,18 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
   }
 `
 
-const StyledSolidButton = ({ buttonType, variant, theme: theTheme }: any) =>
+const StyledSolidButton = ({
+  buttonType,
+  variant,
+  theme: theTheme
+}: StyledButtonProps) =>
   buttonType === 'solid' &&
   css`
-    background: ${theTheme.colors.primary};
-
-    color: ${theme.colors.white};
+    background: ${variant && theTheme?.buttons?.[variant]?.['bg']};
+    color: ${variant && theTheme?.buttons?.[variant]?.['color']};
 
     &:hover {
-      background: ${variant &&
-      theme.components.buttonTheme.variants[variant].hover};
+      background: ${variant && theTheme?.buttons?.[variant]?.['hover']};
     }
   `
 

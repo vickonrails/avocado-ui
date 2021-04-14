@@ -1,10 +1,12 @@
 import React from 'react'
-import { ThemeProvider as ThemeUIProvider, merge } from 'theme-ui'
+import { ThemeProvider as ThemeUIProvider, merge, Theme } from 'theme-ui'
 import { base } from '@theme-ui/presets'
 
-import { theme } from '../../theme'
+import { theme } from './avocado.theme'
 
-const baseTheme = { ...base }
+import { theme as oldTheme } from '../../theme'
+
+const baseTheme = merge(base as Theme, { ...(theme as Theme) })
 
 export interface ThemeProviderProps {
   theme: any
@@ -15,6 +17,6 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ theme, children }) => {
   return <ThemeUIProvider theme={theme}>{children}</ThemeUIProvider>
 }
 
-export { ThemeProvider, theme, baseTheme, merge }
+export { ThemeProvider, oldTheme as theme, baseTheme, merge }
 
-export type ThemeProps = typeof theme
+export type ThemeProps = typeof oldTheme

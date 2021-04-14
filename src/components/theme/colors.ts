@@ -80,6 +80,7 @@ const gray = {
 }
 
 const primary = blue[500]
+const secondary = blue[400]
 const white = gray[1]
 const black = gray[13]
 
@@ -92,6 +93,7 @@ const colors = {
   gray,
   white,
   primary,
+  secondary,
   black
 }
 

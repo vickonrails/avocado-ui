@@ -1,10 +1,11 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+import { Theme } from '@theme-ui/css'
 
-import { Theme } from 'theme-ui'
+// import { Theme } from 'theme-ui'
 
-import { theme } from '../theme'
+// import { theme } from '../theme'
 
 export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
   const _className = props.className
@@ -18,6 +19,7 @@ export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
           {children}
         </StyledH1>
       )
+
     case 'h2':
       return (
         <StyledH2 {...props} className={_className}>
@@ -48,6 +50,7 @@ export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
           {children}
         </StyledH6>
       )
+
     default:
       throw new Error('Please pass a heading level')
   }
@@ -59,36 +62,55 @@ const StyledHeadingBase = css`
   line-height: 1;
 `
 
-const StyledH1 = styled.h1`
-  font-size: ${theme.typography['6xl']};
+const StyledH1CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[6]}px;
+`
+const StyledH2CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[5]}px;
+`
+const StyledH3CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[4]}px;
+`
+const StyledH4CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[3]}px;
+`
+const StyledH5CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[2]}px;
+`
 
-  font-size: ${({ theme }: { theme?: Theme }) =>
-    `${theme && theme.fontSizes?.[5]}px`};
-  ${StyledHeadingBase};
+const StyledH6CSS = ({ theme }: StyledTheme) => css`
+  font-size: ${theme?.fontSizes?.[1]}px;
+`
+
+const StyledH1 = styled.h1`
+  ${StyledHeadingBase}
+  ${StyledH1CSS}
 `
 const StyledH2 = styled.h2`
-  font-size: ${theme.typography['5xl']};
-  ${StyledHeadingBase};
+  ${StyledHeadingBase}
+  ${StyledH2CSS}
 `
 const StyledH3 = styled.h3`
-  font-size: ${theme.typography['4xl']};
-  ${StyledHeadingBase};
+  ${StyledHeadingBase}
+  ${StyledH3CSS}
 `
 const StyledH4 = styled.h4`
-  font-size: ${theme.typography['3xl']};
-  ${StyledHeadingBase};
+  ${StyledHeadingBase}
+  ${StyledH4CSS}
 `
 const StyledH5 = styled.h5`
-  font-size: ${theme.typography['2xl']};
-  ${StyledHeadingBase};
+  ${StyledHeadingBase}
+  ${StyledH5CSS}
 `
 const StyledH6 = styled.h6`
-  font-size: ${theme.typography.xl};
-  ${StyledHeadingBase};
+  ${StyledHeadingBase}
+  ${StyledH6CSS}
 `
 
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
+
+type StyledTheme = HeadingProps & { theme?: Theme }
 
 Heading.displayName = 'Heading'
