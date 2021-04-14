@@ -52,8 +52,8 @@ Foundations
 
 - [x] Heading
 - [x] Text
-- [ ] Color
-- [ ] Spacing
+- [x] Color
+- [x] Spacing
 - [ ] Theming
 
 Layout
@@ -66,11 +66,11 @@ Components
 
 - [ ] Accordion
 - [ ] Avatar
-- [ ] Button
+- [x] Button
 - [ ] Checkbox
 - [ ] Dialog
 - [ ] Dropdown
-- [ ] Input
+- [x] Input
 - [ ] Image
 - [ ] Modal
 - [ ] Radio Group

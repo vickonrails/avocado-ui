@@ -109,7 +109,7 @@ const StyledH6 = styled.h6`
 // heading sizes
 export type TextSize =
   | 'xs'
-  | 'ms'
+  | 'md'
   | 'sm'
   | 'lg'
   | 'xl'

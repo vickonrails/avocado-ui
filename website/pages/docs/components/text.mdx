@@ -1,0 +1,107 @@
+---
+title: Text
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Heading, Text } from '@avocado-ui/react'
+
+<!-- Define `@avocado-ui/react` module as `{ Text }` -->
+
+<LiveConfig modules={{ '@avocado-ui/react': { Heading, Text } }} />
+
+# Text
+
+The `Text` component renders a paragraph (`p`) HTML element underneath.
+
+## Usage
+
+Import the `Text` component from `@avocado-ui/react`
+
+```jsx live noInline
+import { Text } from '@avocado-ui/react'
+render(<Text>Heading</Text>)
+```
+
+### Size
+
+You can specify the size of the `Text` with the `size` prop. The supported values are as follows `xs`, `ms`, `sm`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl`.
+
+```jsx live noInline
+import { Text } from '@avocado-ui/react'
+
+render(
+  <>
+    <Text size='3xl'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='2xl'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='xl'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='lg'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='md'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='sm'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+  </>
+)
+```
+
+### Trim Text
+
+You can specify the maximum length a text can be with the `trim` prop. Here's an example below
+
+```jsx live noInline
+import { Text } from '@avocado-ui/react'
+
+render(
+  <>
+    <Text size='xl' trim={20}>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='xl' trim={30}>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='xl' trim={50}>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+  </>
+)
+```
+
+### Align Text
+
+You might want to align the `Text` component. You can use the `align` prop to change the direction of the text. It could either be `left`, `center`, `right`.
+
+```jsx live noInline
+import { Text } from '@avocado-ui/react'
+
+render(
+  <>
+    <Text size='xl' trim={20} align='left'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='xl' trim={30} align='center'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+    <Text size='xl' trim={30} align='right'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Text>
+  </>
+)
+```
+
+## Heading Props
+
+| property | description                                  | type                                                                   | default |
+| -------- | -------------------------------------------- | ---------------------------------------------------------------------- | ------- |
+| size     | size to override heading size                | `xs`, `ms`, `sm`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | `level` |
+| trim     | specifies a number to truncate text          | number                                                                 | null    |
+| align    | specifies the horizontal orientation of text | `center`, `left`, `right`                                              | `left`  |
