@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/vick_onrails/avocado-ui/compare/v0.1.7...v0.1.8) (2021-04-14)
+
+
+### Features
+
+* implement trim, align, size props for Text component ([78c739c](https://github.com/vick_onrails/avocado-ui/commit/78c739cbd6c7ca0ddbecfcbd5b8b10c7fc5b9b42))
+
 ### [0.1.7](https://github.com/vick_onrails/avocado-ui/compare/v0.1.6...v0.1.7) (2021-04-14)
 
 
