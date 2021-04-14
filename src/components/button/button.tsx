@@ -162,9 +162,9 @@ const BaseButton = ({
   :disabled,
   :disabled:hover {
     cursor: not-allowed;
-    border: ${!loading && `1px solid ${theme.colors.gray[6]}`};
-    color: ${!loading && theme.colors.gray[8]};
-    background: ${!loading && theme.colors.gray[3]};
+    border: ${!loading && `1px solid ${theTheme?.colors?.gray?.[6]}`};
+    color: ${!loading && theTheme?.colors?.gray?.[8]};
+    background: ${!loading && theTheme?.colors?.gray?.[3]};
     transform: none;
     text-decoration: none;
   }
@@ -177,7 +177,7 @@ const BaseButton = ({
     transform: translateY(0px);
   }
   :active {
-    background: ${theme.colors.gray[4]};
+    background: ${theTheme?.colors?.gray?.[4]};
   }
 `
 

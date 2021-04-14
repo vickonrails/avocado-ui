@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Separator, ThemeProvider, baseTheme, merge, Heading } from 'avocado-ui'
-import { Theme } from 'theme-ui'
-import { Header, Main } from './components'
+import { Separator, baseTheme, Heading } from 'avocado-ui'
+import { Theme, ThemeProvider, merge } from 'theme-ui'
+import { Header, Main, Switcher } from './components'
 
 // const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96]
 
@@ -11,6 +11,11 @@ const extendedTheme = {
     body: 'system-ui, sans-serif',
     heading: '"Avenir Next", sans-serif',
     monospace: 'Menlo, monospace'
+  },
+  colors: {
+    dark: {
+      text: 'red'
+    }
   }
 }
 
@@ -20,7 +25,8 @@ const theme = merge(baseTheme as Theme, {
 
 const App = () => {
   return (
-    <ThemeProvider theme={{ ...baseTheme, ...theme }}>
+    <ThemeProvider theme={theme}>
+      <Switcher />
       <Header />
       <Separator />
       <Main />

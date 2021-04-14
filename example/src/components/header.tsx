@@ -1,8 +1,14 @@
+/** @jsxImportSource theme-ui */
+
 import React from 'react'
 
 const Header: React.FC = () => {
   return (
-    <header>
+    <header
+      sx={{
+        bg: 'primary'
+      }}
+    >
       <p>Header component</p>
     </header>
   )

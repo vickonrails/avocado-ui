@@ -6,6 +6,7 @@ import { theme } from './avocado.theme'
 
 import { theme as oldTheme } from '../../theme'
 
+// @ts-ignore
 const baseTheme = merge(base as Theme, { ...(theme as Theme) })
 
 export interface ThemeProviderProps {

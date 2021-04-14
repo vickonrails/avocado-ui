@@ -107,7 +107,7 @@ export const theme = {
   buttons: {
     color: 'primary',
     primary: {
-      color: 'primary',
+      color: colors.white,
       bg: colors.primary,
       hover: colors.secondary
     },
@@ -118,11 +118,13 @@ export const theme = {
     },
     error: {
       color: colors.white,
-      bg: reds[500]
+      bg: reds[400],
+      hover: colors.red[300]
     },
     warning: {
       color: colors.white,
-      bg: yellows[500]
+      bg: yellows[500],
+      hover: yellows[500]
     }
   },
   styles: {
