@@ -64,11 +64,49 @@ render(
     <Heading level='h4' size='lg'>
       Heading 4
     </Heading>
-    <Heading level='h5' size='lg'>
+    <Heading level='h5' size='xl'>
       Heading 5
     </Heading>
-    <Heading level='h6' size='xl'>
+    <Heading level='h6' size='2xl'>
       Heading 6
+    </Heading>
+  </>
+)
+```
+
+### Trim Heading
+
+You might want to keep things trimmed while using the `Heading` component. Avacodo provides the `trim` prop which takes an integer, truncates text to the length and appends `...` to it.
+
+```jsx live noInline
+import { Heading } from '@avocado-ui/react'
+
+render(
+  <>
+    <Heading level='h1' trim={4}>
+      Heading 1
+    </Heading>
+  </>
+)
+```
+
+### Align Text
+
+A quick utility on the `Heading` component is the `align` prop. You can use it to change the direction of the text. It could either be `left`, `center`, `right`.
+
+```jsx live noInline
+import { Heading } from '@avocado-ui/react'
+
+render(
+  <>
+    <Heading level='h1' align='center'>
+      Heading 1
+    </Heading>
+    <Heading level='h1' align='left'>
+      Heading 1
+    </Heading>
+    <Heading level='h1' align='right'>
+      Heading 1
     </Heading>
   </>
 )
@@ -76,7 +114,9 @@ render(
 
 ## Heading Props
 
-| property | description                   | type                                                                   | default |
-| -------- | ----------------------------- | ---------------------------------------------------------------------- | ------- |
-| level    | level of heading              | `h1`, `h2`,`h3`                                                        | null    |
-| size     | size to override heading size | `xs`, `ms`, `sm`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | `level` |
+| property | description                                  | type                                                                   | default |
+| -------- | -------------------------------------------- | ---------------------------------------------------------------------- | ------- |
+| level    | level of heading                             | `h1`, `h2`,`h3`                                                        | null    |
+| size     | size to override heading size                | `xs`, `ms`, `sm`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, `7xl` | `level` |
+| trim     | specifies a number to truncate text          | number                                                                 | null    |
+| align    | specifies the horizontal orientation of text | `center`, `left`, `right`                                              | `left`  |
