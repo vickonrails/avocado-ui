@@ -107,7 +107,7 @@ const StyledH6 = styled.h6`
 `
 
 // heading sizes
-type HeadingSize =
+export type TextSize =
   | 'xs'
   | 'ms'
   | 'sm'
@@ -120,7 +120,7 @@ type HeadingSize =
   | '6xl'
   | '7xl'
 
-type TextAlign = 'center' | 'left' | 'right'
+export type TextAlign = 'center' | 'left' | 'right'
 
 // Types for Heading
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
@@ -132,7 +132,7 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * specifies a new fontsize for the heading. It overrides the level prop
    */
-  size?: HeadingSize
+  size?: TextSize
 
   /**
    * the trim function takes an integer and trims the heading to the specified length

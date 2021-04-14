@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import React, { HTMLAttributes } from 'react'
 import { ThemeProps, Button, Text, Heading } from 'avocado-ui'
 
-import { jsx, css } from '@emotion/react'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 // Header componet
