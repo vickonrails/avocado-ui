@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/vick_onrails/avocado-ui/compare/v0.1.5...v0.1.6) (2021-04-14)
+
+
+### Features
+
+* implement theming without theme-ui and passing props into component ([a062a1e](https://github.com/vick_onrails/avocado-ui/commit/a062a1e4bae6221d409fddcd36b83d1b6d927313))
+
 ### 0.1.5 (2021-04-11)
 
 ### Features
