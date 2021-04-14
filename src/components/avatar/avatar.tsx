@@ -44,6 +44,7 @@ const Avatar: FC<AvatarProps> = ({ className, name, ...props }) => {
 }
 
 type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+type AvatarShape = 'round' | 'curve' | 'square'
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * initials of the `name` string are rendered when there are no values for `src` and `icon`
@@ -59,10 +60,17 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    * specifies the icon to render when there's no value for image source (`src`)
    */
   icon?: JSX.Element
+
+  /**
+   * shape controls the curvature of the avatar border radius> It can be either set to "round", "curve", "square"
+   */
+
+  shape?: AvatarShape
 }
 
-const StyledAvatarBase = ({ size }: AvatarProps) =>
+const StyledAvatarBase = ({ size, shape }: AvatarProps) =>
   size &&
+  shape &&
   css`
     margin: 0;
     padding: 0;
@@ -77,7 +85,7 @@ const StyledAvatarBase = ({ size }: AvatarProps) =>
       : size && avatarTheme.sizes[size]}px;
 
     text-align: center;
-    border-radius: 9999px;
+    border-radius: ${avatarTheme.radius[shape]};
     display: flex;
     background: red;
     color: #fff;
@@ -117,7 +125,8 @@ const StyledAvatarSpan = styled.span`
 `
 
 Avatar.defaultProps = {
-  size: 'md'
+  size: 'md',
+  shape: 'round'
 }
 
 export { Avatar }

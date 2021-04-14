@@ -12,5 +12,10 @@ export const avatarTheme = {
     md: 16,
     lg: 26,
     xl: 40
+  },
+  radius: {
+    round: '9999px',
+    square: 0,
+    curve: '4px'
   }
 }
