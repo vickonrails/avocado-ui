@@ -2,9 +2,10 @@ import React, { FC, ImgHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { getInitials } from '../../utils/avatar'
+import { avatarTheme } from '../../components/theme/components/avatar.theme'
 
 // Avatar component
-const Avatar: FC<AvatarProps> = ({ className, ...props }) => {
+const Avatar: FC<AvatarProps> = ({ className, name, ...props }) => {
   // Notice the name is always rendered as the `title` of the avatar to reveal more information on hover
   const _className = className
     ? `avocado-avatar ${className}`
@@ -13,16 +14,17 @@ const Avatar: FC<AvatarProps> = ({ className, ...props }) => {
   // render an image avatar if there's a `src` prop
   // return and end excution here
   if (props.src)
-    return <StyledAvatar {...props} title={props.name} className={_className} />
+    return <StyledAvatar {...props} title={name} className={_className} />
 
   // render an icon if no `src` prop but `icon` exists
   if (props.icon)
     return (
       <StyledAvatarSpan
-        title={props.name}
+        title={name}
         className={_className}
         role='img'
-        aria-label={props.name}
+        aria-label={name}
+        {...props}
       >
         <span>{props.icon}</span>
       </StyledAvatarSpan>
@@ -31,27 +33,27 @@ const Avatar: FC<AvatarProps> = ({ className, ...props }) => {
   // finally render the initials of the name supplied
   return (
     <StyledAvatarInitials
-      title={props.name}
+      title={name}
       className={_className}
-      aria-label={props.name}
+      aria-label={name}
+      {...props}
     >
-      <span>{props.name && getInitials(props.name)}</span>
+      <span>{name && getInitials(name)}</span>
     </StyledAvatarInitials>
   )
 }
 
-type Size = string
-
+type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * initials of the `name` string are rendered when there are no values for `src` and `icon`
    */
-  name: string
+  name?: string
 
   /**
    * specifies the size of the avatar image or box
    */
-  size?: Size
+  size?: AvatarSize | number
 
   /**
    * specifies the icon to render when there's no value for image source (`src`)
@@ -59,22 +61,32 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   icon?: JSX.Element
 }
 
-const StyledAvatarBase = css`
-  margin: 0;
-  padding: 0;
+const StyledAvatarBase = ({ size }: AvatarProps) =>
+  size &&
+  css`
+    margin: 0;
+    padding: 0;
+    pointer: cursor;
 
-  pointer: cursor;
-  height: 32px;
-  width: 32px;
-  text-align: center;
-  border-radius: 200px;
-  display: flex;
-  background: red;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
-  font-size: 0.85em;
-`
+    height: ${size && typeof size === 'number'
+      ? `${size}`
+      : size && avatarTheme.sizes[size]}px;
+
+    width: ${size && typeof size === 'number'
+      ? `${size}`
+      : size && avatarTheme.sizes[size]}px;
+
+    text-align: center;
+    border-radius: 9999px;
+    display: flex;
+    background: red;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    font-size: ${typeof size === 'number'
+      ? size / 2
+      : avatarTheme.fontSizes[size]}px;
+  `
 
 const StyledAvatar = styled.img`
   ${StyledAvatarBase}
@@ -103,5 +115,9 @@ const StyledAvatarSpan = styled.span`
     }
   }
 `
+
+Avatar.defaultProps = {
+  size: 'md'
+}
 
 export { Avatar }
