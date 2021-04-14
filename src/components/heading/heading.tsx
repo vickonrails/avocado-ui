@@ -68,10 +68,11 @@ export const Heading: FC<HeadingProps> = ({ children, trim, ...props }) => {
   }
 }
 
-const StyledHeadingBase = css`
+const StyledHeadingBase = ({ align }: HeadingProps) => css`
   margin-top: 0;
   margin-bottom: 0.5em;
   line-height: 1.2;
+  text-align: ${align};
 `
 
 const StyledH1 = styled.h1`
