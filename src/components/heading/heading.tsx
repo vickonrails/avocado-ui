@@ -3,8 +3,9 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
 import { theme } from '../theme'
+import { trimText } from '../../utils/heading'
 
-export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
+export const Heading: FC<HeadingProps> = ({ children, trim, ...props }) => {
   // generate heading classNames
   const _className = props.className
     ? `avocado-heading ${props.className}`
@@ -15,37 +16,49 @@ export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
     case 'h1':
       return (
         <StyledH1 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH1>
       )
     case 'h2':
       return (
         <StyledH2 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH2>
       )
     case 'h3':
       return (
         <StyledH3 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH3>
       )
     case 'h4':
       return (
         <StyledH4 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH4>
       )
     case 'h5':
       return (
         <StyledH5 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH5>
       )
     case 'h6':
       return (
         <StyledH6 {...props} className={_className}>
-          {children}
+          {typeof children === 'string' && trim
+            ? trimText(children, trim)
+            : children}
         </StyledH6>
       )
     default:
@@ -106,6 +119,8 @@ type HeadingSize =
   | '6xl'
   | '7xl'
 
+type TextAlign = 'center' | 'left' | 'right'
+
 // Types for Heading
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -117,6 +132,17 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
    * specifies a new fontsize for the heading. It overrides the level prop
    */
   size?: HeadingSize
+
+  /**
+   * the trim function takes an integer and trims the heading to the specified length
+   */
+
+  trim?: number
+
+  /**
+   * aligns the text to the left, right or center
+   */
+  align?: TextAlign
 }
 
 Heading.displayName = 'Heading'
