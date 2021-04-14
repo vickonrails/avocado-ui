@@ -1,10 +1,14 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { css, useTheme } from '@emotion/react'
 
 import { theme } from '../theme'
 
 export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
+  const theme = useTheme()
+
+  console.log(`theme: ${JSON.stringify(theme)}`)
+
   const _className = props.className
     ? `avocado-heading ${props.className}`
     : `avocado-heading`

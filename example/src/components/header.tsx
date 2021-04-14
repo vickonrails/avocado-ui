@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { HTMLAttributes } from 'react'
-import { ThemeProps, Button, Text } from 'avocado-ui'
+import { ThemeProps, Button, Text, Heading } from 'avocado-ui'
 
 import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
@@ -11,6 +11,7 @@ const Header: React.FC<Header> = (props) => {
     <StyledHeader {...props}>
       <Text>component</Text>
       <Button>Button</Button>
+      <Heading level='h1'>Content</Heading>
       <Button variant='error'>Button</Button>
     </StyledHeader>
   )

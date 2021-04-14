@@ -13,6 +13,8 @@ export interface ThemeProviderProps {
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ theme, children }) => {
   const finalTheme = { ...AvocadoTheme, ...theme }
 
+  console.log(`FINAL THEME: ${finalTheme}`)
+
   return (
     <ThemeContext.Provider value={finalTheme}>{children}</ThemeContext.Provider>
   )

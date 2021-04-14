@@ -18,6 +18,10 @@ const customTheme: ThemeProps = {
       '100': 'blue'
     }
   },
+  typography: {
+    ...theme.typography,
+    '6xl': '1rem'
+  },
   components: {
     ...theme.components,
     buttonTheme: {
