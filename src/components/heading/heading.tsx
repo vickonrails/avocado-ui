@@ -49,7 +49,9 @@ export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
         </StyledH6>
       )
     default:
-      throw new Error('Please pass a heading level')
+      throw new Error(
+        'Missing prop:level. Please specify a level for the Heading'
+      )
   }
 }
 

@@ -50,7 +50,8 @@ export const App = () => (
 
 Foundations
 
-- [ ] Typography
+- [x] Heading
+- [x] Text
 - [ ] Color
 - [ ] Spacing
 - [ ] Theming
