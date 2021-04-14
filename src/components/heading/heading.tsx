@@ -1,18 +1,16 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { css, useTheme } from '@emotion/react'
+import { css } from '@emotion/react'
 
 import { theme } from '../theme'
 
 export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
-  const theme = useTheme()
-
-  console.log(`theme: ${JSON.stringify(theme)}`)
-
+  // generate heading classNames
   const _className = props.className
     ? `avocado-heading ${props.className}`
     : `avocado-heading`
 
+  // render different heading level based on the level
   switch (props.level) {
     case 'h1':
       return (
@@ -58,36 +56,65 @@ export const Heading: FC<HeadingProps> = ({ children, ...props }) => {
 const StyledHeadingBase = css`
   margin-top: 0;
   margin-bottom: 0.5em;
-  line-height: 1;
+  line-height: 1.2;
 `
 
 const StyledH1 = styled.h1`
-  font-size: ${theme.typography['6xl']};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography['6xl']};
   ${StyledHeadingBase};
 `
 const StyledH2 = styled.h2`
-  font-size: ${theme.typography['5xl']};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography['5xl']};
   ${StyledHeadingBase};
 `
 const StyledH3 = styled.h3`
-  font-size: ${theme.typography['4xl']};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography['4xl']};
   ${StyledHeadingBase};
 `
 const StyledH4 = styled.h4`
-  font-size: ${theme.typography['3xl']};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography['3xl']};
   ${StyledHeadingBase};
 `
 const StyledH5 = styled.h5`
-  font-size: ${theme.typography['2xl']};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography['2xl']};
   ${StyledHeadingBase};
 `
 const StyledH6 = styled.h6`
-  font-size: ${theme.typography.xl};
+  font-size: ${({ size }: HeadingProps) =>
+    size ? theme.typography[size] : theme.typography.xl};
   ${StyledHeadingBase};
 `
 
+// heading sizes
+type HeadingSize =
+  | 'xs'
+  | 'ms'
+  | 'sm'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+
+// Types for Heading
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+  /**
+   * set level of the heading
+   */
   level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+  /**
+   * specifies a new fontsize for the heading. It overrides the level prop
+   */
+  size?: HeadingSize
 }
 
 Heading.displayName = 'Heading'
