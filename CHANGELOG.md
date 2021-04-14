@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/vick_onrails/avocado-ui/compare/v0.1.6...v0.1.7) (2021-04-14)
+
+
+### Features
+
+* implement text-align in heading ([267c64d](https://github.com/vick_onrails/avocado-ui/commit/267c64d0db2507f4add307b3562bce3e2ae80bf4))
+* implement trim prop to truncate heading text ([8b7db42](https://github.com/vick_onrails/avocado-ui/commit/8b7db42e302b0a0956bd10604f7ebbb6637198bd))
+
+
+### Chores
+
+* **changelog:** enable different commit types in changelogs ([3b77617](https://github.com/vick_onrails/avocado-ui/commit/3b77617c666fa4492ab29ef9a0efb2e7880ae5fc))
+
 ### [0.1.6](https://github.com/vick_onrails/avocado-ui/compare/v0.1.5...v0.1.6) (2021-04-14)
 
 
