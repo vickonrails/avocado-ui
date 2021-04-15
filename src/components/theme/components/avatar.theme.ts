@@ -1,4 +1,5 @@
 import colors from '../colors'
+import borders from '../borders'
 
 export const avatarTheme = {
   sizes: {
@@ -16,9 +17,9 @@ export const avatarTheme = {
     xl: 40
   },
   radius: {
-    round: '9999px',
+    round: borders.full,
     square: 0,
-    curve: '4px'
+    curve: borders.sm
   },
   bgColor: colors.blue[400]
 }
