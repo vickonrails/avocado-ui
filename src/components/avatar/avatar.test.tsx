@@ -14,7 +14,9 @@ describe('Avatar', () => {
     expect(node).toBeInTheDocument()
   })
 
-  // Ensure Avatar renders the appropriate size
+  /* 
+    Ensure Avatar renders the appropriate size
+  */
   test('renders correct size', () => {
     // outline different classes
     const testIdSmaller = 'avatar-xs'
@@ -40,6 +42,10 @@ describe('Avatar', () => {
     expect(getByTestId(testIdLarger)).toHaveClass(`avocado-avatar__xl`)
   })
 
+  /* 
+    Ensure Avatar renders the initials of the `name` value when src is not specified
+  */
+
   test('renders initials of `name` prop when `src` and `icon` is not specified', () => {
     const testId = 'avatar'
 
@@ -50,6 +56,9 @@ describe('Avatar', () => {
     expect(getByText('JD')).toBeInTheDocument()
   })
 
+  /* 
+    Ensure Avatar renders an image when `src` is provided
+  */
   test('renders an image when `src` is valid', () => {
     const testId = 'avatar'
 
@@ -63,6 +72,10 @@ describe('Avatar', () => {
 
     expect(getByRole('img')).toBeInTheDocument()
   })
+
+  /* 
+    Ensure an Icon is rendered when the `icon` prop is provided
+  */
   test('renders an icon when icon is provided without src', () => {
     const testId = 'avatar'
     const Icon = () => <p data-testId={testId}>Something</p>
@@ -72,7 +85,11 @@ describe('Avatar', () => {
     expect(getByTestId(testId)).toBeInTheDocument()
   })
 
-  test('renders initials of `name` prop when `src` and `icon` is not specified', () => {
+  /* 
+    Ensure Avatar renders the initials of the `name` value when src is not specified
+  */
+
+  test('renders `name` as value of `alt` when `alt` value is not provided', () => {
     const name = 'John Doe'
     const testId = 'avatar'
 
