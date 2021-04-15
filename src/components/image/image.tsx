@@ -13,6 +13,8 @@ const Image: FC<ImageProps> = (props) => {
 // FIXME: Make Size object uniform across the design system
 type ImageSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
+type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
+
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * specifies the size of the image. Can be either "xs", "sm", "md", "lg"
@@ -40,15 +42,21 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     | 'bottomLeft'
     | 'bottomRight'
     | 'bottomCenter'
+
+  /**
+   * specify the fit of the image. Corresponds to the object-fit CSS property
+   */
+  objectFit?: ObjectFit
 }
 
-const StyledImageCSS = ({ size, shape }: ImageProps) =>
+const StyledImageCSS = ({ size, shape, objectFit }: ImageProps) =>
   shape &&
   size &&
   css`
     border-radius: ${imageTheme.borders[shape]};
     height: ${typeof size === 'number' ? `${size}px` : imageTheme.size[size]};
     width: ${typeof size === 'number' ? `${size}px` : imageTheme.size[size]};
+    object-fit: ${objectFit};
   `
 
 const StyledImage = styled.img`
@@ -57,7 +65,8 @@ const StyledImage = styled.img`
 
 Image.defaultProps = {
   size: 'md',
-  shape: 'square'
+  shape: 'square',
+  objectFit: 'fill'
 }
 
 export { Image }
