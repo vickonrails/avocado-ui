@@ -14,22 +14,36 @@ import { User, Activity } from 'react-feather'
 
 # Avatar
 
-> The avatar docs is a work in progress. Short for, I want to sleep now.
+Use the `Avatar` component to display the user's profile photo or some default placeholder.
 
 ## Usage
 
-Import the `Button` component from `@avocado-ui/react` and render like so
+Import the `Avatar` component from `@avocado-ui/react` and render with the required `name` prop.
+
+```jsx live noInline
+import { Avatar } from '@avocado-ui/react'
+render(<Avatar name='Maduka Awesome' />)
+```
+
+> The `Avatar` component throws an error when the `name` prop is not specified. It is required because it will be used for the `title` and `alt` of the image.
+
+### Multiple Avatars
+
+To render multiple `Avatar` components, wrap them in an `AvatarGroup` component from `@avocado-ui/react`. There might be inconsistencies in rendering if you don't put multiple `Avatar`s in the `AvatarGroup`
 
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
 render(
   <AvatarGroup>
     <Avatar name='Maduka Awesome' />
+    <Avatar name='Awesome Maduka' />
   </AvatarGroup>
 )
 ```
 
 ### Size
+
+`Avatar` comes in the following sizes - `xs`, `sm`, `md`, `lg` and `xl`. Use the `size` prop to specify the preferred size
 
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
@@ -46,6 +60,8 @@ render(
 
 ### Shape
 
+The default `Avatar` comes in a `round` shape. You might want to customize it by setting the `shape` prop to either `round`, `curve`, or `square`.
+
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
 render(
@@ -58,6 +74,8 @@ render(
 ```
 
 ### Image Source
+
+Most avatars show profile images. If you pass a `URI` to an image to the `src` prop, `Avatar` will render an the image. The `src` can also be a link to an image on the internet.
 
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
@@ -74,7 +92,11 @@ render(
 
 ### Accessibility
 
+The `Avatar` component shows the value of `name` prop when you hover on it. If the `alt` prop is not specified, the value of the `name` prop is used instead. In cases where the `icon` prop is provided, the `role="img"` is provided so screen readers can callout the element as an image.
+
 ### Background Color
+
+The default `primary` color looks cool as the background for avatars. But you can change it by specifying a valid color value to the `color` prop.
 
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
@@ -82,12 +104,14 @@ render(
   <AvatarGroup>
     <Avatar name='Victor Ofoegbu' bgColor='red' />
     <Avatar name='Victor Ofoegbu' bgColor='blue' />
-    <Avatar name='Victor Ofoegbu' shape='round' bgColor='rebeccapurple' />
+    <Avatar name='Victor Ofoegbu' shape='round' bgColor='#000' />
   </AvatarGroup>
 )
 ```
 
 ### Icon
+
+You can render an Icon instead of an actual profile image. Provide an icon element to the `icon` prop and the `Avatar` component will handle the rest. I make use of Icons from `react-feather` in this example.
 
 ```jsx live noInline
 import { Avatar, AvatarGroup } from '@avocado-ui/react'
