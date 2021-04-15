@@ -11,7 +11,12 @@ const AvatarComponent = () => {
       <Avatar name='Mathew KE' size='sm' />
       <Avatar name='Mathew KE' size='md' shape='curve' />
       <Avatar name='Mathew KE' size='lg' />
-      <Avatar name='Mathew KE' size='xl' shape='curve' />
+      <Avatar
+        name='Mathew KE'
+        size='xl'
+        shape='curve'
+        bgColor='rebeccapurple'
+      />
       <Avatar
         name='Mathew KE'
         size={200}

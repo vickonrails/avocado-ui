@@ -1,3 +1,5 @@
+import colors from '../colors'
+
 export const avatarTheme = {
   sizes: {
     xs: 24,
@@ -17,5 +19,6 @@ export const avatarTheme = {
     round: '9999px',
     square: 0,
     curve: '4px'
-  }
+  },
+  bgColor: colors.blue[400]
 }

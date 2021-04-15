@@ -66,9 +66,15 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    */
 
   shape?: AvatarShape
+
+  /**
+   * background color for avatar with icon or initials
+   */
+
+  bgColor?: string
 }
 
-const StyledAvatarBase = ({ size, shape }: AvatarProps) =>
+const StyledAvatarBase = ({ size, shape, bgColor }: AvatarProps) =>
   size &&
   shape &&
   css`
@@ -87,7 +93,7 @@ const StyledAvatarBase = ({ size, shape }: AvatarProps) =>
     text-align: center;
     border-radius: ${avatarTheme.radius[shape]};
     display: flex;
-    background: red;
+    background: ${bgColor};
     color: #fff;
     cursor: pointer;
     user-select: none;
@@ -126,7 +132,8 @@ const StyledAvatarSpan = styled.span`
 
 Avatar.defaultProps = {
   size: 'md',
-  shape: 'round'
+  shape: 'round',
+  bgColor: avatarTheme.bgColor
 }
 
 export { Avatar }
