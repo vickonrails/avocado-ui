@@ -86,10 +86,32 @@ describe('Avatar', () => {
   })
 
   /* 
+    Ensure the specified alternate image is rendered with the img
+  */
+
+  test('renders appropriate `alt` image', () => {
+    const name = 'John Doe'
+    const imgAlt = "Profile Avatar"
+    const testId = 'avatar'
+
+    const { getByAltText } = render(
+      <Avatar
+        name={name}
+        src='https://avatars.githubusercontent.com/u/24235881?s=400&u=b1882b58273cf6d184b35b10ef1520a429b6ebc7&v=4'
+        data-testid={testId}
+        alt={imgAlt}
+      />
+    )
+    expect(getByAltText(imgAlt)).toBeInTheDocument()
+  })
+})
+
+
+/* 
     Ensure Avatar renders the initials of the `name` value when src is not specified
   */
 
-  test('renders `name` as value of `alt` when `alt` value is not provided', () => {
+test('renders `name` as value of `alt` when `alt` value is not provided', () => {
     const name = 'John Doe'
     const testId = 'avatar'
 
