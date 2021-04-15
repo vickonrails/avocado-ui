@@ -5,6 +5,7 @@ import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
 import Spinner from '../spinner/spinner'
+import { Shape } from '../../utils/types'
 
 /**
  * Button - Renders a clickable item to the browser
@@ -50,8 +51,8 @@ const Button: React.FC<ButtonProps> = ({
   )
 }
 
-export type Size = 'sm' | 'md' | 'lg'
-export type ButtonShape = 'round' | 'curve' | 'square'
+export type ButtonSize = 'sm' | 'md' | 'lg'
+
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
@@ -64,11 +65,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    *  size of button. Can be sm, lg, md
    */
-  size?: Size
+  size?: ButtonSize
   /**
    * shape of the button. can be round, border, square
    */
-  shape?: ButtonShape
+  shape?: Shape
   /**
    * trim text on button if more than specified length
    */

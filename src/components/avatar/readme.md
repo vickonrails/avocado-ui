@@ -34,7 +34,7 @@ function App() {
 - [x] color
 - [x] src
 - [x] icon
-- [ ] write tests
+- [x] write tests
 
 ## Tests suites
 

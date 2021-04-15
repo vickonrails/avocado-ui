@@ -5,6 +5,7 @@ import { theme } from '../theme'
 import { Size } from '../button'
 import { getBorderRadius, getInputIconSize } from '../../utils/input'
 import InputIcon from './input-icon'
+import { Shape } from '../../utils/types'
 
 const { inputTheme } = theme.components
 
@@ -74,7 +75,9 @@ interface Input extends InputHTMLAttributes<HTMLInputElement> {
    * set the size of the input. Can be "sm", "md", "lg"
    */
   inputSize?: Size
-  borderRadius?: BorderRadius
+
+  // FIXME: Change to shape prop
+  borderRadius?: Shape
 }
 
 const StyledBaseInput = ({

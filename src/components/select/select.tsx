@@ -2,11 +2,12 @@ import React, { FC, SelectHTMLAttributes } from 'react'
 import { css } from '@emotion/react'
 
 import { Size } from '../button'
-import { BorderRadius, Variant } from '../input'
+import { Variant } from '../input'
 import styled from '@emotion/styled'
 import { theme } from '../theme'
 import { getBorderRadius } from '../../utils/input'
 import { selectTheme } from '../theme/components/select.theme'
+import { Shape } from '../../utils/types'
 
 const Select: FC<Select> = ({ className, options, ...props }) => {
   const _className = className
@@ -50,7 +51,8 @@ interface Select extends SelectHTMLAttributes<HTMLSelectElement> {
   selectSize?: Size
 
   // shape of the border. Could be `curve`, `round` or `square`
-  borderRadius?: BorderRadius
+  // FIXME: Change prop to shape
+  borderRadius?: Shape
 
   // specifies the items to render as options of the select
   options: ISelectOptions[]

@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { getInitials } from '../../utils/avatar'
 import { avatarTheme } from '../../components/theme/components/avatar.theme'
+import { Shape, Size } from '../../utils/types'
 
 // Avatar component
 const Avatar: FC<AvatarProps> = ({ className, alt, name, ...props }) => {
@@ -50,8 +51,6 @@ const Avatar: FC<AvatarProps> = ({ className, alt, name, ...props }) => {
   )
 }
 
-type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-type AvatarShape = 'round' | 'curve' | 'square'
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * initials of the `name` string are rendered when there are no values for `src` and `icon`
@@ -61,7 +60,7 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * specifies the size of the avatar image or box
    */
-  size?: AvatarSize | number
+  size?: Size | number
 
   /**
    * specifies the icon to render when there's no value for image source (`src`)
@@ -72,7 +71,7 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
    * shape controls the curvature of the avatar border radius> It can be either set to "round", "curve", "square"
    */
 
-  shape?: AvatarShape
+  shape?: Shape
 
   /**
    * background color for avatar with icon or initials
