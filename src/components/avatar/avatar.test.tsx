@@ -50,10 +50,14 @@ describe('Avatar', () => {
     const testId = 'avatar'
 
     const { getByText } = render(
-      <Avatar data-testid={testId} name='John Doe' />
+      <>
+        <Avatar data-testid={testId} name='John Doe' />
+        <Avatar data-testid={testId} name='John ' />
+      </>
     )
 
     expect(getByText('JD')).toBeInTheDocument()
+    expect(getByText('Jo')).toBeInTheDocument()
   })
 
   /* 
@@ -78,7 +82,7 @@ describe('Avatar', () => {
   */
   test('renders an icon when icon is provided without src', () => {
     const testId = 'avatar'
-    const Icon = () => <p data-testId={testId}>Something</p>
+    const Icon = () => <p data-testid={testId}>Something</p>
 
     const { getByTestId } = render(<Avatar name='John Doe' icon={<Icon />} />)
 
@@ -91,7 +95,7 @@ describe('Avatar', () => {
 
   test('renders appropriate `alt` image', () => {
     const name = 'John Doe'
-    const imgAlt = "Profile Avatar"
+    const imgAlt = 'Profile Avatar'
     const testId = 'avatar'
 
     const { getByAltText } = render(
@@ -106,22 +110,20 @@ describe('Avatar', () => {
   })
 })
 
-
 /* 
     Ensure Avatar renders the initials of the `name` value when src is not specified
   */
 
 test('renders `name` as value of `alt` when `alt` value is not provided', () => {
-    const name = 'John Doe'
-    const testId = 'avatar'
+  const name = 'John Doe'
+  const testId = 'avatar'
 
-    const { getByAltText } = render(
-      <Avatar
-        name={name}
-        src='https://avatars.githubusercontent.com/u/24235881?s=400&u=b1882b58273cf6d184b35b10ef1520a429b6ebc7&v=4'
-        data-testid={testId}
-      />
-    )
-    expect(getByAltText(name)).toBeInTheDocument()
-  })
+  const { getByAltText } = render(
+    <Avatar
+      name={name}
+      src='https://avatars.githubusercontent.com/u/24235881?s=400&u=b1882b58273cf6d184b35b10ef1520a429b6ebc7&v=4'
+      data-testid={testId}
+    />
+  )
+  expect(getByAltText(name)).toBeInTheDocument()
 })

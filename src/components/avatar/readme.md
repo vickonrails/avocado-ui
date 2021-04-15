@@ -27,13 +27,20 @@ function App() {
 
 ## Todo
 
-- [ ] size
-- [ ] shape
-- [ ] alt
-- [ ] name
-- [ ] color
-- [ ] src
-- [ ] icon
-- [x] write tests
+- [x] size
+- [x] shape
+- [x] alt
+- [x] name
+- [x] color
+- [x] src
+- [x] icon
+- [ ] write tests
 
 ## Tests suites
+
+- [x] renders correctly
+- [x] renders correct size
+- [x] renders initials correctly
+- [x] renders an image when `src` is valid
+- [x] renders an icon when `src` is not provided
+- [x] renders `name` as value of `alt` when `alt` value is not provided

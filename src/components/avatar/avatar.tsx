@@ -5,16 +5,23 @@ import { getInitials } from '../../utils/avatar'
 import { avatarTheme } from '../../components/theme/components/avatar.theme'
 
 // Avatar component
-const Avatar: FC<AvatarProps> = ({ className, name, ...props }) => {
+const Avatar: FC<AvatarProps> = ({ className, alt, name, ...props }) => {
   // Notice the name is always rendered as the `title` of the avatar to reveal more information on hover
   const _className = className
-    ? `avocado-avatar ${className}`
-    : `avocado-avatar`
+    ? `avocado-avatar avocado-avatar__${props.size} ${className}`
+    : `avocado-avatar avocado-avatar__${props.size}`
 
   // render an image avatar if there's a `src` prop
   // return and end excution here
   if (props.src)
-    return <StyledAvatar {...props} title={name} className={_className} />
+    return (
+      <StyledAvatar
+        {...props}
+        title={name}
+        className={_className}
+        alt={alt || name}
+      />
+    )
 
   // render an icon if no `src` prop but `icon` exists
   if (props.icon)
