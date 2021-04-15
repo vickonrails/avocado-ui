@@ -65,7 +65,7 @@ Layout
 Components
 
 - [ ] Accordion
-- [ ] Avatar
+- [x] Avatar
 - [x] Button
 - [ ] Checkbox
 - [ ] Dialog

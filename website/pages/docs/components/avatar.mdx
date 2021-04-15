@@ -1,0 +1,115 @@
+---
+title: Avatar
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+import { User, Activity } from 'react-feather'
+
+<!-- Define `@avocado-ui/react` module as `{ Button }` -->
+
+<LiveConfig modules={{ '@avocado-ui/react': { Avatar, AvatarGroup } }} />
+<LiveConfig modules={{ 'react-feather': { User, Activity } }} />
+
+# Avatar
+
+> The avatar docs is a work in progress. Short for, I want to sleep now.
+
+## Usage
+
+Import the `Button` component from `@avocado-ui/react` and render like so
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+render(
+  <AvatarGroup>
+    <Avatar name='Maduka Awesome' />
+  </AvatarGroup>
+)
+```
+
+### Size
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+render(
+  <AvatarGroup>
+    <Avatar name='Maduka Awesome' size='xs' />
+    <Avatar name='Maduka Awesome' size='sm' />
+    <Avatar name='Maduka Awesome' size='md' />
+    <Avatar name='Maduka Awesome' size='lg' />
+    <Avatar name='Maduka Awesome' size='xl' />
+  </AvatarGroup>
+)
+```
+
+### Shape
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+render(
+  <AvatarGroup>
+    <Avatar name='Maduka Awesome' shape='square' />
+    <Avatar name='Maduka Awesome' shape='round' />
+    <Avatar name='Maduka Awesome' shape='curve' />
+  </AvatarGroup>
+)
+```
+
+### Image Source
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+render(
+  <AvatarGroup>
+    <Avatar
+      name='Victor Ofoegbu'
+      size='lg'
+      src='https://avatars.githubusercontent.com/u/24235881?s=400&u=b1882b58273cf6d184b35b10ef1520a429b6ebc7&v=4'
+    />
+  </AvatarGroup>
+)
+```
+
+### Accessibility
+
+### Background Color
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+render(
+  <AvatarGroup>
+    <Avatar name='Victor Ofoegbu' bgColor='red' />
+    <Avatar name='Victor Ofoegbu' bgColor='blue' />
+    <Avatar name='Victor Ofoegbu' shape='round' bgColor='rebeccapurple' />
+  </AvatarGroup>
+)
+```
+
+### Icon
+
+```jsx live noInline
+import { Avatar, AvatarGroup } from '@avocado-ui/react'
+import { User, Activity } from 'react-feather'
+
+render(
+  <AvatarGroup>
+    <Avatar name='Victor Ofoegbu' icon={<User />} />
+    <Avatar name='Victor Ofoegbu' icon={<Activity />} />
+    <Avatar name='Victor Ofoegbu' shape='round' bgColor='rebeccapurple' />
+  </AvatarGroup>
+)
+```
+
+## Props Table
+
+| property | description                                                                           | type                            | default |
+| -------- | ------------------------------------------------------------------------------------- | ------------------------------- | ------- |
+| size     | size of button                                                                        | `xs`, `sm`, `md`,`lg`, `number` | `md`    |
+| shape    | shape of button                                                                       | `round`, `square`,`curve`       | `round` |
+| alt      | Text to read out to screen readers. If not available, the value of the `name` is used | `string`                        |         |
+| name     | Name to show if image is not available                                                | `string`                        |         |
+| src      | Source for avatar image                                                               | `string`                        |         |
+| color    | color of avatar background when `src` is not specified                                | `string`                        |         |
+| icon     | icon to show when the `src` prop is not provided                                      | `React.ReactNode`               |         |
