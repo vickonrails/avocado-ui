@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/vick_onrails/avocado-ui/compare/v0.1.8...v0.1.9) (2021-04-15)
+
+
+### Features
+
+* add functionality for customizing avatar background color ([8126bfc](https://github.com/vick_onrails/avocado-ui/commit/8126bfc50a65163b3194600e74bc44afd9f55ed2))
+* enable shape prop for customizing avatar borders radius ([81aa9c0](https://github.com/vick_onrails/avocado-ui/commit/81aa9c0c1f8cb982aebc6ffa0c385a86e6b1b3e2))
+* implement sizing Avatar with number & size types ([e48da2a](https://github.com/vick_onrails/avocado-ui/commit/e48da2ac95c7b0c95466da8dccd7a6c00bcbbc1d))
+* implement support for image, icon and initials in Avatar component ([97aa62a](https://github.com/vick_onrails/avocado-ui/commit/97aa62a147d7c7207709842ba33d4bc236f13e70))
+
 ### [0.1.8](https://github.com/vick_onrails/avocado-ui/compare/v0.1.7...v0.1.8) (2021-04-14)
 
 
