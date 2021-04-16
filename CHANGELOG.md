@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/vick_onrails/avocado-ui/compare/v0.1.11...v0.1.12) (2021-04-16)
+
+
+### Bug Fixes
+
+* set default value for captionPosition ([044d347](https://github.com/vick_onrails/avocado-ui/commit/044d3473e7f4de6569282515764a592e68ad699e))
+
 ### [0.1.11](https://github.com/vick_onrails/avocado-ui/compare/v0.1.10...v0.1.11) (2021-04-16)
 
 
