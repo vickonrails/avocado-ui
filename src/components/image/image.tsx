@@ -1,20 +1,78 @@
-import React, { FC, ImgHTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, ImgHTMLAttributes } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { Shape } from '../../utils/types'
 import { imageTheme } from '../theme/components/image.theme'
+import { getFigureAlignment } from '../../utils/image'
 
 // TODO: Research more on accessibility for caption and images
-const Image: FC<ImageProps> = (props) => {
-  return <StyledImage {...props} />
+const Image: FC<ImageProps> = ({
+  caption,
+  captionPosition,
+  className,
+  captionSpacing,
+  ...props
+}) => {
+  const _className = className ? `avocado-img ${className}` : `avocado-img`
+  const position = captionPosition?.startsWith('top') ? 'top' : 'bottom'
+  // Render just default img element if caption is not present
+  if (!caption) return <StyledImage {...props} className={_className} />
+
+  return (
+    <StyledFigure
+      captionPosition={captionPosition}
+      className='avocado-img__figure'
+      maxWidth={props.size}
+    >
+      {/* Use the style attribute here because it's just easier */}
+      {/* Logic to determine vertical position of image caption */}
+      {position === 'top' && (
+        <figcaption
+          className='avocado-img__figcaption'
+          style={{ marginBottom: `${captionSpacing}px` }}
+        >
+          {captionPosition}
+        </figcaption>
+      )}
+      <StyledImage {...props} className={_className} />
+      {position === 'bottom' && (
+        <figcaption
+          className='avocado-img__figcaption'
+          style={{ marginTop: `${captionSpacing}px` }}
+        >
+          {captionPosition}
+        </figcaption>
+      )}
+    </StyledFigure>
+  )
 }
 
 // FIXME: Make Size object uniform across the design system
 type ImageSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
+// values for the object-fit CSS property
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 
+// types for different positions of the image caption
+export type CaptionPosition =
+  | 'topLeft'
+  | 'topRight'
+  | 'topCenter'
+  | 'bottomLeft'
+  | 'bottomRight'
+  | 'bottomCenter'
+interface FigureProps extends HTMLAttributes<HTMLElement> {
+  /**
+   * Vertical position to place text caption
+   */
+  captionPosition?: CaptionPosition
+
+  /**
+   * max-width of the figure element
+   */
+  maxWidth?: ImageSize | number
+}
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * specifies the size of the image. Can be either "xs", "sm", "md", "lg"
@@ -35,18 +93,19 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * specify the position for the caption text
    */
-  captionPosition?:
-    | 'topLeft'
-    | 'topRight'
-    | 'topCenter'
-    | 'bottomLeft'
-    | 'bottomRight'
-    | 'bottomCenter'
+
+  captionPosition?: CaptionPosition
 
   /**
    * specify the fit of the image. Corresponds to the object-fit CSS property
    */
   objectFit?: ObjectFit
+
+  /**
+   * spacing between the image and the figure element
+   */
+
+  captionSpacing?: number
 }
 
 const StyledImageCSS = ({ size, shape, objectFit }: ImageProps) =>
@@ -61,6 +120,22 @@ const StyledImageCSS = ({ size, shape, objectFit }: ImageProps) =>
 
 const StyledImage = styled.img`
   ${StyledImageCSS}
+`
+
+const StyledFigureCSS = ({ captionPosition, maxWidth }: FigureProps) =>
+  captionPosition &&
+  maxWidth &&
+  css`
+    figcaption {
+      text-align: ${getFigureAlignment(captionPosition)};
+    }
+    max-width: ${typeof maxWidth === 'number'
+      ? `${maxWidth}px`
+      : imageTheme.size[maxWidth]};
+  `
+
+const StyledFigure = styled.figure`
+  ${StyledFigureCSS}
 `
 
 Image.defaultProps = {
