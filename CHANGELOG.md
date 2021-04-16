@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/vick_onrails/avocado-ui/compare/v0.1.9...v0.1.10) (2021-04-16)
+
+
+### Features
+
+* add Image component ([3df0052](https://github.com/vick_onrails/avocado-ui/commit/3df005263c11352e6a66cbd454614dbaf1182349))
+* handle single word name in Avatar component ([536e932](https://github.com/vick_onrails/avocado-ui/commit/536e932ff80638b91ef4616b397e8d891c3b6f6a))
+* implement objectFit prop for specifying image fitting ([b5f83dc](https://github.com/vick_onrails/avocado-ui/commit/b5f83dcae24930ea409aac04f266e4a3cfe47fe5))
+* implement shape and size props for Image component ([c57784c](https://github.com/vick_onrails/avocado-ui/commit/c57784c2f69a412cd1b27a74389a6284384b2482))
+
 ### [0.1.9](https://github.com/vick_onrails/avocado-ui/compare/v0.1.8...v0.1.9) (2021-04-15)
 
 
