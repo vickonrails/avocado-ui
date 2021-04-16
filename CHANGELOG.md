@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/vick_onrails/avocado-ui/compare/v0.1.10...v0.1.11) (2021-04-16)
+
+
+### Features
+
+* implement caption and caption positioning for images ([a881f7e](https://github.com/vick_onrails/avocado-ui/commit/a881f7ef020fa22aa697c10b6dda183f53e613ab))
+
 ### [0.1.10](https://github.com/vick_onrails/avocado-ui/compare/v0.1.9...v0.1.10) (2021-04-16)
 
 
