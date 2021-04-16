@@ -129,6 +129,7 @@ const StyledFigureCSS = ({ captionPosition, maxWidth }: FigureProps) =>
     figcaption {
       text-align: ${getFigureAlignment(captionPosition)};
     }
+    display: inline-block;
     max-width: ${typeof maxWidth === 'number'
       ? `${maxWidth}px`
       : imageTheme.size[maxWidth]};
@@ -141,7 +142,10 @@ const StyledFigure = styled.figure`
 Image.defaultProps = {
   size: 'md',
   shape: 'square',
-  objectFit: 'fill'
+  objectFit: 'fill',
+  captionPosition: 'bottomCenter'
 }
+
+Image.displayName = 'Image'
 
 export { Image }

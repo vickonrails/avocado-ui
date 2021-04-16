@@ -15,7 +15,6 @@ const ImageDemo = () => {
         objectFit='contain'
         className='img'
         caption={imageCaption}
-        captionPosition='topLeft'
       />
       <Image
         src={ImgURL}
@@ -25,7 +24,6 @@ const ImageDemo = () => {
         objectFit='cover'
         className='img'
         caption={imageCaption}
-        captionPosition='topCenter'
       />
       <Image
         src={ImgURL}
@@ -35,7 +33,6 @@ const ImageDemo = () => {
         objectFit='fill'
         className='img'
         caption={imageCaption}
-        captionPosition='topRight'
       />
       <Image
         src={ImgURL}
@@ -45,7 +42,6 @@ const ImageDemo = () => {
         objectFit='none'
         className='img'
         caption={imageCaption}
-        captionPosition='bottomLeft'
       />
       <Image
         src={ImgURL}
@@ -55,7 +51,6 @@ const ImageDemo = () => {
         objectFit='scale-down'
         className='img'
         caption={imageCaption}
-        captionPosition='bottomCenter'
       />
       <Image
         src={ImgURL}
@@ -64,8 +59,6 @@ const ImageDemo = () => {
         size='xl'
         className='img'
         caption={imageCaption}
-        captionPosition='bottomRight'
-        captionSpacing={20}
       />
     </div>
   )
