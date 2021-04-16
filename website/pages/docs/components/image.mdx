@@ -103,6 +103,82 @@ render(
 
 ### Image Captions
 
+It's great practice to describe images with captions. Avocado provides a beautiful API for doing just that. Get started with the `caption` prop
+
+```jsx live noInline
+import { Image } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+
+render(
+  <>
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='bottomCenter'
+    />
+  </>
+)
+```
+
+You can furthermore, customize the position of the caption by setting `captionPosition` to any of `topLeft`, `topCenter`, `topRight`, `bottomLeft`, `bottomCenter` or `bottomRight`. It's set to `bottomCenter` by default.
+
+```jsx live noInline
+import { Image } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+
+render(
+  <>
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='topCenter'
+    />
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='bottomRight'
+    />
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='bottomLeft'
+    />
+  </>
+)
+```
+
+The spacing between the image and the caption might not look good to you. You can customize it by passing a number to the `captionSpacing` prop.
+
+```jsx live noInline
+import { Image } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+
+render(
+  <>
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='bottomCenter'
+      captionSpacing={30}
+    />
+    <Image
+      src={imgURL}
+      alt='Landscape with yellow sky'
+      caption='Image I took yesterday'
+      captionPosition='topCenter'
+      captionSpacing={30}
+    />
+  </>
+)
+```
+
+> Avocado is intelligent enough to know where to add the space depending on the `captionPosition` prop
+
 ## Props Table
 
 | property        | description                                                        | type                                                                                           | default        |
@@ -115,3 +191,4 @@ render(
 | height          | height of image                                                    | `number`                                                                                       |                |
 | caption         | Caption to more information about image                            | `string`                                                                                       |                |
 | captionPosition | position to show the image `caption`.                              | `topLeft`, `topCenter`, `topRight`, `bottomLeft`, `bottomCenter`, `bottomRight` `bottomCenter` | `bottomCenter` |
+| captionSpacing  | space between the image and the image caption in `px`              | `number`                                                                                       |                |
