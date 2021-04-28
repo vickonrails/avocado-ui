@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+// import isValidProp from '@emotion/is-prop-valid'
+
 import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
@@ -28,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
       buttonType={buttonType}
       {...props}
       disabled={disabled || loading}
-      loading={loading}
+      loading={loading || undefined}
       className={_classNames}
     >
       {/* Show prefix icon if prefix icon is present and loading state is not true */}
@@ -95,7 +97,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) => css`
+const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
+  shape &&
+  css`
   padding: 0.5em 0.8em;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;

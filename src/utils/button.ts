@@ -1,6 +1,7 @@
-import { ButtonShape, theme } from '../components'
+import { theme } from '../components'
+import { Shape } from '../utils/types'
 
-export const getButtonShape = (shape: ButtonShape): string => {
+export const getButtonShape = (shape: Shape): string => {
   switch (shape) {
     case 'curve':
       return theme.components.buttonTheme.borders.curve

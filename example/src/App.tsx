@@ -1,13 +1,17 @@
 import React from 'react'
-import { theme } from 'avocado-ui'
+import { theme, Button } from 'avocado-ui'
 import { ThemeProvider } from '@emotion/react'
 
-import { ImageDemo } from './components'
+import { ImageDemo, Avatar, Text, Header } from './components'
 
 const App = () => {
   return (
     // Pass custom theme to theme provider
     <ThemeProvider theme={theme}>
+      <Button loading={true}>Get Started</Button>
+      <Header>Header</Header>
+      <Text />
+      <Avatar />
       <ImageDemo />
     </ThemeProvider>
   )

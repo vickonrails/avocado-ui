@@ -1,7 +1,6 @@
 import React, { FC, SelectHTMLAttributes } from 'react'
 import { css } from '@emotion/react'
 
-import { Size } from '../button'
 import { Variant } from '../input'
 import styled from '@emotion/styled'
 import { theme } from '../theme'
@@ -28,6 +27,7 @@ const Select: FC<Select> = ({ className, options, ...props }) => {
 }
 
 export type ISelectOptions = { value: string; displayText: string }
+type SelectSize = 'sm' | 'md' | 'lg'
 
 // React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
@@ -48,7 +48,7 @@ interface Select extends SelectHTMLAttributes<HTMLSelectElement> {
   suffixIcon?: React.ReactNode
 
   // size of the select. Could be `lg`, `md` or `sm`
-  selectSize?: Size
+  selectSize?: SelectSize
 
   // shape of the border. Could be `curve`, `round` or `square`
   // FIXME: Change prop to shape

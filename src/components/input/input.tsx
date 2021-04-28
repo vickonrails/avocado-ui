@@ -2,7 +2,6 @@ import React, { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { theme } from '../theme'
-import { Size } from '../button'
 import { getBorderRadius, getInputIconSize } from '../../utils/input'
 import InputIcon from './input-icon'
 import { Shape } from '../../utils/types'
@@ -46,6 +45,8 @@ const Input: FC<Input> = ({
 export type Variant = 'fill' | 'outline' | 'unstyled'
 export type BorderRadius = 'curve' | 'square' | 'round'
 
+type InputSize = 'sm' | 'md' | 'lg'
+
 interface Input extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * set variant of input. Can be "filled", "unstyled", "outline"
@@ -74,7 +75,7 @@ interface Input extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * set the size of the input. Can be "sm", "md", "lg"
    */
-  inputSize?: Size
+  inputSize?: InputSize
 
   // FIXME: Change to shape prop
   borderRadius?: Shape

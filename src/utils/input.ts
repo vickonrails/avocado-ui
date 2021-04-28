@@ -1,4 +1,5 @@
-import { Size, theme } from '../components'
+import { theme } from '../components'
+import { Size } from '../utils/types'
 import { BorderRadius } from '../components/input'
 import borders from '../components/theme/borders'
 
