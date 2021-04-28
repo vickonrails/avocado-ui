@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-// import isValidProp from '@emotion/is-prop-valid'
+import isValidProp from '@emotion/is-prop-valid'
 
 import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
@@ -224,7 +224,10 @@ const StyledLinkButton = ({ buttonType }: ButtonProps) =>
     }
   `
 
-const StyledButton = styled('button')<ButtonProps>`
+const StyledButton = styled('button', {
+  shouldForwardProp: (prop) =>
+    isValidProp(prop) && prop !== 'loading' && prop !== 'shape'
+})<ButtonProps>`
   ${BaseButton}
   ${StyledSolidButton}
   ${StyledOutlineButton}
