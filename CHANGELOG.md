@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/vick_onrails/avocado-ui/compare/v0.1.12...v0.1.13) (2021-04-28)
+
+
+### Features
+
+* implement global CSS style; fixes [#4](https://github.com/vick_onrails/avocado-ui/issues/4) ([8417462](https://github.com/vick_onrails/avocado-ui/commit/8417462aa5e0966c8f39d971b04860e0210931e6))
+
+
+### Bug Fixes
+
+* bug breaking build ([3099ab6](https://github.com/vick_onrails/avocado-ui/commit/3099ab6d982a32cd2158f0fa524480cf2954147f))
+* emotion passing invalid props into DOM; fixes 3 ([64ab4ed](https://github.com/vick_onrails/avocado-ui/commit/64ab4ed7baa8883029c9a480d419a63a09703bce))
+
+
+### Chores
+
+* bump up @avocado-ui/react version in docs ([29adea1](https://github.com/vick_onrails/avocado-ui/commit/29adea14db4977f419fb518e499bae57b69f7bdd))
+
 ### [0.1.12](https://github.com/vick_onrails/avocado-ui/compare/v0.1.11...v0.1.12) (2021-04-16)
 
 
