@@ -32,11 +32,11 @@ const StyledFlexCSS = ({
   width: 100%;
 
   // hack to implement flex gap on flexbox
-  margin: calc(${gap} / -2) calc(${gap} / -2);
+  margin: calc(${gap}px / -2) calc(${gap}px / -2);
 
   // margin on the flex child component
   > .avocado-flex__item {
-    margin: calc(${gap} / 2) calc(${gap} / 2);
+    margin: calc(${gap}px / 2) calc(${gap}px / 2);
   }
 `
 
@@ -58,7 +58,7 @@ interface FlexProps
   extends Pick<CSSProperties, FlexContainerProps>,
     HTMLAttributes<HTMLDivElement> {
   // FIXME: use appropriate types
-  gap?: any
+  gap?: number
 }
 
 // setup default properties

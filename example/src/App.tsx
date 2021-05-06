@@ -9,12 +9,7 @@ const App = () => {
     // Pass custom theme to theme provider
     <ThemeProvider theme={theme}>
       <CSSReset />
-      <Flex
-        alignContent='stretch'
-        className='new_flex'
-        flexWrap='wrap'
-        gap='5px'
-      >
+      <Flex alignContent='stretch' className='new_flex' flexWrap='wrap' gap={5}>
         <FlexItem flex='900px'>
           <Button loading={true}>Get Started</Button>
         </FlexItem>
@@ -24,7 +19,7 @@ const App = () => {
         </FlexItem>
 
         <FlexItem>
-          <Flex gap='20px'>
+          <Flex gap={20}>
             <FlexItem>
               <Text />
             </FlexItem>

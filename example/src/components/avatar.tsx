@@ -6,7 +6,7 @@ import AvatarImg from '../images/avatar.jpg'
 
 const AvatarComponent = () => {
   return (
-    <Flex gap='10px'>
+    <Flex gap={10}>
       <FlexItem>
         <Avatar name='Mathew KE' size='xs' />
       </FlexItem>
