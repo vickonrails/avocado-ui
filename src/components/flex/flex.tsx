@@ -35,7 +35,7 @@ const StyledFlexCSS = ({
   margin: calc(${gap}px / -2) calc(${gap}px / -2);
 
   // margin on the flex child component
-  > .avocado-flex__item {
+  > * {
     margin: calc(${gap}px / 2) calc(${gap}px / 2);
   }
 `
