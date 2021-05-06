@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/vick_onrails/avocado-ui/compare/v0.1.13...v0.1.14) (2021-05-06)
+
+
+### Features
+
+* **flex:** implement flex container component ([8a7ff15](https://github.com/vick_onrails/avocado-ui/commit/8a7ff1551e409d4246bfe540acaea621f79007e7))
+* **flex-item:** implement flex item component ([8683f31](https://github.com/vick_onrails/avocado-ui/commit/8683f31e98fb3fe1f7f7581de1c25944e097fa9d))
+
+
+### Bug Fixes
+
+* implement grid gap fix on flex component ([96f5fa6](https://github.com/vick_onrails/avocado-ui/commit/96f5fa6d2e161143058d372d70bb18b101516d1a))
+* switch up gap prop from string to number ([4c74b09](https://github.com/vick_onrails/avocado-ui/commit/4c74b095c3c69a783dbb692daded7b34f1321c0d))
+
 ### [0.1.13](https://github.com/vick_onrails/avocado-ui/compare/v0.1.12...v0.1.13) (2021-04-28)
 
 
