@@ -9,17 +9,30 @@ const App = () => {
     // Pass custom theme to theme provider
     <ThemeProvider theme={theme}>
       <CSSReset />
-      <Flex flexDirection='row' alignContent='stretch' className='new_flex'>
-        <FlexItem>
+      <Flex
+        // flexDirection='row'
+        alignContent='stretch'
+        className='new_flex'
+        flexWrap='wrap'
+      >
+        <FlexItem flex='900px'>
           <Button loading={true}>Get Started</Button>
         </FlexItem>
 
-        <FlexItem>
+        <FlexItem flex={1}>
           <Header>Header</Header>
         </FlexItem>
 
         <FlexItem>
-          <Text />
+          <Flex>
+            <FlexItem>
+              <Text />
+            </FlexItem>
+
+            <FlexItem>
+              <Text />
+            </FlexItem>
+          </Flex>
         </FlexItem>
 
         <FlexItem>

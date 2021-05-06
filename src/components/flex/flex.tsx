@@ -24,9 +24,9 @@ const StyledFlexCSS = ({
   display: flex;
   align-items: ${alignItems};
   align-content: ${alignContent};
-  justify-content: ${justifyContent};
-  flex-wrap: ${flexWrap};
-  flex-flow: ${flexFlow};
+  justify-content: ${justifyContent && justifyContent};
+  flex-wrap: ${flexWrap && flexWrap};
+  flex-flow: ${flexFlow && flexFlow};
   flex-direction: ${flexDirection};
 `
 
@@ -34,7 +34,7 @@ const StyledFlex = styled.div`
   ${StyledFlexCSS}
 `
 
-// This is a list of all the possible CSS properties on the flex container component
+// This is a list of all the possible CSS properties on the flex container
 type FlexContainerProps =
   | 'flexWrap'
   | 'alignContent'
@@ -52,7 +52,6 @@ interface FlexProps
 Flex.defaultProps = {
   flexWrap: 'nowrap',
   alignContent: 'normal',
-  flexFlow: 'row nowrap',
   justifyContent: 'normal',
   alignItems: 'stretch',
   flexDirection: 'row'
