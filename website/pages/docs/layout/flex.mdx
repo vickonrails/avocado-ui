@@ -1,0 +1,163 @@
+---
+title: Flex
+section: Layout
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Flex, FlexItem, Image, Button } from '@avocado-ui/react'
+
+<!-- Define `@avocado-ui/react` module as `{ Button }` -->
+
+<LiveConfig
+  modules={{ '@avocado-ui/react': { Flex, FlexItem, Image, Button } }}
+/>
+
+# Flex
+
+The `Flex` component wraps around a basic `div` element enhanced with flexbox container properties.
+
+> Work In Progress
+
+## Usage
+
+Import the `Flex` component from `@avocado-ui/react` and use like so
+
+```jsx live noInline
+import { Flex, Image } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <Flex alignItems='flex-start'>
+    <Image src={imgURL} alt={altText} />
+    <Image src={imgURL} alt={altText} />
+    <Image src={imgURL} alt={altText} />
+  </Flex>
+)
+```
+
+### Flex Children
+
+Using just the `Flex` component solve your layout needs. But if you want more control over the flex children, import and wrap the child with the `FlexItem` component from `avocado`. This way, you can use any of the [flex item properties](https://www.w3schools.com/css/css3_flexbox_items.asp).
+
+```jsx live noInline
+import { Flex, Image, FlexItem } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <Flex>
+    <FlexItem flex={1}>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+    <FlexItem flex={1}>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+    <FlexItem flex={1}>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+  </Flex>
+)
+```
+
+### Spacing Elements
+
+Use the `gap` prop to specify space between flex items.
+
+Having uniform spacing between flex items is a tricky challenge. Avocado does the dirty work underneath, so you can focus on making your layouts look exactly how you want them to.
+
+```jsx live noInline
+import { Flex, Image, FlexItem } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <Flex gap={15}>
+    <FlexItem>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+    <FlexItem>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+    <FlexItem>
+      <Image src={imgURL} alt={altText} />
+    </FlexItem>
+  </Flex>
+)
+```
+
+> The `gap` prop receives an number, but converts it to pixels underneath. However, the spacing does not affect the last element.
+
+### Flex Direction
+
+Change the main-axis orientation of the flex items with the `flexDirection` prop on the `Flex` component. In the example below, `flexDirection` is set to `column`. It's set to the default (`row`) in the second. See more on the [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+
+Possible values are `column` | `column-reverse` | `row` | `row-reverse` | `initial` | `revert` | `unset`
+
+```jsx live noInline
+import { Flex, Image, FlexItem } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5} flexDirection='column'>
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+    </Flex>
+
+    <br />
+
+    <Flex gap={5} flexDirection='row'>
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+    </Flex>
+  </>
+)
+```
+
+### Align Items
+
+Controls the orientation of flex children on the cross axis with the `alignContent` prop. Below is an example of how we would center flex items on the cross axis.
+
+```jsx live noInline
+import { Flex, Image, FlexItem, Button } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5} alignItems='center'>
+      <p>Flex Item</p>
+      <Image src={imgURL} alt={altText} />
+      <Button>Random Button Element</Button>
+    </Flex>
+  </>
+)
+```
+
+### Justify Content
+
+---
+
+## `Flex` Props Table
+
+| property       | description                            | type                                       | default   |
+| -------------- | -------------------------------------- | ------------------------------------------ | --------- |
+| flexWrap       | size of button                         | `sm`, `md`,`lg`                            | `nowrap`  |
+| alignContent   | shape of button                        | `round`, `curve`,`square`                  | `normal`  |
+| flexFlow       | Component by the left of the button    | `none`                                     | `row`     |
+| justifyContent | Component by the right of the button   | `none`                                     | `normal`  |
+| alignItems     | trim text longer than a certain length | `number`                                   | `stretch` |
+| flexDirection  | variant of the button                  | `primary`, `secondary`, `warning`, `error` | `row`     |
+
+## `FlexItem` Props Table
+
+| property   | description                            | type                                       | default   |
+| ---------- | -------------------------------------- | ------------------------------------------ | --------- |
+| order      | size of button                         | `sm`, `md`,`lg`                            | `nowrap`  |
+| flexGrow   | shape of button                        | `round`, `curve`,`square`                  | `normal`  |
+| flexShrink | Component by the left of the button    | `none`                                     | `row`     |
+| flexBasis  | Component by the right of the button   | `none`                                     | `normal`  |
+| flex       | trim text longer than a certain length | `number`                                   | `stretch` |
+| alignSelf  | variant of the button                  | `primary`, `secondary`, `warning`, `error` | `row`     |

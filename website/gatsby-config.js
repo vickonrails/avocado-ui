@@ -9,7 +9,7 @@ module.exports = {
         siteUrl: 'http://avocado-ui.vercel.app/',
         navItems: [{ title: 'Docs', url: '/docs/' }],
         githubRepositoryURL: 'https://github.com/vickOnRails/avocado-ui',
-        sections: ['Getting-Started', 'Components', 'Open-Source'],
+        sections: ['Getting-Started', 'Components', 'Layout', 'Open-Source'],
         twitterAccount: 'vick_onrails'
       }
     },
