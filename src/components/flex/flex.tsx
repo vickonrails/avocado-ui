@@ -35,7 +35,7 @@ const StyledFlexCSS = ({
   margin: calc(${gap}px / -2) calc(${gap}px / -2);
 
   // margin on the flex child component
-  > * {
+  > {
     margin: calc(${gap}px / 2) calc(${gap}px / 2);
   }
 `
@@ -66,7 +66,7 @@ Flex.defaultProps = {
   flexWrap: 'nowrap',
   alignContent: 'normal',
   justifyContent: 'normal',
-  alignItems: 'stretch',
+  alignItems: 'flex-start',
   flexDirection: 'row'
 }
 
