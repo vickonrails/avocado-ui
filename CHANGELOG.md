@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/vick_onrails/avocado-ui/compare/v0.1.14...v0.1.15) (2021-05-06)
+
+
+### Bug Fixes
+
+* all children under Flex are flex children ([ee98ac1](https://github.com/vick_onrails/avocado-ui/commit/ee98ac16a0f778708271f8914d9dabccb15b2e24))
+
+
+### Chores
+
+* move changelog to website ([05a2db3](https://github.com/vick_onrails/avocado-ui/commit/05a2db3908b51439ceed55c39a9b7e7a5ee5c5c0))
+
 ### [0.1.14](https://github.com/vick_onrails/avocado-ui/compare/v0.1.13...v0.1.14) (2021-05-06)
 
 
