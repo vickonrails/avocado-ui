@@ -1,30 +1,47 @@
 import React from 'react'
-import { Avatar, AvatarGroup } from 'avocado-ui'
+import { Avatar, Flex, FlexItem } from 'avocado-ui'
 import { Radio } from 'react-feather'
 
 import AvatarImg from '../images/avatar.jpg'
 
 const AvatarComponent = () => {
   return (
-    <AvatarGroup>
-      <Avatar name='Mathew KE' size='xs' />
-      <Avatar name='Mathew KE' size='sm' />
-      <Avatar name='Mathew KE' size='md' shape='curve' />
-      <Avatar name='Mathew KE' size='lg' />
-      <Avatar
-        name='Mathew KE'
-        size='xl'
-        shape='curve'
-        bgColor='rebeccapurple'
-      />
-      <Avatar
-        name='Mathew KE'
-        size={200}
-        icon={<Radio />}
-        shape='square'
-        src={AvatarImg}
-      />
-    </AvatarGroup>
+    <Flex gap='10px'>
+      <FlexItem>
+        <Avatar name='Mathew KE' size='xs' />
+      </FlexItem>
+
+      <FlexItem>
+        <Avatar name='Mathew KE' size='sm' />
+      </FlexItem>
+
+      <FlexItem>
+        <Avatar name='Mathew KE' size='md' shape='curve' />
+      </FlexItem>
+
+      <FlexItem>
+        <Avatar name='Mathew KE' size='lg' />
+      </FlexItem>
+
+      <FlexItem>
+        <Avatar
+          name='Mathew KE'
+          size='xl'
+          shape='curve'
+          bgColor='rebeccapurple'
+        />
+      </FlexItem>
+
+      <FlexItem>
+        <Avatar
+          name='Mathew KE'
+          size={200}
+          icon={<Radio />}
+          shape='square'
+          src={AvatarImg}
+        />
+      </FlexItem>
+    </Flex>
   )
 }
 

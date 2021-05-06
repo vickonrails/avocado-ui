@@ -17,6 +17,7 @@ const StyledFlexCSS = ({
   flexFlow,
   flexWrap,
   alignContent,
+  gap,
   justifyContent,
   flexDirection,
   alignItems
@@ -28,6 +29,15 @@ const StyledFlexCSS = ({
   flex-wrap: ${flexWrap && flexWrap};
   flex-flow: ${flexFlow && flexFlow};
   flex-direction: ${flexDirection};
+  width: 100%;
+
+  // hack to implement flex gap on flexbox
+  margin: calc(${gap} / -2) calc(${gap} / -2);
+
+  // margin on the flex child component
+  > .avocado-flex__item {
+    margin: calc(${gap} / 2) calc(${gap} / 2);
+  }
 `
 
 const StyledFlex = styled.div`
@@ -46,7 +56,10 @@ type FlexContainerProps =
 // extend and pick Flex container properties from CSSProperties
 interface FlexProps
   extends Pick<CSSProperties, FlexContainerProps>,
-    HTMLAttributes<HTMLDivElement> {}
+    HTMLAttributes<HTMLDivElement> {
+  // FIXME: use appropriate types
+  gap?: any
+}
 
 // setup default properties
 Flex.defaultProps = {

@@ -2,10 +2,18 @@ import React, { CSSProperties, FC, HTMLAttributes } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-const FlexItem: FC<FlexItemProps> = ({ children, ...props }) => {
-  return <StlyedFlexItem {...props}>{children}</StlyedFlexItem>
+const FlexItem: FC<FlexItemProps> = ({ className, children, ...props }) => {
+  const _className = className
+    ? `${className} avocado-flex__item`
+    : `avocado-flex__item`
+  return (
+    <StlyedFlexItem {...props} className={_className}>
+      {children}
+    </StlyedFlexItem>
+  )
 }
 
+// define possible CSS properties for flex children
 type FlexChildrenProps =
   | 'order'
   | 'flexGrow'
@@ -14,6 +22,7 @@ type FlexChildrenProps =
   | 'flex'
   | 'alignSelf'
 
+// interface for managing FlexItem
 interface FlexItemProps
   extends HTMLAttributes<HTMLDivElement>,
     Pick<CSSProperties, FlexChildrenProps> {}
@@ -25,6 +34,7 @@ const StyledFlexItemCSS = ({
   flexShrink,
   flexBasis,
   flex,
+  //   gap,
   alignSelf
 }: FlexItemProps) => css`
   order: ${order && order};
@@ -39,10 +49,6 @@ const StlyedFlexItem = styled.div`
   ${StyledFlexItemCSS}
 `
 
-FlexItem.defaultProps = {
-  flexBasis: 'auto',
-  flex: 'auto',
-  alignSelf: 'auto'
-}
+FlexItem.displayName = 'FlexItem'
 
 export { FlexItem }

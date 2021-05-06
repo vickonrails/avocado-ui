@@ -4,19 +4,19 @@ import { Text } from 'avocado-ui'
 const TextComponent = () => {
   return (
     <div>
-      <Text align='center'>
+      <Text>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Exercitationem, adipisci laudantium! Aliquid autem velit fugiat, cumque
         eius necessitatibus ullam tempora quam pariatur nisi laboriosam,
         voluptate adipisci odit voluptas, explicabo sint!
       </Text>
-      <Text align='right'>
+      <Text>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Exercitationem, adipisci laudantium! Aliquid autem velit fugiat, cumque
         eius necessitatibus ullam tempora quam pariatur nisi laboriosam,
         voluptate adipisci odit voluptas, explicabo sint!
       </Text>
-      <Text size='xl' trim={20}>
+      <Text trim={20}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
         Exercitationem, adipisci laudantium! Aliquid autem velit fugiat, cumque
         eius necessitatibus ullam tempora quam pariatur nisi laboriosam,

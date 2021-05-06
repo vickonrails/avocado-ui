@@ -10,10 +10,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CSSReset />
       <Flex
-        // flexDirection='row'
         alignContent='stretch'
         className='new_flex'
         flexWrap='wrap'
+        gap='5px'
       >
         <FlexItem flex='900px'>
           <Button loading={true}>Get Started</Button>
@@ -24,7 +24,7 @@ const App = () => {
         </FlexItem>
 
         <FlexItem>
-          <Flex>
+          <Flex gap='20px'>
             <FlexItem>
               <Text />
             </FlexItem>
@@ -39,9 +39,7 @@ const App = () => {
           <Avatar />
         </FlexItem>
 
-        <FlexItem>
-          <ImageDemo />
-        </FlexItem>
+        <ImageDemo />
       </Flex>
     </ThemeProvider>
   )
