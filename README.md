@@ -58,9 +58,10 @@ Foundations
 
 Layout
 
+- [x] Flex
 - [ ] Grid
 - [ ] Stack
-- [ ] Flex
+- [ ] Box
 
 Components
 
@@ -71,7 +72,7 @@ Components
 - [ ] Dialog
 - [ ] Dropdown
 - [x] Input
-- [ ] Image
+- [x] Image
 - [ ] Modal
 - [ ] Radio Group
 - [ ] Select
