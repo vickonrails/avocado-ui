@@ -57,7 +57,6 @@ type FlexContainerProps =
 interface FlexProps
   extends Pick<CSSProperties, FlexContainerProps>,
     HTMLAttributes<HTMLDivElement> {
-  // FIXME: use appropriate types
   gap?: number
 }
 
