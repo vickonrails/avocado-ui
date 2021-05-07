@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/vick_onrails/avocado-ui/compare/v0.1.15...v0.1.16) (2021-05-07)
+
+
+### Bug Fixes
+
+* change default values for Flex component ([afe878d](https://github.com/vick_onrails/avocado-ui/commit/afe878dde395388993850fa1c8f18651203c2118))
+* set default align-items to flex-start ([30f1605](https://github.com/vick_onrails/avocado-ui/commit/30f1605328b6d0a43bf1db27a7f8706995c1a235))
+
 ### [0.1.15](https://github.com/vick_onrails/avocado-ui/compare/v0.1.14...v0.1.15) (2021-05-06)
 
 
