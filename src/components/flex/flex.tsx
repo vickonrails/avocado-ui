@@ -65,8 +65,8 @@ interface FlexProps
 Flex.defaultProps = {
   flexWrap: 'nowrap',
   alignContent: 'normal',
-  justifyContent: 'normal',
-  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  alignItems: 'stretch',
   flexDirection: 'row'
 }
 
