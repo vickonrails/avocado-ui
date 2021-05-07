@@ -16,8 +16,6 @@ import { Flex, FlexItem, Image, Button } from '@avocado-ui/react'
 
 The `Flex` component wraps around a basic `div` element enhanced with flexbox container properties.
 
-> Work In Progress
-
 ## Usage
 
 Import the `Flex` component from `@avocado-ui/react` and use like so
@@ -38,7 +36,9 @@ render(
 
 ### Flex Children
 
-Using just the `Flex` component solve your layout needs. But if you want more control over the flex children, import and wrap the child with the `FlexItem` component from `avocado`. This way, you can use any of the [flex item properties](https://www.w3schools.com/css/css3_flexbox_items.asp).
+The `Flex` component can solve your basic layout needs. But if you want more control over the flex children, import and wrap the child component with the `FlexItem` component from `avocado`. This way, you can use any of the [flex item properties](https://www.w3schools.com/css/css3_flexbox_items.asp).
+
+Take for example, the `flex` prop used to specify the width of a flex child.
 
 ```jsx live noInline
 import { Flex, Image, FlexItem } from '@avocado-ui/react'
@@ -59,6 +59,8 @@ render(
   </Flex>
 )
 ```
+
+> All flex child CSS properties are available as props on the `FlexItem` component.
 
 ### Spacing Elements
 
@@ -90,7 +92,7 @@ render(
 
 ### Flex Direction
 
-Change the main-axis orientation of the flex items with the `flexDirection` prop on the `Flex` component. In the example below, `flexDirection` is set to `column`. It's set to the default (`row`) in the second. See more on the [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+Change the main-axis orientation of the flex items with the `flexDirection` prop on the `Flex` parent. In the example below, `flexDirection` is set to `column`. It's set to the default (`row`) in the second. See more on the [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
 
 Possible values are `column` | `column-reverse` | `row` | `row-reverse` | `initial` | `revert` | `unset`
 
@@ -116,9 +118,36 @@ render(
 )
 ```
 
+### Justify Content
+
+Specify how the flex items are arranged along the main axis. Possible values are `flex-start`, `flex-end`, `center`, `space-around`, `space-between`, `space-evenly`.
+Below is an example with `justifyContent` set to `flex-start`.
+
+```jsx live noInline
+import { Flex, Image, FlexItem, Button } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5} justifyContent='flex-end'>
+      <FlexItem>
+        <p>Flex Item</p>
+      </FlexItem>
+      <FlexItem>
+        <Image src={imgURL} alt={altText} />
+      </FlexItem>
+      <FlexItem>
+        <Button>Random Button Element</Button>
+      </FlexItem>
+    </Flex>
+  </>
+)
+```
+
 ### Align Items
 
-Controls the orientation of flex children on the cross axis with the `alignContent` prop. Below is an example of how we would center flex items on the cross axis.
+Control the orientation of flex children on the cross axis with the `alignContent` prop. Below is an example of how we would center flex items on the cross axis.
 
 ```jsx live noInline
 import { Flex, Image, FlexItem, Button } from '@avocado-ui/react'
@@ -136,28 +165,146 @@ render(
 )
 ```
 
-### Justify Content
+### Align Content
 
----
+`alignContent` sets the distribution of space between and around content items along a flexbox's cross-axis.
+
+There's a huge confusion between `align-items` and `align-content`. I'll avoid going over it here, but you can see [What's the difference between align-content and align-items?
+](https://stackoverflow.com/questions/27539262/whats-the-difference-between-align-content-and-align-items) for more clarity
+
+Possible values are `start`,`end`, `flex-start`, `flex-end`, `center`, `normal`, `baseline`, `first baseline`, `last baseline`, `space-between`, `space-around`, `space-evenly`, `stretch`, `safe`, `unsafe`.
+
+Here's an example of centering all flex items across the whole cross axis.
+
+> The most important thing to know about the `alignContent` prop is that it only works when flex items span multiple rows.
+
+```jsx live noInline
+import { Flex, Image, FlexItem, Button } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex
+      gap={5}
+      alignContent='center'
+      flexWrap='wrap'
+      style={{ height: '300px', border: '1px solid red' }}
+    >
+      <FlexItem>
+        <p>Flex Item</p>
+      </FlexItem>
+      <FlexItem>
+        <Image src={imgURL} alt={altText} />
+      </FlexItem>
+      <FlexItem>
+        <Button>Random Button Element</Button>
+      </FlexItem>
+      <FlexItem>
+        <Button>Random Button Element</Button>
+      </FlexItem>
+      <FlexItem>
+        <Button>Random Button Element</Button>
+      </FlexItem>
+    </Flex>
+  </>
+)
+```
+
+### Flex Wrap
+
+Just like the `flex-wrap` CSS property, you can specify the behavior of flex items when they exceed the specified container width.
+Possible values are `nowrap`, `wrap` and `wrap-reverse`.
+
+Below is an example of `flexWrap` value, `nowrap`, Notice all elements are squeezed into the column.
+
+```jsx live noInline
+import { Flex, Image, FlexItem, Button } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5}>
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+    </Flex>
+  </>
+)
+```
+
+Here's another example with `flexWrap` set to `wrap`. Other flex items wrap and go to the next row when there's no longer space for them.
+
+```jsx live noInline
+import { Flex, Image, FlexItem } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5} flexWrap='wrap'>
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+    </Flex>
+  </>
+)
+```
+
+### Flex Flow
+
+Shorthand value for `flex-direction` and `flex-wrap`. Default value is `row nowrap`. Possible values are a combination of both properties.
+
+```jsx live noInline
+import { Flex, Image, FlexItem } from '@avocado-ui/react'
+const imgURL = 'https://images.unsplash.com/photo-1543414347-1c348021f279?w=300'
+const altText = 'Large, white tower'
+
+render(
+  <>
+    <Flex gap={5} flexFlow='row wrap'>
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+      <Image src={imgURL} alt={altText} />
+    </Flex>
+  </>
+)
+```
 
 ## `Flex` Props Table
 
-| property       | description                            | type                                       | default   |
-| -------------- | -------------------------------------- | ------------------------------------------ | --------- |
-| flexWrap       | size of button                         | `sm`, `md`,`lg`                            | `nowrap`  |
-| alignContent   | shape of button                        | `round`, `curve`,`square`                  | `normal`  |
-| flexFlow       | Component by the left of the button    | `none`                                     | `row`     |
-| justifyContent | Component by the right of the button   | `none`                                     | `normal`  |
-| alignItems     | trim text longer than a certain length | `number`                                   | `stretch` |
-| flexDirection  | variant of the button                  | `primary`, `secondary`, `warning`, `error` | `row`     |
+| property       | description                                                | type                                                                                                                                                  | default      |
+| -------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| flexWrap       | Control wrapping of flex children                          | `nowrap`, `wrap`, `wrap-reverse`                                                                                                                      | `nowrap`,    |
+| alignContent   | How to distribute extra space in the cross-axis            | `flex-start` , `flex-end` , `center` , `space-between` , `space-around` , `space-evenly` , `stretch` , `start` , `end` , `baseline`, `first baseline` | `normal`     |
+| flexFlow       | Short hand for `flex-direction` and `flex-wrap` properties | `none`                                                                                                                                                | `row nowrap` |
+| justifyContent | Controls alignment along the main axis                     | ``flex-start` , `flex-end` , `center` , `space-between` , `space-around` , `space-evenly` , `start` , `end` , `left`, `right`, `safe`                 | `flex-start` |
+| alignItems     | Controls alignment along the cross axis                    | `stretch` ,` flex-start` , `flex-end`, `center`, `baseline`, `first baseline`, `last baseline`, `start` , `end` , `self-start`, `self-end`            | `stretch`    |
+| flexDirection  | Specifies the main axis of the flex                        | `row`, `row-reverse`, `column`, `column-reverse`                                                                                                      | `row`        |
 
 ## `FlexItem` Props Table
 
-| property   | description                            | type                                       | default   |
-| ---------- | -------------------------------------- | ------------------------------------------ | --------- |
-| order      | size of button                         | `sm`, `md`,`lg`                            | `nowrap`  |
-| flexGrow   | shape of button                        | `round`, `curve`,`square`                  | `normal`  |
-| flexShrink | Component by the left of the button    | `none`                                     | `row`     |
-| flexBasis  | Component by the right of the button   | `none`                                     | `normal`  |
-| flex       | trim text longer than a certain length | `number`                                   | `stretch` |
-| alignSelf  | variant of the button                  | `primary`, `secondary`, `warning`, `error` | `row`     |
+| property   | description                                                   | type                                                               | default |
+| ---------- | ------------------------------------------------------------- | ------------------------------------------------------------------ | ------- |
+| order      | Controls the order in which they appear in the flex container | `number`                                                           | 0       |
+| flexGrow   | Defines the ability for a flex item to grow if necessary      | `number`                                                           | 0       |
+| flexShrink | Defines the ability for a flex item to shrink if necessary.   | `number`                                                           | 0       |
+| flexBasis  | Specifies the size of a flex item                             | `number`                                                           | `auto`  |
+| flex       | Shorthand for `flex-grow`, `flex-shrink` & `flex-basis`       | `flex-grow` - `flex-shrink` - `flex-basis`                         | `auto`  |
+| alignSelf  | Specifies the alignment of a flex child along the cross axis  | `auto` , `flex-start`, `flex-end`, `center`, `baseline`, `stretch` | `auto`  |
