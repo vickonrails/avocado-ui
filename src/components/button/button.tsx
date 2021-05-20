@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef, Ref } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import isValidProp from '@emotion/is-prop-valid'
@@ -12,15 +12,9 @@ import { Shape } from '../../utils/types'
 /**
  * Button - Renders a clickable item to the browser
  */
-const Button: React.FC<ButtonProps> = ({
-  buttonType,
-  trim,
-  prefixIcon,
-  suffixIcon,
-  disabled,
-  loading,
-  ...props
-}) => {
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const { buttonType, trim, prefixIcon, suffixIcon, disabled, loading } = props
   const _classNames = props.className
     ? `avocado-btn ${props.className}`
     : `avocado-btn`
@@ -32,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       loading={loading || undefined}
       className={_classNames}
+      ref={ref}
     >
       {/* Show prefix icon if prefix icon is present and loading state is not true */}
       {prefixIcon && !loading && (
@@ -51,7 +46,8 @@ const Button: React.FC<ButtonProps> = ({
       )}
     </StyledButton>
   )
-}
+})
+// const Button: React.FC<ButtonProps> =
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
@@ -92,6 +88,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    * prefix. Show element to the right of the button
    */
   suffixIcon?: React.ReactNode
+
+  /**
+   * ref. used for directly controlling dom element
+   */
+  ref?: Ref<HTMLButtonElement>
 }
 
 /**
