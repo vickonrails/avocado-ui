@@ -7,6 +7,7 @@ import {
   ModalTitle,
   ModalOverlay,
   ModalContent,
+  ModalFooter,
   Flex
 } from 'avocado-ui'
 import { ThemeProvider } from '@emotion/react'
@@ -40,19 +41,22 @@ const App = () => {
             similique nemo et illo ut odit repellendus animi sapiente architecto
             doloremque quidem.
           </p>
-          <Flex gap={5} justifyContent='flex-start'>
-            <Button size='sm'>One Thing</Button>
 
-            <Button
-              size='sm'
-              onClick={() => setModalOpen(false)}
-              variant='error'
-              ref={initialBtnRef}
-              buttonType='ghost'
-            >
-              Close
-            </Button>
-          </Flex>
+          <ModalFooter>
+            <Flex gap={5} justifyContent='flex-start'>
+              <Button size='sm'>One Thing</Button>
+
+              <Button
+                size='sm'
+                onClick={() => setModalOpen(false)}
+                variant='error'
+                ref={initialBtnRef}
+                buttonType='ghost'
+              >
+                Close
+              </Button>
+            </Flex>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </ThemeProvider>
