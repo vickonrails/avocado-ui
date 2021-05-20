@@ -12,7 +12,7 @@ import {
 import { ThemeProvider } from '@emotion/react'
 
 const App = () => {
-  const [modalOpen, setMoalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   const initialBtnRef = useRef(null)
   return (
     <ThemeProvider theme={theme}>
@@ -23,38 +23,37 @@ const App = () => {
         Blanditiis sapiente eos reiciendis mollitia incidunt eaque impedit,
         architecto illo dolores beatae.
       </p>
-      <Button size='sm' onClick={() => setMoalOpen(true)}>
+      <Button size='sm' onClick={() => setModalOpen(true)}>
         Hey
       </Button>
       <Modal
         open={modalOpen}
-        onClose={() => <p>hey</p>}
+        onClose={() => setModalOpen(false)}
         initialFocus={initialBtnRef}
       >
-        <ModalOverlay>
-          <ModalContent>
-            <ModalTitle as='h5'>Children</ModalTitle>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
-              veritatis provident esse recusandae veniam harum tenetur, placeat
-              ea similique nemo et illo ut odit repellendus animi sapiente
-              architecto doloremque quidem.
-            </p>
-            <Flex gap={5} justifyContent='flex-start'>
-              <Button size='sm'>One Thing</Button>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalTitle as='h5'>Children</ModalTitle>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            veritatis provident esse recusandae veniam harum tenetur, placeat ea
+            similique nemo et illo ut odit repellendus animi sapiente architecto
+            doloremque quidem.
+          </p>
+          <Flex gap={5} justifyContent='flex-start'>
+            <Button size='sm'>One Thing</Button>
 
-              <Button
-                size='sm'
-                onClick={() => setMoalOpen(false)}
-                variant='error'
-                ref={initialBtnRef}
-                buttonType='ghost'
-              >
-                Close
-              </Button>
-            </Flex>
-          </ModalContent>
-        </ModalOverlay>
+            <Button
+              size='sm'
+              onClick={() => setModalOpen(false)}
+              variant='error'
+              ref={initialBtnRef}
+              buttonType='ghost'
+            >
+              Close
+            </Button>
+          </Flex>
+        </ModalContent>
       </Modal>
     </ThemeProvider>
   )

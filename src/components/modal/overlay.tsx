@@ -24,7 +24,7 @@ const ModalOverlay: FC<HTMLAttributes<HTMLElement>> = ({
 }
 
 const StyledOverlay = styled<any>(Overlay)`
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -32,7 +32,7 @@ const StyledOverlay = styled<any>(Overlay)`
   align-items: flex-start;
   left: 0;
   right: 0;
-  zindex: -1;
+  z-index: -1;
 `
 
 export { ModalOverlay }

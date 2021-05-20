@@ -30,10 +30,11 @@ interface ModalContentProps extends HTMLAttributes<HTMLElement> {
 
 const StyledModalContent = styled<any>(Description)`
   background: white;
-  margin: 2em auto 0;
+  margin: 0 auto;
   max-width: 500px;
   padding: 1em;
   border-radius: 4px;
+  border-bottom: 1px solid red;
 `
 
 export { ModalContent }

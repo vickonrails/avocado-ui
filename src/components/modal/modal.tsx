@@ -36,9 +36,9 @@ const Modal: FC<ModalProps> = ({
 type ModalProps = PrimitiveModalProps & HTMLAttributes<HTMLElement>
 
 const StyledModal = styled<any>(Dialog)`
-  position: 'fixed',
-  zIndex: 10,
-  width: '100%'
+  position: fixed;
+  z-index: 10;
+  width: 100%;
 `
 
 interface PrimitiveModalProps {
