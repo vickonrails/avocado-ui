@@ -6,6 +6,7 @@ import {
   Button,
   ModalTitle,
   ModalOverlay,
+  ModalContent,
   Flex
 } from 'avocado-ui'
 import { ThemeProvider } from '@emotion/react'
@@ -29,35 +30,16 @@ const App = () => {
         open={modalOpen}
         onClose={() => <p>hey</p>}
         initialFocus={initialBtnRef}
-        style={{
-          position: 'fixed',
-          zIndex: 10,
-          width: '100%'
-        }}
       >
-        <ModalOverlay
-          style={{
-            background: 'rgba(0,0,0,.7)',
-            position: 'fixed',
-            top: 0,
-            bottom: 0,
-            display: 'flex',
-            left: 0,
-            right: 0,
-            zIndex: -1
-          }}
-        >
-          <div
-            style={{
-              background: 'white',
-              margin: '2em auto 0',
-              height: '200px',
-              width: '300px',
-              padding: '.6em',
-              borderRadius: '4px'
-            }}
-          >
-            <ModalTitle as='h2'>Children</ModalTitle>
+        <ModalOverlay>
+          <ModalContent>
+            <ModalTitle as='h5'>Children</ModalTitle>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+              veritatis provident esse recusandae veniam harum tenetur, placeat
+              ea similique nemo et illo ut odit repellendus animi sapiente
+              architecto doloremque quidem.
+            </p>
             <Flex gap={5} justifyContent='flex-start'>
               <Button size='sm'>One Thing</Button>
 
@@ -66,11 +48,12 @@ const App = () => {
                 onClick={() => setMoalOpen(false)}
                 variant='error'
                 ref={initialBtnRef}
+                buttonType='ghost'
               >
                 Close
               </Button>
             </Flex>
-          </div>
+          </ModalContent>
         </ModalOverlay>
       </Modal>
     </ThemeProvider>

@@ -1,74 +1,71 @@
 import React, { ElementType, FC, HTMLAttributes } from 'react'
+import styled from '@emotion/styled'
 import { Dialog } from '@headlessui/react'
+
+/*
+ *  Modal Component
+ */
 
 const Modal: FC<ModalProps> = ({
   children,
   open,
   onClose,
-  //   destroy,
   initialFocus,
   unmount,
+  className,
   as,
   ...props
 }) => {
+  const _className = className ? `avocado-modal ${className}` : `avocado-modal`
+
   return (
-    <Dialog
+    <StyledModal
       onClose={onClose}
-      //   static={destroy}
       unmount={unmount}
-      as={as}
+      as={as || 'div'}
       initialFocus={initialFocus}
       open={open}
       {...props}
+      className={_className}
     >
       {children}
-    </Dialog>
+    </StyledModal>
   )
 }
 
 type ModalProps = PrimitiveModalProps & HTMLAttributes<HTMLElement>
 
+const StyledModal = styled<any>(Dialog)`
+  position: 'fixed',
+  zIndex: 10,
+  width: '100%'
+`
+
 interface PrimitiveModalProps {
+  /**
+   * open - sets the state of the Dialog. Whether the Dialog is open or not.
+   */
   open: boolean | undefined
+
+  /**
+   * onClose - function to execute while closing the Dialog
+   */
   onClose: (item: false) => void
-  destroy?: boolean
+
+  /**
+   * unmount - controls if the Dialog should be unmounted or hidden when closed
+   */
   unmount?: boolean
-  as?: React.ElementType<any>
+
+  /**
+   * as - specifies the html element the component should be rendered as
+   */
+  as?: ElementType<any>
+
+  /**
+   * initialFocus - control the element that receives focus once the modal is open. Only elements in the tab order can be focused.
+   */
   initialFocus?: React.MutableRefObject<any>
 }
 
-const ModalTitle: FC<ModalTitleProps> = ({ children, as, ...props }) => {
-  const { Title } = Dialog
-  return (
-    <Title as={as} {...props}>
-      {children}
-    </Title>
-  )
-}
-
-const ModalOverlay: FC<HTMLAttributes<HTMLElement>> = ({
-  children,
-  ...props
-}) => {
-  const { Overlay } = Dialog
-  return <Overlay {...props}>{children}</Overlay>
-}
-
-interface ModalTitleProps {
-  as: ElementType<any>
-}
-
-const ModalContent: FC<ModalContentProps> = ({ as, children, ...props }) => {
-  const { Description } = Dialog
-  return (
-    <Description {...props} as={as}>
-      {children}
-    </Description>
-  )
-}
-
-interface ModalContentProps {
-  as: ElementType<any>
-}
-
-export { Modal, ModalTitle, ModalOverlay, ModalContent }
+export { Modal }
