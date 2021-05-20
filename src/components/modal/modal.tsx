@@ -1,7 +1,5 @@
-import React, { FC } from 'react'
+import React, { ElementType, FC, HTMLAttributes } from 'react'
 import { Dialog } from '@headlessui/react'
-
-// const { Description, Overlay, Title } = Dialog
 
 const Modal: FC<ModalProps> = ({
   children,
@@ -10,7 +8,8 @@ const Modal: FC<ModalProps> = ({
   //   destroy,
   initialFocus,
   unmount,
-  as
+  as,
+  ...props
 }) => {
   return (
     <Dialog
@@ -20,13 +19,14 @@ const Modal: FC<ModalProps> = ({
       as={as}
       initialFocus={initialFocus}
       open={open}
+      {...props}
     >
       {children}
     </Dialog>
   )
 }
 
-type ModalProps = PrimitiveModalProps
+type ModalProps = PrimitiveModalProps & HTMLAttributes<HTMLElement>
 
 interface PrimitiveModalProps {
   open: boolean | undefined
@@ -37,4 +37,38 @@ interface PrimitiveModalProps {
   initialFocus?: React.MutableRefObject<any>
 }
 
-export { Modal }
+const ModalTitle: FC<ModalTitleProps> = ({ children, as, ...props }) => {
+  const { Title } = Dialog
+  return (
+    <Title as={as} {...props}>
+      {children}
+    </Title>
+  )
+}
+
+const ModalOverlay: FC<HTMLAttributes<HTMLElement>> = ({
+  children,
+  ...props
+}) => {
+  const { Overlay } = Dialog
+  return <Overlay {...props}>{children}</Overlay>
+}
+
+interface ModalTitleProps {
+  as: ElementType<any>
+}
+
+const ModalContent: FC<ModalContentProps> = ({ as, children, ...props }) => {
+  const { Description } = Dialog
+  return (
+    <Description {...props} as={as}>
+      {children}
+    </Description>
+  )
+}
+
+interface ModalContentProps {
+  as: ElementType<any>
+}
+
+export { Modal, ModalTitle, ModalOverlay, ModalContent }
