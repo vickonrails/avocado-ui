@@ -1,0 +1,246 @@
+---
+title: Modal
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  Button,
+  Flex,
+  ModalTitle,
+  ModalFooter
+} from '@avocado-ui/react'
+import { useState } from 'react'
+
+<!-- Define `@avocado-ui/react` module as `{ Input, Button }` -->
+
+<LiveConfig
+  modules={{
+    '@avocado-ui/react': {
+      Modal,
+      ModalOverlay,
+      ModalContent,
+      Flex,
+      Button,
+      ModalTitle,
+      ModalFooter
+    },
+    react: { useState }
+  }}
+/>
+
+# Modal
+
+The `Modal` component is built on top of the `Dialog` component from `@headlessui/react`. It comes with the `Modal`, `ModalTitle`,`ModalContent` and `ModalFooter`.
+
+## Usage
+
+> The API is not definite at the moment. I plan to export just one `Modal` that will embed other modal components like `Title`, `Content`, etc.
+
+The easiest way to get started is to import `Modal`, `ModalTitle`, `ModalContent`, `ModalOverlay` and `ModalFooter` from `@avocado-ui/react`. Show a modal by following this example...
+
+```jsx
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalTitle,
+  Flex,
+  ModalFooter,
+  Button
+} from '@avocado-ui/react'
+import React, { useState } from 'react'
+
+// ----
+return (
+  <div>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aspernatur
+      voluptates veniam odit quam commodi amet tempora sunt? Blanditiis sapiente
+      eos reiciendis mollitia incidunt eaque impedit, architecto illo dolores
+      beatae.
+    </p>
+    <Button size='sm' onClick={() => setModalOpen(true)}>
+      Open Modal
+    </Button>
+    <Modal open={false} onClose={() => setModalOpen(false)}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalTitle as='h5'>Children</ModalTitle>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+          veritatis provident esse recusandae veniam harum tenetur, placeat ea
+          similique nemo et illo ut odit repellendus animi sapiente architecto
+          doloremque quidem.
+        </p>
+
+        <ModalFooter>
+          <Flex gap={5} justifyContent='flex-start'>
+            <Button size='sm'>One Thing</Button>
+            <Button
+              size='sm'
+              variant='error'
+              buttonType='ghost'
+              onClick={closeModal}
+            >
+              Close
+            </Button>
+          </Flex>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  </div>
+)
+// ---
+```
+
+> Output of this code can be seen in this [codesandbox](https://codesandbox.io/s/jovial-chaplygin-03s2d?file=/src/App.js)
+
+## Controlling the Modal
+
+The `Modal` provides the `open` and `onClose` props for controlling modal states. Setting `open` to `true` shows the modal and vice versa. Passing a function to the `onClose` prop specifies the desired action on close of the modal.
+
+```jsx
+import React, { useState } from 'react'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalTitle,
+  Flex,
+  ModalFooter,
+  Button
+} from '@avocado-ui/react'
+
+export const App = () => {
+  // state to control modal visibility
+  const [modalOpen, setModalOpen] = useState(false)
+
+  // Functions to close and open modal
+  const openModal = () => setModalOpen(true)
+  const closeModal = () => setModalOpen(false)
+
+  return (
+    <div>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo
+        aspernatur voluptates veniam odit quam commodi amet tempora sunt?
+        Blanditiis sapiente eos reiciendis mollitia incidunt eaque impedit,
+        architecto illo dolores beatae.
+      </p>
+      <Button size='sm' onClick={openModal}>
+        Open Modal
+      </Button>
+      <Modal open={false} onClose={closeModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalTitle as='h5'>Children</ModalTitle>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            veritatis provident esse recusandae veniam harum tenetur, placeat ea
+            similique nemo et illo ut odit repellendus animi sapiente architecto
+            doloremque quidem.
+          </p>
+
+          <ModalFooter>/* Footer content */</ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  )
+}
+```
+
+When we pass a function into the `onClose` prop, the modal closes when outside of the modal is clicked. This behavior can be changed by ignoring the `onClose` function and closing the modal with another clickable element instead.
+
+## Managing Focus
+
+By default, the first item in the tab order receives focus when the modal is open. Focus is also returned to the last focused element before opening the modal. This follows the aria spec and should not be changed.
+
+We can however, direct focus to another element when the modal opens. This is possible with the `initialFocus` prop on the `Modal` component alongside React refs.
+
+```jsx
+import React, { useRef, useState } from 'react'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalTitle,
+  Flex,
+  ModalFooter,
+  Button
+} from '@avocado-ui/react'
+
+export const App = () => {
+  // state to control modal visibility
+  const [modalOpen, setModalOpen] = useState(false)
+  const initialFocus = useRef(null)
+
+  // Functions to close and open modal
+  const openModal = () => setModalOpen(true)
+  const closeModal = () => setModalOpen(false)
+
+  return (
+    <div>
+      <p>Lorem ipsum dolor</p>
+      <Button size='sm' onClick={openModal}>
+        Open Modal
+      </Button>
+      <Modal open={false} onClose={closeModal} initialFocus={initialFocus}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalTitle as='h5'>Children</ModalTitle>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+            veritatis provident esse recusandae veniam harum tenetur, placeat ea
+            similique nemo et illo ut odit repellendus animi sapiente architecto
+            doloremque quidem.
+          </p>
+
+          <ModalFooter>
+            <Flex gap={5} justifyContent='flex-start'>
+              <Button size='sm'>One Thing</Button>
+              // On Modal open, this button will receive focus
+              <Button
+                size='sm'
+                variant='error'
+                buttonType='ghost'
+                onClick={closeModal}
+                ref={initialFocus}
+              >
+                Close
+              </Button>
+            </Flex>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  )
+}
+```
+
+This tells the Close Button to receive focus immediately the button is open instead of the first button.
+
+## Modal Props
+
+| property     | description                                                                                                    | type        | default |
+| ------------ | -------------------------------------------------------------------------------------------------------------- | ----------- | ------- |
+| open         | sets the state of the Dialog. Whether the Dialog is open or not.                                               | `boolean`   | `false` |
+| onClose      | function to execute while closing the Dialog                                                                   | `Func`      | -       |
+| unmount      | controls if the Dialog should be unmounted or hidden when closed                                               | `boolean`   | `blue`  |
+| as           | specifies the html element the component should be rendered as                                                 | JSX.Element | `div`   |
+| initialFocus | control the element that receives focus once the modal is open. Only elements in the tab order can be focused. | React.Ref   | `null`  |
+
+### Modal Title
+
+| property | description                                                    | type        | default |
+| -------- | -------------------------------------------------------------- | ----------- | ------- |
+| as       | specifies the html element the component should be rendered as | JSX.Element | `h2`    |
+
+### Modal Content
+
+| property | description                                                    | type        | default |
+| -------- | -------------------------------------------------------------- | ----------- | ------- |
+| as       | specifies the html element the component should be rendered as | JSX.Element | `h2`    |
