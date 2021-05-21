@@ -28,7 +28,8 @@ interface ModalTitleProps extends HTMLAttributes<HTMLElement> {
   /**
    * as - specifies the html element the component should be rendered as
    */
-  as: ElementType<any>
+
+  as?: ElementType<any>
 }
 
 const StyledTitle = styled<any>(Title)`

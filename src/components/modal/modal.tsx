@@ -27,6 +27,7 @@ const Modal: FC<ModalProps> = ({
       open={open}
       {...props}
       className={_className}
+      data-modalopen={open ? true : null}
     >
       {children}
     </StyledModal>
@@ -50,7 +51,8 @@ interface PrimitiveModalProps {
   /**
    * onClose - function to execute while closing the Dialog
    */
-  onClose: (item: false) => void
+
+  onClose?: (item: false) => void
 
   /**
    * unmount - controls if the Dialog should be unmounted or hidden when closed
