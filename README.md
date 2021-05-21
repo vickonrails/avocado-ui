@@ -69,11 +69,10 @@ Components
 - [x] Avatar
 - [x] Button
 - [ ] Checkbox
-- [ ] Dialog
 - [ ] Dropdown
 - [x] Input
 - [x] Image
-- [ ] Modal
+- [x] Modal
 - [ ] Radio Group
 - [ ] Select
 - [ ] Separator

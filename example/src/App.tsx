@@ -7,6 +7,9 @@ import {
   ModalTitle,
   ModalOverlay,
   ModalContent,
+  Accordion,
+  // AccordionButton,
+  AccordionPanel,
   ModalFooter,
   Flex
 } from 'avocado-ui'
@@ -59,6 +62,22 @@ const App = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+
+      <div>
+        <Accordion>
+          <AccordionPanel heading='Hey'>
+            <p>Disclosure</p>
+          </AccordionPanel>
+        </Accordion>
+        {/* <Accordion>
+          <AccordionButton>Disclosure</AccordionButton>
+          <AccordionPanel>Disclosure</AccordionPanel>
+        </Accordion>
+        <Accordion>
+          <AccordionButton>Disclosure</AccordionButton>
+          <AccordionPanel>Disclosure</AccordionPanel>
+        </Accordion> */}
+      </div>
     </ThemeProvider>
   )
 }
