@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/vick_onrails/avocado-ui/compare/v0.1.18...v0.1.19) (2021-05-21)
+
+
+### Refactors
+
+* add data-modalopen attribute to Modal ([8c9a6d5](https://github.com/vick_onrails/avocado-ui/commit/8c9a6d50951ef6beaa025db3a548d9d5dcc3658f))
+
 ### [0.1.18](https://github.com/vick_onrails/avocado-ui/compare/v0.1.16...v0.1.18) (2021-05-20)
 
 
