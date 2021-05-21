@@ -4,165 +4,142 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.19](https://github.com/vick_onrails/avocado-ui/compare/v0.1.18...v0.1.19) (2021-05-21)
 
-
 ### Refactors
 
-* add data-modalopen attribute to Modal ([8c9a6d5](https://github.com/vick_onrails/avocado-ui/commit/8c9a6d50951ef6beaa025db3a548d9d5dcc3658f))
+- add data-modalopen attribute to Modal ([8c9a6d5](https://github.com/vick_onrails/avocado-ui/commit/8c9a6d50951ef6beaa025db3a548d9d5dcc3658f))
 
 ### [0.1.18](https://github.com/vick_onrails/avocado-ui/compare/v0.1.16...v0.1.18) (2021-05-20)
 
-
 ### Features
 
-* enable ref forwarding in button component ([f18f3fa](https://github.com/vick_onrails/avocado-ui/commit/f18f3fadf5915f1b12e44eb0e1bd8f8bd89e5578))
-* initial work on modal component ([0571578](https://github.com/vick_onrails/avocado-ui/commit/057157895dbd2fb87502ca03a080a9cd9f65b993))
-
+- enable ref forwarding in button component ([f18f3fa](https://github.com/vick_onrails/avocado-ui/commit/f18f3fadf5915f1b12e44eb0e1bd8f8bd89e5578))
+- initial work on modal component ([0571578](https://github.com/vick_onrails/avocado-ui/commit/057157895dbd2fb87502ca03a080a9cd9f65b993))
 
 ### Chores
 
-* update Readme ([9bef530](https://github.com/vick_onrails/avocado-ui/commit/9bef5303ab820b573491b6fbb7cc1ac8428c75f9))
-
+- update Readme ([9bef530](https://github.com/vick_onrails/avocado-ui/commit/9bef5303ab820b573491b6fbb7cc1ac8428c75f9))
 
 ### Refactors
 
-* add ModalFooter component ([cfaffa4](https://github.com/vick_onrails/avocado-ui/commit/cfaffa47ccf82306a49f690b311c0592a1945a13))
-* flesh out modal components ([509ca80](https://github.com/vick_onrails/avocado-ui/commit/509ca80e625f8a1b0fe52fc2da355743155d0c33))
-* move modal components to separate files ([7589537](https://github.com/vick_onrails/avocado-ui/commit/758953747295ef1f7a0ff77e84a7972b62b860aa))
-* unwrap ModalContent from ModalOverlay ([a295a5a](https://github.com/vick_onrails/avocado-ui/commit/a295a5ae70832c0df3aa3e4aadd059d77db4341f))
+- add ModalFooter component ([cfaffa4](https://github.com/vick_onrails/avocado-ui/commit/cfaffa47ccf82306a49f690b311c0592a1945a13))
+- flesh out modal components ([509ca80](https://github.com/vick_onrails/avocado-ui/commit/509ca80e625f8a1b0fe52fc2da355743155d0c33))
+- move modal components to separate files ([7589537](https://github.com/vick_onrails/avocado-ui/commit/758953747295ef1f7a0ff77e84a7972b62b860aa))
+- unwrap ModalContent from ModalOverlay ([a295a5a](https://github.com/vick_onrails/avocado-ui/commit/a295a5ae70832c0df3aa3e4aadd059d77db4341f))
 
 ### [0.1.17](https://github.com/vick_onrails/avocado-ui/compare/v0.1.16...v0.1.17) (2021-05-20)
 
-
 ### Features
 
-* enable ref forwarding in button component ([f18f3fa](https://github.com/vick_onrails/avocado-ui/commit/f18f3fadf5915f1b12e44eb0e1bd8f8bd89e5578))
-* initial work on modal component ([0571578](https://github.com/vick_onrails/avocado-ui/commit/057157895dbd2fb87502ca03a080a9cd9f65b993))
-
+- enable ref forwarding in button component ([f18f3fa](https://github.com/vick_onrails/avocado-ui/commit/f18f3fadf5915f1b12e44eb0e1bd8f8bd89e5578))
+- initial work on modal component ([0571578](https://github.com/vick_onrails/avocado-ui/commit/057157895dbd2fb87502ca03a080a9cd9f65b993))
 
 ### Chores
 
-* update Readme ([9bef530](https://github.com/vick_onrails/avocado-ui/commit/9bef5303ab820b573491b6fbb7cc1ac8428c75f9))
-
+- update Readme ([9bef530](https://github.com/vick_onrails/avocado-ui/commit/9bef5303ab820b573491b6fbb7cc1ac8428c75f9))
 
 ### Refactors
 
-* add ModalFooter component ([cfaffa4](https://github.com/vick_onrails/avocado-ui/commit/cfaffa47ccf82306a49f690b311c0592a1945a13))
-* flesh out modal components ([509ca80](https://github.com/vick_onrails/avocado-ui/commit/509ca80e625f8a1b0fe52fc2da355743155d0c33))
-* move modal components to separate files ([7589537](https://github.com/vick_onrails/avocado-ui/commit/758953747295ef1f7a0ff77e84a7972b62b860aa))
-* unwrap ModalContent from ModalOverlay ([a295a5a](https://github.com/vick_onrails/avocado-ui/commit/a295a5ae70832c0df3aa3e4aadd059d77db4341f))
+- add ModalFooter component ([cfaffa4](https://github.com/vick_onrails/avocado-ui/commit/cfaffa47ccf82306a49f690b311c0592a1945a13))
+- flesh out modal components ([509ca80](https://github.com/vick_onrails/avocado-ui/commit/509ca80e625f8a1b0fe52fc2da355743155d0c33))
+- move modal components to separate files ([7589537](https://github.com/vick_onrails/avocado-ui/commit/758953747295ef1f7a0ff77e84a7972b62b860aa))
+- unwrap ModalContent from ModalOverlay ([a295a5a](https://github.com/vick_onrails/avocado-ui/commit/a295a5ae70832c0df3aa3e4aadd059d77db4341f))
 
 ### [0.1.16](https://github.com/vick_onrails/avocado-ui/compare/v0.1.15...v0.1.16) (2021-05-07)
 
-
 ### Bug Fixes
 
-* change default values for Flex component ([afe878d](https://github.com/vick_onrails/avocado-ui/commit/afe878dde395388993850fa1c8f18651203c2118))
-* set default align-items to flex-start ([30f1605](https://github.com/vick_onrails/avocado-ui/commit/30f1605328b6d0a43bf1db27a7f8706995c1a235))
+- change default values for Flex component ([afe878d](https://github.com/vick_onrails/avocado-ui/commit/afe878dde395388993850fa1c8f18651203c2118))
+- set default align-items to flex-start ([30f1605](https://github.com/vick_onrails/avocado-ui/commit/30f1605328b6d0a43bf1db27a7f8706995c1a235))
 
 ### [0.1.15](https://github.com/vick_onrails/avocado-ui/compare/v0.1.14...v0.1.15) (2021-05-06)
 
-
 ### Bug Fixes
 
-* all children under Flex are flex children ([ee98ac1](https://github.com/vick_onrails/avocado-ui/commit/ee98ac16a0f778708271f8914d9dabccb15b2e24))
-
+- all children under Flex are flex children ([ee98ac1](https://github.com/vick_onrails/avocado-ui/commit/ee98ac16a0f778708271f8914d9dabccb15b2e24))
 
 ### Chores
 
-* move changelog to website ([05a2db3](https://github.com/vick_onrails/avocado-ui/commit/05a2db3908b51439ceed55c39a9b7e7a5ee5c5c0))
+- move changelog to website ([05a2db3](https://github.com/vick_onrails/avocado-ui/commit/05a2db3908b51439ceed55c39a9b7e7a5ee5c5c0))
 
 ### [0.1.14](https://github.com/vick_onrails/avocado-ui/compare/v0.1.13...v0.1.14) (2021-05-06)
 
-
 ### Features
 
-* **flex:** implement flex container component ([8a7ff15](https://github.com/vick_onrails/avocado-ui/commit/8a7ff1551e409d4246bfe540acaea621f79007e7))
-* **flex-item:** implement flex item component ([8683f31](https://github.com/vick_onrails/avocado-ui/commit/8683f31e98fb3fe1f7f7581de1c25944e097fa9d))
-
+- **flex:** implement flex container component ([8a7ff15](https://github.com/vick_onrails/avocado-ui/commit/8a7ff1551e409d4246bfe540acaea621f79007e7))
+- **flex-item:** implement flex item component ([8683f31](https://github.com/vick_onrails/avocado-ui/commit/8683f31e98fb3fe1f7f7581de1c25944e097fa9d))
 
 ### Bug Fixes
 
-* implement grid gap fix on flex component ([96f5fa6](https://github.com/vick_onrails/avocado-ui/commit/96f5fa6d2e161143058d372d70bb18b101516d1a))
-* switch up gap prop from string to number ([4c74b09](https://github.com/vick_onrails/avocado-ui/commit/4c74b095c3c69a783dbb692daded7b34f1321c0d))
+- implement grid gap fix on flex component ([96f5fa6](https://github.com/vick_onrails/avocado-ui/commit/96f5fa6d2e161143058d372d70bb18b101516d1a))
+- switch up gap prop from string to number ([4c74b09](https://github.com/vick_onrails/avocado-ui/commit/4c74b095c3c69a783dbb692daded7b34f1321c0d))
 
 ### [0.1.13](https://github.com/vick_onrails/avocado-ui/compare/v0.1.12...v0.1.13) (2021-04-28)
 
-
 ### Features
 
-* implement global CSS style; fixes [#4](https://github.com/vick_onrails/avocado-ui/issues/4) ([8417462](https://github.com/vick_onrails/avocado-ui/commit/8417462aa5e0966c8f39d971b04860e0210931e6))
-
+- implement global CSS style; fixes [#4](https://github.com/vick_onrails/avocado-ui/issues/4) ([8417462](https://github.com/vick_onrails/avocado-ui/commit/8417462aa5e0966c8f39d971b04860e0210931e6))
 
 ### Bug Fixes
 
-* bug breaking build ([3099ab6](https://github.com/vick_onrails/avocado-ui/commit/3099ab6d982a32cd2158f0fa524480cf2954147f))
-* emotion passing invalid props into DOM; fixes 3 ([64ab4ed](https://github.com/vick_onrails/avocado-ui/commit/64ab4ed7baa8883029c9a480d419a63a09703bce))
-
+- bug breaking build ([3099ab6](https://github.com/vick_onrails/avocado-ui/commit/3099ab6d982a32cd2158f0fa524480cf2954147f))
+- emotion passing invalid props into DOM; fixes 3 ([64ab4ed](https://github.com/vick_onrails/avocado-ui/commit/64ab4ed7baa8883029c9a480d419a63a09703bce))
 
 ### Chores
 
-* bump up @avocado-ui/react version in docs ([29adea1](https://github.com/vick_onrails/avocado-ui/commit/29adea14db4977f419fb518e499bae57b69f7bdd))
+- bump up @avocado-ui/react version in docs ([29adea1](https://github.com/vick_onrails/avocado-ui/commit/29adea14db4977f419fb518e499bae57b69f7bdd))
 
 ### [0.1.12](https://github.com/vick_onrails/avocado-ui/compare/v0.1.11...v0.1.12) (2021-04-16)
 
-
 ### Bug Fixes
 
-* set default value for captionPosition ([044d347](https://github.com/vick_onrails/avocado-ui/commit/044d3473e7f4de6569282515764a592e68ad699e))
+- set default value for captionPosition ([044d347](https://github.com/vick_onrails/avocado-ui/commit/044d3473e7f4de6569282515764a592e68ad699e))
 
 ### [0.1.11](https://github.com/vick_onrails/avocado-ui/compare/v0.1.10...v0.1.11) (2021-04-16)
 
-
 ### Features
 
-* implement caption and caption positioning for images ([a881f7e](https://github.com/vick_onrails/avocado-ui/commit/a881f7ef020fa22aa697c10b6dda183f53e613ab))
+- implement caption and caption positioning for images ([a881f7e](https://github.com/vick_onrails/avocado-ui/commit/a881f7ef020fa22aa697c10b6dda183f53e613ab))
 
 ### [0.1.10](https://github.com/vick_onrails/avocado-ui/compare/v0.1.9...v0.1.10) (2021-04-16)
 
-
 ### Features
 
-* add Image component ([3df0052](https://github.com/vick_onrails/avocado-ui/commit/3df005263c11352e6a66cbd454614dbaf1182349))
-* handle single word name in Avatar component ([536e932](https://github.com/vick_onrails/avocado-ui/commit/536e932ff80638b91ef4616b397e8d891c3b6f6a))
-* implement objectFit prop for specifying image fitting ([b5f83dc](https://github.com/vick_onrails/avocado-ui/commit/b5f83dcae24930ea409aac04f266e4a3cfe47fe5))
-* implement shape and size props for Image component ([c57784c](https://github.com/vick_onrails/avocado-ui/commit/c57784c2f69a412cd1b27a74389a6284384b2482))
+- add Image component ([3df0052](https://github.com/vick_onrails/avocado-ui/commit/3df005263c11352e6a66cbd454614dbaf1182349))
+- handle single word name in Avatar component ([536e932](https://github.com/vick_onrails/avocado-ui/commit/536e932ff80638b91ef4616b397e8d891c3b6f6a))
+- implement objectFit prop for specifying image fitting ([b5f83dc](https://github.com/vick_onrails/avocado-ui/commit/b5f83dcae24930ea409aac04f266e4a3cfe47fe5))
+- implement shape and size props for Image component ([c57784c](https://github.com/vick_onrails/avocado-ui/commit/c57784c2f69a412cd1b27a74389a6284384b2482))
 
 ### [0.1.9](https://github.com/vick_onrails/avocado-ui/compare/v0.1.8...v0.1.9) (2021-04-15)
 
-
 ### Features
 
-* add functionality for customizing avatar background color ([8126bfc](https://github.com/vick_onrails/avocado-ui/commit/8126bfc50a65163b3194600e74bc44afd9f55ed2))
-* enable shape prop for customizing avatar borders radius ([81aa9c0](https://github.com/vick_onrails/avocado-ui/commit/81aa9c0c1f8cb982aebc6ffa0c385a86e6b1b3e2))
-* implement sizing Avatar with number & size types ([e48da2a](https://github.com/vick_onrails/avocado-ui/commit/e48da2ac95c7b0c95466da8dccd7a6c00bcbbc1d))
-* implement support for image, icon and initials in Avatar component ([97aa62a](https://github.com/vick_onrails/avocado-ui/commit/97aa62a147d7c7207709842ba33d4bc236f13e70))
+- add functionality for customizing avatar background color ([8126bfc](https://github.com/vick_onrails/avocado-ui/commit/8126bfc50a65163b3194600e74bc44afd9f55ed2))
+- enable shape prop for customizing avatar borders radius ([81aa9c0](https://github.com/vick_onrails/avocado-ui/commit/81aa9c0c1f8cb982aebc6ffa0c385a86e6b1b3e2))
+- implement sizing Avatar with number & size types ([e48da2a](https://github.com/vick_onrails/avocado-ui/commit/e48da2ac95c7b0c95466da8dccd7a6c00bcbbc1d))
+- implement support for image, icon and initials in Avatar component ([97aa62a](https://github.com/vick_onrails/avocado-ui/commit/97aa62a147d7c7207709842ba33d4bc236f13e70))
 
 ### [0.1.8](https://github.com/vick_onrails/avocado-ui/compare/v0.1.7...v0.1.8) (2021-04-14)
 
-
 ### Features
 
-* implement trim, align, size props for Text component ([78c739c](https://github.com/vick_onrails/avocado-ui/commit/78c739cbd6c7ca0ddbecfcbd5b8b10c7fc5b9b42))
+- implement trim, align, size props for Text component ([78c739c](https://github.com/vick_onrails/avocado-ui/commit/78c739cbd6c7ca0ddbecfcbd5b8b10c7fc5b9b42))
 
 ### [0.1.7](https://github.com/vick_onrails/avocado-ui/compare/v0.1.6...v0.1.7) (2021-04-14)
 
-
 ### Features
 
-* implement text-align in heading ([267c64d](https://github.com/vick_onrails/avocado-ui/commit/267c64d0db2507f4add307b3562bce3e2ae80bf4))
-* implement trim prop to truncate heading text ([8b7db42](https://github.com/vick_onrails/avocado-ui/commit/8b7db42e302b0a0956bd10604f7ebbb6637198bd))
-
+- implement text-align in heading ([267c64d](https://github.com/vick_onrails/avocado-ui/commit/267c64d0db2507f4add307b3562bce3e2ae80bf4))
+- implement trim prop to truncate heading text ([8b7db42](https://github.com/vick_onrails/avocado-ui/commit/8b7db42e302b0a0956bd10604f7ebbb6637198bd))
 
 ### Chores
 
-* **changelog:** enable different commit types in changelogs ([3b77617](https://github.com/vick_onrails/avocado-ui/commit/3b77617c666fa4492ab29ef9a0efb2e7880ae5fc))
+- **changelog:** enable different commit types in changelogs ([3b77617](https://github.com/vick_onrails/avocado-ui/commit/3b77617c666fa4492ab29ef9a0efb2e7880ae5fc))
 
 ### [0.1.6](https://github.com/vick_onrails/avocado-ui/compare/v0.1.5...v0.1.6) (2021-04-14)
 
-
 ### Features
 
-* implement theming without theme-ui and passing props into component ([a062a1e](https://github.com/vick_onrails/avocado-ui/commit/a062a1e4bae6221d409fddcd36b83d1b6d927313))
+- implement theming without theme-ui and passing props into component ([a062a1e](https://github.com/vick_onrails/avocado-ui/commit/a062a1e4bae6221d409fddcd36b83d1b6d927313))
 
 ### 0.1.5 (2021-04-11)
 
