@@ -7,13 +7,12 @@ import {
   ModalTitle,
   ModalOverlay,
   ModalContent,
-  Accordion,
-  // AccordionButton,
-  AccordionPanel,
   ModalFooter,
   Flex
 } from 'avocado-ui'
 import { ThemeProvider } from '@emotion/react'
+
+import './index.css'
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -21,62 +20,51 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CSSReset />
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo
-        aspernatur voluptates veniam odit quam commodi amet tempora sunt?
-        Blanditiis sapiente eos reiciendis mollitia incidunt eaque impedit,
-        architecto illo dolores beatae.
-      </p>
-      <Button size='sm' onClick={() => setModalOpen(true)}>
-        Hey
-      </Button>
-      <Modal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        initialFocus={initialBtnRef}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalTitle as='h5'>Children</ModalTitle>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
-            veritatis provident esse recusandae veniam harum tenetur, placeat ea
-            similique nemo et illo ut odit repellendus animi sapiente architecto
-            doloremque quidem.
-          </p>
+      <div className='App'>
+        <p>
+          The Modal component is built on top of the Dialog component from
+          @headlessui/react. It comes with the Modal, ModalTitle,ModalContent
+          and ModalFooter.
+        </p>
+        <p>
+          The easiest way to get started is to import Modal, ModalTitle,
+          ModalContent, ModalOverlay and ModalFooter from @avocado-ui/react.{' '}
+        </p>
+        <Button size='sm' onClick={() => setModalOpen(true)}>
+          Open Modal
+        </Button>
+        <Modal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          initialFocus={initialBtnRef}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalTitle as='h5'>Modal Heading</ModalTitle>
+            <p>
+              The Modal provides the open and onClose props for controlling
+              modal states. Setting open to true shows the modal and vice versa.
+              Passing a function to the onClose prop specifies the desired
+              action on close of the modal.
+            </p>
 
-          <ModalFooter>
-            <Flex gap={5} justifyContent='flex-start'>
-              <Button size='sm'>One Thing</Button>
+            <ModalFooter>
+              <Flex gap={5} justifyContent='flex-start'>
+                <Button size='sm'>Another Action</Button>
 
-              <Button
-                size='sm'
-                onClick={() => setModalOpen(false)}
-                variant='error'
-                ref={initialBtnRef}
-                buttonType='ghost'
-              >
-                Close
-              </Button>
-            </Flex>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-
-      <div>
-        <Accordion>
-          <AccordionPanel heading='Hey'>
-            <p>Disclosure</p>
-          </AccordionPanel>
-        </Accordion>
-        {/* <Accordion>
-          <AccordionButton>Disclosure</AccordionButton>
-          <AccordionPanel>Disclosure</AccordionPanel>
-        </Accordion>
-        <Accordion>
-          <AccordionButton>Disclosure</AccordionButton>
-          <AccordionPanel>Disclosure</AccordionPanel>
-        </Accordion> */}
+                <Button
+                  size='sm'
+                  onClick={() => setModalOpen(false)}
+                  variant='error'
+                  ref={initialBtnRef}
+                  buttonType='ghost'
+                >
+                  Close Modal
+                </Button>
+              </Flex>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </div>
     </ThemeProvider>
   )

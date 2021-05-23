@@ -22,3 +22,8 @@ code {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
+.App {
+  padding: 3%;
+  max-width: 50em;
+  margin: 0 auto;
+}
