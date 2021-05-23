@@ -40,6 +40,7 @@ const StyledModal = styled<any>(Dialog)`
   position: fixed;
   z-index: 10;
   width: 100%;
+  top: 2.5em;
 `
 
 interface PrimitiveModalProps {
