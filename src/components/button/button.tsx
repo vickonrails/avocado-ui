@@ -102,6 +102,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   shape &&
   css`
   padding: 0.5em 0.8em;
+  font: inherit;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
   border: none;  
