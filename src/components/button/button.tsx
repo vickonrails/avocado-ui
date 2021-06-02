@@ -54,7 +54,8 @@ export type ButtonSize = 'sm' | 'md' | 'lg'
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * default type of button. Can be submit, button, reset
    */
@@ -105,7 +106,8 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   font: inherit;
   font-size: ${size === 'sm' ? '14px' : `inherit`};
   cursor: pointer;
-  border: none;  
+  border: none;
+  box-sizing: border-box;
   color: ${theme.colors.gray[8]};
   background: ${theme.colors.gray[4]}
   user-select: none;
@@ -129,7 +131,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
     height: 15px;
     width: 15px;
 
-    display: inline-flex;
+    // display: inline-flex;
 
     svg {
       height: 100%;
@@ -139,7 +141,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   }
 
   .btn-icon--left {
-    margin-right: .5em;
+    // margin-right: .5em;
   }
   .btn-icon--right {
     margin-left: .5em;

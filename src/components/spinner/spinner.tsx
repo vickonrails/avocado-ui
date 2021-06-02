@@ -40,6 +40,7 @@ const StyledSpinner = styled.span<Spinner>`
   width: 12px;
   height: 12px;
   animation: ${spin} 0.4s linear infinite;
+  box-sizing: border-box;
 `
 
 Spinner.displayName = 'Spinner'

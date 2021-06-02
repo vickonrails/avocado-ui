@@ -81,7 +81,8 @@
     "@emotion/is-prop-valid": "^1.1.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
-    "@headlessui/react": "^1.2.0"
+    "@headlessui/react": "^1.2.0",
+    "react-feather": "^2.0.9"
   },
   "bugs": {
     "url": "https://github.com/vick_onrails/avocado-ui/issues"
