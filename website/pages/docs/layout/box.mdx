@@ -1,0 +1,86 @@
+---
+title: Box
+section: Layout
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Box, Button } from '@avocado-ui/react'
+
+<LiveConfig modules={{ '@avocado-ui/react': { Box, Button } }} />
+
+# Box
+
+`Box` is a flexible `div` wrapper. It can customize `margin`, `padding`, and basic properties of components they wrap.
+
+## Usage
+
+The easiest way to use the `Box` component is to wrap it around the target element.
+
+```jsx live noInline
+import { Box, Button } from '@avocado-ui/react'
+
+render(
+  <Box style={{ border: '1px solid red' }}>
+    <Button>Hello</Button>
+  </Box>
+)
+```
+
+We're now in control of the appearance and orientation of child component. One common usecase is to improve the spacing around the child element.
+
+Here's a similar example with padding around the component.
+
+```jsx live noInline
+import { Box, Button } from '@avocado-ui/react'
+
+render(
+  <Box style={{ border: '1px solid red' }} p={1}>
+    <Button>Hello</Button>
+  </Box>
+)
+```
+
+> All units of spacing on the `Box` component are interpreted in `em`.
+
+## Precedence of margin & padding
+
+Let's take `margin` for example. You can set `margin` on a `Box` element by using any of the following...
+
+1. `m` - all four sides
+2. `mh` & `mv` - margin horizontal and margin vertical
+3. `mt`, `mr`, `mb` & `ml`- margin top, right, bottom and left
+
+The more specific the margin is, the higher precedence it has. In the above case, margin declarations in the no. 3 category will override every other margin declaration.
+
+## Full width
+
+We can specify a `Box` to be full width by setting the `block` prop to `true`. Here's an example
+
+```jsx live noInline
+import { Box, Button } from '@avocado-ui/react'
+
+render(
+  <Box style={{ border: '1px solid red' }} block>
+    <Button>Hello</Button>
+  </Box>
+)
+```
+
+## Props
+
+| property | description                   | type   | default |
+| -------- | ----------------------------- | ------ | ------- |
+| mt       | sets the top margin           | number | -       |
+| mb       | sets the bottom margin        | number | -       |
+| mr       | sets the right margin         | number | -       |
+| ml       | sets the left margin          | number | -       |
+| mh       | sets the horizontal margin    | number | -       |
+| mv       | sets the vertical margin      | number | -       |
+| m        | sets the margin on all sides  | number | -       |
+| pt       | sets the top padding          | number | -       |
+| pb       | sets the bottom padding       | number | -       |
+| pr       | sets the right padding        | number | -       |
+| pl       | sets the left padding         | number | -       |
+| ph       | sets the horizontal padding   | number | -       |
+| pv       | sets the vertical padding     | number | -       |
+| p        | sets the padding on all sides | number | -       |
