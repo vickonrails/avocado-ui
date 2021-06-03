@@ -2,8 +2,9 @@ import React from 'react'
 import { User } from 'react-feather'
 import { Story, Meta } from '@storybook/react'
 
-import { Button, ButtonProps } from './button'
+import { Button, ButtonProps, Box } from '../../components'
 
+const MARGIN = 0.25
 export default {
   title: 'Components/Button',
   component: Button
@@ -19,43 +20,80 @@ NoConstrants.args = {
 export const Sizes: Story<ButtonProps> = () => {
   return (
     <>
-      <Button size='lg'>Large Button</Button>
-      <Button size='md'>Medium Button</Button>
-      <Button size='sm'>Small Button</Button>
+      <Box mv={MARGIN}>
+        <Button size='lg'>Large Button</Button>
+      </Box>
+      <Box mv={MARGIN}>
+        <Button size='md'>Medium Button</Button>
+      </Box>
+      <Box mv={MARGIN}>
+        <Button size='sm'>Small Button</Button>
+      </Box>
     </>
   )
 }
 
 export const Variants: Story<ButtonProps> = () => (
   <>
-    <Button variant='primary'>Primary Button</Button>
-    <Button variant='error'>Error Button</Button>
-    <Button variant='success'>Success Button</Button>
-    <Button variant='warning'>Warning Button</Button>
+    <Box mv={MARGIN}>
+      <Button variant='primary'>Primary Button</Button>
+    </Box>
+    <Box mv={MARGIN}>
+      <Button variant='error'>Error Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button variant='success'>Success Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button variant='warning'>Warning Button</Button>
+    </Box>
   </>
 )
 
 export const Shape: Story<ButtonProps> = () => (
   <>
-    <Button shape='curve'>Curve Button</Button>
-    <Button shape='round'>Round Button</Button>
-    <Button shape='square'>Square Button</Button>
+    <Box mv={MARGIN}>
+      <Button shape='curve'>Curve Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button shape='round'>Round Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button shape='square'>Square Button</Button>
+    </Box>
   </>
 )
 
 export const State: Story<ButtonProps> = () => (
   <>
-    <Button loading>Loading Button</Button>
-    <Button disabled>Disabled Button</Button>
+    <Box mv={MARGIN}>
+      <Button loading>Loading Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button disabled>Disabled Button</Button>
+    </Box>
   </>
 )
 
 export const WithIcons: Story<ButtonProps> = () => (
   <>
-    <Button prefixIcon={<User />}>With Left Icon</Button>
-    <Button suffixIcon={<User />} prefixIcon={<User />}>
-      With Both Icon
-    </Button>
-    <Button suffixIcon={<User />}>With Right Icon</Button>
+    <Box mv={MARGIN}>
+      <Button prefixIcon={<User />}>With Left Icon</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button suffixIcon={<User />} prefixIcon={<User />}>
+        With Both Icon
+      </Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button suffixIcon={<User />}>With Right Icon</Button>
+    </Box>
   </>
 )
