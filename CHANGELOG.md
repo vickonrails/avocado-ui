@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com/vick_onrails/avocado-ui/compare/v0.1.20...v0.1.21) (2021-06-03)
+
+
+### Features
+
+* add Box component with documentation ([1a8e2d6](https://github.com/vick_onrails/avocado-ui/commit/1a8e2d6d8b653d120ffcd5386e8bf8933d70aa24))
+
+
+### Bug Fixes
+
+* **button:** inherit page font properties ([cb16f12](https://github.com/vick_onrails/avocado-ui/commit/cb16f12fa62ca036c42fb252aa96b6407b521bea))
+
+
+### Refactors
+
+* add storybook support ([965cebd](https://github.com/vick_onrails/avocado-ui/commit/965cebdd034284abb5dc9e8b37b97ab8c4fd1ba9))
+
 ### [0.1.20](https://github.com/vick_onrails/avocado-ui/compare/v0.1.19...v0.1.20) (2021-05-23)
 
 
