@@ -99,6 +99,7 @@ const StyledAvatarBase = ({ size, shape, bgColor }: AvatarProps) =>
     text-align: center;
     border-radius: ${avatarTheme.radius[shape]};
     display: flex;
+    object-fit: cover;
     background: ${bgColor};
     color: #fff;
     cursor: pointer;
