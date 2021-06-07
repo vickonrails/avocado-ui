@@ -123,7 +123,7 @@ export type TextSize =
 export type TextAlign = 'center' | 'left' | 'right'
 
 // Types for Heading
-interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * set level of the heading
    */

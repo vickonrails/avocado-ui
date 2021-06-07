@@ -30,7 +30,7 @@ const StyledText = styled.p`
   ${StyledTextStyles}
 `
 
-interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * specify the alignment of text. Can be "left", "right", "center"
    */
