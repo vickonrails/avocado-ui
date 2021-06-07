@@ -12,8 +12,8 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
-export const NoConstrants = Template.bind({})
-NoConstrants.args = {
+export const Default = Template.bind({})
+Default.args = {
   children: 'Flexible Button'
 }
 

@@ -11,9 +11,9 @@ export default {
 const borderStyle = { border: '1px solid red' }
 
 const Template: Story<BoxProps> = (args) => <Box {...args} />
-export const BoxDemo = Template.bind({})
+export const Default = Template.bind({})
 
-BoxDemo.args = {
+Default.args = {
   children: (
     <p>
       This is a demo of the Box component. You can adjust the margin and padding
