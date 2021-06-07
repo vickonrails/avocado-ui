@@ -43,7 +43,7 @@ const StyledModal = styled<any>(Dialog)`
   top: 2.5em;
 `
 
-interface PrimitiveModalProps {
+export interface PrimitiveModalProps {
   /**
    * open - sets the state of the Dialog. Whether the Dialog is open or not.
    */
