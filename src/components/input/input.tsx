@@ -11,7 +11,7 @@ const { inputTheme } = theme.components
 // Something about this input component. We really want this component to only be used for inputs
 // Any other component apart from an input (checkbox, radiobutton, etc) should not even be allowed
 // FIXME: Disable passing in of other type values (radio, checkbox, etc)
-const Input: FC<Input> = ({
+const Input: FC<InputProps> = ({
   prefixIcon,
   suffixIcon,
   borderRadius,
@@ -47,7 +47,7 @@ export type BorderRadius = 'curve' | 'square' | 'round'
 
 type InputSize = 'sm' | 'md' | 'lg'
 
-interface Input extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * set variant of input. Can be "filled", "unstyled", "outline"
    */
@@ -88,10 +88,11 @@ const StyledBaseInput = ({
   prefixIcon,
   fullWidth,
   suffixIcon
-}: Input) => css`
+}: InputProps) => css`
   position: relative;
   display: inline-flex;
   align-items: center;
+  width: ${fullWidth ? '100%' : 'auto'};
 
   .avocado-input__control {
     border: 1px solid ${theme.colors.gray[5]};
@@ -166,7 +167,7 @@ const StyledBaseInput = ({
   }
 `
 
-const StyledFilledInput = ({ variant, disabled }: Input) =>
+const StyledFilledInput = ({ variant, disabled }: InputProps) =>
   variant === 'fill' &&
   css`
     .avocado-input__control {
@@ -186,10 +187,10 @@ const StyledFilledInput = ({ variant, disabled }: Input) =>
     }
   `
 
-const StyledOutlineInput = ({ variant }: Input) =>
+const StyledOutlineInput = ({ variant }: InputProps) =>
   variant === 'outline' && css``
 
-const StyledInput = styled.span<Input>`
+const StyledInput = styled.span<InputProps>`
   ${StyledBaseInput};
   ${StyledFilledInput};
   ${StyledOutlineInput};
