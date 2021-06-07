@@ -32,7 +32,7 @@ const Image: FC<ImageProps> = ({
           className='avocado-img__figcaption'
           style={{ marginBottom: `${captionSpacing}px` }}
         >
-          {captionPosition}
+          {caption}
         </figcaption>
       )}
       <StyledImage {...props} className={_className} />
@@ -41,7 +41,7 @@ const Image: FC<ImageProps> = ({
           className='avocado-img__figcaption'
           style={{ marginTop: `${captionSpacing}px` }}
         >
-          {captionPosition}
+          {caption}
         </figcaption>
       )}
     </StyledFigure>
@@ -73,7 +73,7 @@ interface FigureProps extends HTMLAttributes<HTMLElement> {
    */
   maxWidth?: ImageSize | number
 }
-interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * specifies the size of the image. Can be either "xs", "sm", "md", "lg"
    * Overrides the height & width prop
@@ -126,6 +126,7 @@ const StyledFigureCSS = ({ captionPosition, maxWidth }: FigureProps) =>
   captionPosition &&
   maxWidth &&
   css`
+    margin: 0;
     figcaption {
       text-align: ${getFigureAlignment(captionPosition)};
     }
