@@ -15,18 +15,24 @@ const spin = keyframes`
  *
  */
 
-const Spinner: FC<Spinner> = ({ variant, ...props }) => {
+const Spinner: FC<SpinnerProps> = ({ variant, ...props }) => {
   const _className = props.className
     ? `avocado-spinner ${props.className}`
     : `avocado-spinner`
+
+  if (!variant) throw Error('<Spinner/> requires a variant. please supply one')
+
   return <StyledSpinner {...props} variant={variant} className={_className} />
 }
 
-interface Spinner extends HTMLAttributes<HTMLSpanElement> {
-  variant?: ButtonVariant
+export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
+  variant: ButtonVariant
+  size?: SpinnerSize
 }
 
-const StyledSpinner = styled.span<Spinner>`
+type SpinnerSize = 'sm' | 'md' | 'lg'
+
+const StyledSpinner = styled.span<SpinnerProps>`
   border: 3px solid #fff;
   border-radius: 50%;
   border-top: 3px solid
@@ -37,11 +43,16 @@ const StyledSpinner = styled.span<Spinner>`
     ${(props) =>
       props.variant &&
       theme.components.buttonTheme.variants[props.variant].default};
-  width: 12px;
-  height: 12px;
+  width: ${({ size }) => size && theme.components.spinnerTheme.sizes[size]};
+  display: inline-block;
+  height: ${({ size }) => size && theme.components.spinnerTheme.sizes[size]};
   animation: ${spin} 0.4s linear infinite;
   box-sizing: border-box;
 `
 
 Spinner.displayName = 'Spinner'
-export default Spinner
+Spinner.defaultProps = {
+  variant: 'primary',
+  size: 'md'
+}
+export { Spinner }

@@ -3,7 +3,13 @@ import borders from './borders'
 import spacing from './spacing'
 import typography from './typography'
 
-import { buttonTheme, inputTheme, avatarTheme, imageTheme } from './components'
+import {
+  buttonTheme,
+  inputTheme,
+  avatarTheme,
+  imageTheme,
+  spinnerTheme
+} from './components'
 
 const theme = {
   colors,
@@ -14,7 +20,8 @@ const theme = {
     buttonTheme,
     inputTheme,
     avatarTheme,
-    imageTheme
+    imageTheme,
+    spinnerTheme
   }
 }
 

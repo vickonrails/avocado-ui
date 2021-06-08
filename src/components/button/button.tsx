@@ -6,7 +6,7 @@ import isValidProp from '@emotion/is-prop-valid'
 import { theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
-import Spinner from '../spinner/spinner'
+import { Spinner } from '../spinner/spinner'
 import { Shape } from '../../utils/types'
 
 /**
