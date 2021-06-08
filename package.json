@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vick_onrails/avocado-ui.git"
+    "url": "git+https://github.com/vickonrails/avocado-ui.git"
   },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -85,9 +85,9 @@
     "react-feather": "^2.0.9"
   },
   "bugs": {
-    "url": "https://github.com/vick_onrails/avocado-ui/issues"
+    "url": "https://github.com/vickonrails/avocado-ui/issues"
   },
-  "homepage": "https://github.com/vick_onrails/avocado-ui#readme",
+  "homepage": "https://github.com/vickonrails/avocado-ui#readme",
   "directories": {
     "example": "example"
   },
