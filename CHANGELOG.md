@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/vick_onrails/avocado-ui/compare/v0.1.21...v0.1.22) (2021-06-08)
+
+
+### Bug Fixes
+
+* use correct variable for image caption ([7feeb10](https://github.com/vick_onrails/avocado-ui/commit/7feeb10e3f5afcbc21bb2c0f27861b1b4768a480))
+* **Input:** fullwidth prop not applying ([2a8843e](https://github.com/vick_onrails/avocado-ui/commit/2a8843e56f4e1ce375f0d240900b742982063113))
+
 ### [0.1.21](https://github.com/vick_onrails/avocado-ui/compare/v0.1.20...v0.1.21) (2021-06-03)
 
 
