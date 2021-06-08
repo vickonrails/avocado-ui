@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/vickonrails/avocado-ui/compare/v0.1.22...v0.1.23) (2021-06-08)
+
+
+### Features
+
+* **separator:** implement Separator component ([fca91ab](https://github.com/vickonrails/avocado-ui/commit/fca91aba4ec6a290f9f1ce1c0ba7dc7dc2e3eac6))
+
+
+### Refactors
+
+* **spinner:** rewrite spinner to be usable as a standalone component ([9d82619](https://github.com/vickonrails/avocado-ui/commit/9d826194dafc355ead0ae925785c62e2504c4f20))
+
 ### [0.1.22](https://github.com/vickonrails/avocado-ui/compare/v0.1.21...v0.1.22) (2021-06-08)
 
 ### Bug Fixes
