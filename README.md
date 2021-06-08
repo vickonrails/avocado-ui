@@ -82,4 +82,4 @@ Components
 
 ## License
 
-MIT © [vick_onrails](https://github.com/vick_onrails)
+MIT © [vickonrails](https://github.com/vickonrails)
