@@ -61,7 +61,7 @@ Layout
 - [x] Flex
 - [ ] Grid
 - [ ] Stack
-- [ ] Box
+- [x] Box
 
 Components
 
@@ -75,8 +75,8 @@ Components
 - [x] Modal
 - [ ] Radio Group
 - [ ] Select
-- [ ] Separator
-- [ ] Spinner
+- [x] Separator
+- [x] Spinner
 - [ ] Tabs
 - [ ] Tooltip
 
