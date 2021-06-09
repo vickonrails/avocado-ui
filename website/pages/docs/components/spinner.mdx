@@ -1,0 +1,62 @@
+---
+title: Spinner
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Spinner, Button } from '@avocado-ui/react'
+
+<LiveConfig modules={{ '@avocado-ui/react': { Spinner, Button } }} />
+
+# Spinner
+
+The `Spinner` component shows feedback and informs the user that the system is busy.
+
+## Size
+
+You can pretty much configure the size of the `Spinner` by passing any of `sm`, `md` or `lg` to the `size` prop like so...
+
+```jsx live noInline
+import { Spinner } from '@avocado-ui/react'
+render(
+  <>
+    <Spinner size='sm' />
+    <Spinner size='md' />
+    <Spinner size='lg' />
+  </>
+)
+```
+
+## Variants
+
+`Variants` in `Avocado` give context with color. By default, we have the `primary`, `success`, `warning` & `error` variants. We can pass any of these to the `variant` prop on the `Spinner` component.
+
+```jsx live noInline
+import { Spinner } from '@avocado-ui/react'
+render(
+  <>
+    <Spinner variant='primary' />
+    <Spinner variant='success' />
+    <Spinner variant='warning' />
+    <Spinner variant='error' />
+  </>
+)
+```
+
+## With Other Components
+
+`Spinner` components are almost never used in isolation. You can compose them with components to make your designs more robust and contextual.
+
+Here's an example of the `Spinner` with `Avocado`'s `Button` component to indicate a loading state.
+
+```jsx live noInline
+import { Button } from '@avocado-ui/react'
+render(<Button loading>Loading</Button>)
+```
+
+## Accordion Props
+
+| property | description                   | type                                     | default   |
+| -------- | ----------------------------- | ---------------------------------------- | --------- |
+| size     | size of the Spinner component | `sm`, `md`,`lg`                          | `md`      |
+| variant  | variant/color of the Spinner  | `success`, `primary`,`warning`, `danger` | `primary` |
