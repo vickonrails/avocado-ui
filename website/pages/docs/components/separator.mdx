@@ -1,0 +1,143 @@
+---
+title: Separator
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Separator, Text } from '@avocado-ui/react'
+
+<LiveConfig modules={{ '@avocado-ui/react': { Separator, Text } }} />
+
+# Separator
+
+The `Separator` component provides a demarcation between two components. It basically draws a customizable horizontal line between two components.
+
+## Usage
+
+Use by importing the `Separator` component from `Avocado` and apply like so...
+
+```jsx live noInline
+import { Separator, Text } from '@avocado-ui/react'
+render(
+  <>
+    <Text>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+      aspernatur velit blanditiis nobis magnam amet expedita dolorem! Doloremque
+      temporibus, atque eveniet possimus culpa veritatis quia perferendis
+      aspernatur maxime earum.
+    </Text>
+    <Separator />
+    <Text>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+      aspernatur velit blanditiis nobis magnam amet expedita dolorem! Doloremque
+      temporibus, atque eveniet possimus culpa veritatis quia perferendis
+      aspernatur maxime earum.
+    </Text>
+  </>
+)
+```
+
+## Width
+
+The `Separator` component provides a flexible way to customize the width. Pass the desired width to the `width`. Here's an example
+
+```jsx live noInline
+import { Separator, Text } from '@avocado-ui/react'
+render(
+  <>
+    <Text>
+      This is a demo of the Separator component with a red color and a width of
+      40px
+    </Text>
+    <Separator color='red' width='40px' />
+    <Text>
+      This is a demo of the Separator component with a red color and a width of
+      40px
+    </Text>
+  </>
+)
+```
+
+## Color
+
+As you might have noticed in the previous demo, the `Separator` takes in a `color` prop that sets its color. Here's another example with different colors.
+
+```jsx live noInline
+import { Separator, Text } from '@avocado-ui/react'
+render(
+  <>
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+    <Separator color='red' />
+    <Separator color='blue' />
+    <Separator color='green' />
+    <Separator color='magenta' />
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+  </>
+)
+```
+
+## Alignment
+
+Most times, you want the `Separator` to be at the middle instead of the left. `Avocado` provides a way to achieve this with the `centered` prop. Here's another example...
+
+```jsx live noInline
+import { Separator, Text } from '@avocado-ui/react'
+render(
+  <>
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+    <Separator color='red' centered width='4em' />
+    <Separator color='blue' centered width='4em' />
+    <Separator color='green' centered width='4em' />
+    <Separator color='magenta' centered width='4em' />
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+  </>
+)
+```
+
+## Spacing
+
+The spacing around the `Separator` component can also be customized using the `topSpacing` and `bottomSpacing` props.
+
+> Only numbers are currently allowed to be passed into `spacing`. They are in-turn converts it to `px` underneath.
+
+Here's an example with `topSpacing` set to `100px` and `bottomSpacing` set to `50px`
+
+```jsx live noInline
+import { Separator, Text } from '@avocado-ui/react'
+render(
+  <>
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+
+    <Separator
+      color='magenta'
+      centered
+      width='4em'
+      topSpacing={100}
+      bottomSpacing={50}
+    />
+    <Text>
+      This is another demo using red, blue, green and magenta respectively.
+    </Text>
+  </>
+)
+```
+
+## Separator Props
+
+| property      | description                                | type      | default |
+| ------------- | ------------------------------------------ | --------- | ------- |
+| color         | Separator color                            | string    | -       |
+| width         | width of the Separator in `px`, `%`, etc   | string    | `1.5px` |
+| topSpacing    | space between Separator and top element    | number    | 0       |
+| bottomSpacing | space between Separator and bottom element | number    | 0       |
+| centered      | Separator is centered if set to `true`     | `boolean` | `false` |

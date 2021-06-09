@@ -12,16 +12,17 @@ const App: FC = () => <Separator />
 
 ## Props
 
-| property | description                                     | type              | default |
-| -------- | ----------------------------------------------- | ----------------- | ------- |
-| color    | color of separator border                       | string            | -       |
-| width    | should input span entire block                  | number            | 1       |
-| spacing  | space between Separator and top/bottom elements | [`top`, `bottom`] | [0,1]   |
-| centered | set horizontal position of Separator            | `boolean`         | `false` |
+| property      | description                                | type      | default |
+| ------------- | ------------------------------------------ | --------- | ------- |
+| color         | Separator color                            | string    | -       |
+| width         | width of the Separator in `px`, `%`, etc   | string    | `1.5px` |
+| topSpacing    | space between Separator and top element    | number    | 0       |
+| bottomSpacing | space between Separator and bottom element | number    | 0       |
+| centered      | Separator is centered if set to `true`     | `boolean` | `false` |
 
 ## Todo
 
 - [x] color
 - [x] width
 - [x] centered
-- [ ] spacing
+- [x] spacing
