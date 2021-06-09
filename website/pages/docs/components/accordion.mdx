@@ -1,0 +1,189 @@
+---
+title: Accordion
+section: Components
+---
+
+import { LiveConfig } from 'smooth-doc/components'
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+
+<LiveConfig modules={{ '@avocado-ui/react': { Accordion, AccordionPanel } }} />
+
+# Accordion
+
+> This demo is not perfect because theming is off and still a work in progress
+
+The `Accordion` component renders a group of block headers that control the visibility of certain `AccordionPanel`s.
+
+## Usage
+
+The easiest way to get started is by wrapping the `Accordion` around the `AccordionPanel` components like so...
+
+```jsx live noInline
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+render(
+  <Accordion>
+    <AccordionPanel header='React'>
+      React is an open-source front-end JavaScript library for building user
+      interfaces or UI components. It is maintained by Facebook and a community
+      of individual developers and companies.
+    </AccordionPanel>
+    <AccordionPanel header='CSS'>
+      Cascading Style Sheets is a style sheet language used for describing the
+      presentation of a document written in a markup language such as HTML.
+    </AccordionPanel>
+    <AccordionPanel header='JavaScript'>
+      JavaScript, often abbreviated as JS, is a programming language that
+      conforms to the ECMAScript specification.
+    </AccordionPanel>
+  </Accordion>
+)
+```
+
+This automatically sets up a clickable `button` element underneath, alongside a panel for showing content.
+
+## Sizes
+
+You can control how large/small the `Accordion` can be with the `size` prop either set to `sm`, `md` or `lg`. The `Accordion` component is built to be aware of the `size` prop, so it reduces the `font-size`, `padding` and `border`.
+
+Below is an example of 2 `Accordion` components with `size` of `sm` and `lg` respectively...
+
+```jsx live noInline
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+render(
+  <>
+    <Accordion size='sm'>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+      <AccordionPanel header='JavaScript'>
+        JavaScript, often abbreviated as JS, is a programming language that
+        conforms to the ECMAScript specification.
+      </AccordionPanel>
+    </Accordion>
+
+    <Accordion size='lg'>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+      <AccordionPanel header='JavaScript'>
+        JavaScript, often abbreviated as JS, is a programming language that
+        conforms to the ECMAScript specification.
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+```
+
+## width
+
+You can control the width of the `Accordion` component with the `width` prop. This limits the horizontal size of the component.
+
+> The `width` prop does not currently parse the input, so you have to pass in the full width alongside the units.
+
+```jsx live noInline
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+render(
+  <>
+    <Accordion width='15em'>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+      <AccordionPanel header='JavaScript'>
+        JavaScript, often abbreviated as JS, is a programming language that
+        conforms to the ECMAScript specification.
+      </AccordionPanel>
+    </Accordion>
+
+    <Accordion fullWidth>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+      <AccordionPanel header='JavaScript'>
+        JavaScript, often abbreviated as JS, is a programming language that
+        conforms to the ECMAScript specification.
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+```
+
+## Icon
+
+The `Accordion` component comes default with a downward facing arrow on the right. You can control the position and visibility of the icon by using the `iconPosition` and `showIcon` props respectively.
+
+Here's an example of hiding the icon with the `showIcon` prop...
+
+```jsx live noInline
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+render(
+  <>
+    <Accordion showIcon={false}>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+```
+
+Here's another example of the icon positioned on the left with `iconPosition` set to `left`.
+
+```jsx live noInline
+import { Accordion, AccordionPanel } from '@avocado-ui/react'
+render(
+  <>
+    <Accordion iconPosition='left'>
+      <AccordionPanel header='React'>
+        React is an open-source front-end JavaScript library for building user
+        interfaces or UI components. It is maintained by Facebook and a
+        community of individual developers and companies.
+      </AccordionPanel>
+      <AccordionPanel header='CSS'>
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML.
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+```
+
+## Accordion Props
+
+| property     | description                                                    | type                    | default |
+| ------------ | -------------------------------------------------------------- | ----------------------- | ------- |
+| size         | size of the Accordion component                                | `sm`, `md`,`lg`         | `md`    |
+| width        | width of the Accordion component in px                         | number                  | `20em`  |
+| fullWidth    | when set to true, Accordion stretches to fill horizontal space | `boolean`               | `false` |
+| showIcon     | should Accordion show chevron icon?                            | `boolean`               | `true`  |
+| iconPosition | position of Accordion header icon                              | `left`, `right`         | `right` |
+| header       | heading title of clickable Accordion panel                     | `JSX.Element`, `string` |         |
