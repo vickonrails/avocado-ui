@@ -139,7 +139,7 @@ export const Sizes = () => (
 export const Width = () => (
   <>
     <Heading level='h2' size='xl'>
-      Width of 10em
+      10em Width
     </Heading>
     <Accordion width='10em'>
       <AccordionPanel header='One'>
@@ -171,7 +171,7 @@ export const Width = () => (
     </Accordion>
 
     <Heading level='h2' size='xl'>
-      Width of 30em
+      30em Width
     </Heading>
     <Accordion width='30em'>
       <AccordionPanel header='One'>
@@ -206,6 +206,142 @@ export const Width = () => (
       Full width
     </Heading>
     <Accordion fullWidth>
+      <AccordionPanel header='One'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Two'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Three'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+
+export const ShowIcon = () => (
+  <>
+    <Heading level='h2' size='xl'>
+      Hide Accordion Icon
+    </Heading>
+    <Accordion showIcon={false}>
+      <AccordionPanel header='One'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Two'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Three'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+    </Accordion>
+
+    <Heading level='h2' size='xl'>
+      Show Accordion Icon
+    </Heading>
+    <Accordion showIcon>
+      <AccordionPanel header='One'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Two'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Three'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+    </Accordion>
+  </>
+)
+
+export const IconPosition = () => (
+  <>
+    <Heading level='h2' size='xl'>
+      Left Icon Position
+    </Heading>
+    <Accordion iconPosition='left'>
+      <AccordionPanel header='One'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Two'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+
+      <AccordionPanel header='Three'>
+        <Box>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
+          aspernatur velit blanditiis nobis magnam amet expedita dolorem!
+          Doloremque temporibus, atque eveniet possimus culpa veritatis quia
+          perferendis aspernatur maxime earum.
+        </Box>
+      </AccordionPanel>
+    </Accordion>
+
+    <Heading level='h2' size='xl'>
+      Right Icon Position
+    </Heading>
+    <Accordion iconPosition='right'>
       <AccordionPanel header='One'>
         <Box>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ullam
