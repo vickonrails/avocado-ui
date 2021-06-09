@@ -135,9 +135,20 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
         showIcon={showIcon}
       >
         <Button className='avocado-accordion_panel__button'>
-          <Flex alignItems='center' justifyContent='space-between' gap={0}>
+          <Flex
+            alignItems='center'
+            justifyContent={iconPosition === 'right' ? 'space-between' : 'left'}
+            gap={0}
+          >
+            {showIcon && iconPosition === 'left' && (
+              <ChevronDown className='avocado-accordion_panel__icon' />
+            )}
+
             {header}
-            <ChevronDown className='avocado-accordion_panel__icon' />
+
+            {showIcon && iconPosition === 'right' && (
+              <ChevronDown className='avocado-accordion_panel__icon' />
+            )}
           </Flex>
         </Button>
         <Panel className='avocado-accordion_panel__content'>{children}</Panel>
