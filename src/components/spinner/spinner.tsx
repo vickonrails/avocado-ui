@@ -26,7 +26,7 @@ const Spinner: FC<SpinnerProps> = ({ variant, ...props }) => {
 }
 
 export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
-  variant: ButtonVariant
+  variant?: ButtonVariant
   size?: SpinnerSize
 }
 
