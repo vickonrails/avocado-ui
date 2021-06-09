@@ -8,10 +8,57 @@ import { Flex } from '../../components'
 
 const { Button, Panel } = Disclosure
 
+// Accordion Context
 const AccordionContext = createContext<AccordionBaseProps | null>(null)
 
 const { Provider } = AccordionContext
 
+// Styling for Accordion container
+const StyledAccordion = styled.div<AccordionProps>`
+  width: ${({ width, fullWidth }) => (fullWidth ? '100%' : width)};
+  font-size: ${({ size }) => size && accordionTheme.sizes[size].fontSize};
+  margin-bottom: 1.5em;
+
+  button {
+    font-size: inherit;
+  }
+`
+
+type AccordionSize = 'sm' | 'md' | 'lg'
+
+export interface AccordionProps
+  extends HTMLAttributes<HTMLElement>,
+    AccordionBaseProps {}
+
+// AccordionBaseProps
+type AccordionBaseProps = {
+  /**
+   * size - size of the Accordion component
+   */
+  size?: AccordionSize
+
+  /**
+   * width - width of the Accordion component in px
+   */
+  width?: string
+
+  /**
+   * fullWidth - when set to true, Accordion stretches to fill horizontal space
+   */
+  fullWidth?: boolean
+
+  /**
+   * showIcon - should Accordion show chevron icon
+   */
+  showIcon?: boolean
+
+  /**
+   * iconPosition - position of Accordion header icon
+   */
+  iconPosition?: 'left' | 'right'
+}
+
+// Accordion Container Component
 const Accordion: FC<AccordionProps> = ({
   children,
   className,
@@ -22,6 +69,7 @@ const Accordion: FC<AccordionProps> = ({
   iconPosition,
   ...props
 }) => {
+  // append avocado className
   const _className = className
     ? `avocado-accordion ${className}`
     : `avocado-accordion`
@@ -35,6 +83,8 @@ const Accordion: FC<AccordionProps> = ({
   }
 
   return (
+    // Passing these values into the Accordion context
+    // so they are available in every child component of the Accordion
     <Provider value={accordionValues}>
       <StyledAccordion
         className={_className}
@@ -48,7 +98,19 @@ const Accordion: FC<AccordionProps> = ({
   )
 }
 
-const AccordionButton: FC = Button
+// -------------------------------------------------------------------------
+// Accordion Panel/Content
+// -------------------------------------------------------------------------
+
+// Interface for Accordion Panel
+interface AccordionPanelProps
+  extends HTMLAttributes<HTMLElement>,
+    Omit<AccordionBaseProps, 'width' | 'fullWidth'> {
+  /**
+   * header - component/text to show on the Accordion Button
+   */
+  header: string | JSX.Element
+}
 
 const AccordionPanel: FC<AccordionPanelProps> = ({
   children,
@@ -84,15 +146,6 @@ const AccordionPanel: FC<AccordionPanelProps> = ({
   )
 }
 
-interface AccordionPanelProps
-  extends HTMLAttributes<HTMLElement>,
-    Omit<AccordionBaseProps, 'width' | 'fullWidth'> {
-  /**
-   * header - component/text to show on the Accordion Button
-   */
-  header: string | JSX.Element
-}
-
 const StyledDisclosure = styled.div<AccordionBaseProps>`
   display: block;
   width: 100%;
@@ -120,47 +173,6 @@ const StyledDisclosure = styled.div<AccordionBaseProps>`
   }
 `
 
-const StyledAccordion = styled.div<AccordionProps>`
-  width: ${({ width, fullWidth }) => (fullWidth ? '100%' : width)};
-  font-size: ${({ size }) => size && accordionTheme.sizes[size].fontSize};
-  margin-bottom: 1.5em;
-
-  button {
-    font-size: inherit;
-  }
-`
-
-type AccordionSize = 'sm' | 'md' | 'lg'
-type AccordionBaseProps = {
-  /**
-   * size - size of the Accordion component
-   */
-  size?: AccordionSize
-
-  /**
-   * width - width of the Accordion component in px
-   */
-  width?: string
-
-  /**
-   * fullWidth - when set to true, Accordion stretches to fill horizontal space
-   */
-  fullWidth?: boolean
-
-  /**
-   * showIcon - should Accordion show chevron icon
-   */
-  showIcon?: boolean
-
-  /**
-   * iconPosition - position of Accordion header icon
-   */
-  iconPosition?: 'left' | 'right'
-}
-interface AccordionProps
-  extends HTMLAttributes<HTMLElement>,
-    AccordionBaseProps {}
-
 Accordion.defaultProps = {
   size: 'md',
   width: '20em',
@@ -169,4 +181,4 @@ Accordion.defaultProps = {
   showIcon: true
 }
 
-export { Accordion, AccordionButton, AccordionPanel }
+export { Accordion, AccordionPanel }
