@@ -1,13 +1,14 @@
 import React, { forwardRef, Ref } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
+import { css, useTheme } from '@emotion/react'
 import isValidProp from '@emotion/is-prop-valid'
 
-import { theme } from '../theme'
+import { theme as staticTheme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
 import { Spinner } from '../spinner/spinner'
 import { Shape } from '../../utils/types'
+import { AvocadoThemeProps } from '../theme/theme-provider/provider'
 
 /**
  * Button - Renders a clickable item to the browser
@@ -15,6 +16,8 @@ import { Shape } from '../../utils/types'
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { buttonType, trim, prefixIcon, suffixIcon, disabled, loading } = props
+  const avocadoTheme = useTheme()
+  const { primaryColor } = avocadoTheme as AvocadoThemeProps
   const _classNames = props.className
     ? `avocado-btn ${props.className}`
     : `avocado-btn`
@@ -23,6 +26,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     <StyledButton
       buttonType={buttonType}
       {...props}
+      theme={{ primaryColor }}
       disabled={disabled || loading}
       loading={loading || undefined}
       className={_classNames}
@@ -94,6 +98,8 @@ export interface ButtonProps
    * ref. used for directly controlling dom element
    */
   ref?: Ref<HTMLButtonElement>
+
+  theme?: AvocadoThemeProps
 }
 
 /**
@@ -108,8 +114,8 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   cursor: pointer;
   border: none;
   box-sizing: border-box;
-  color: ${theme.colors.gray[8]};
-  background: ${theme.colors.gray[4]}
+  color: ${staticTheme.colors.gray[8]};
+  background: ${staticTheme.colors.gray[4]}
   user-select: none;
   transition: background, color, transform;
   transition-duration: 0.15s;
@@ -117,8 +123,8 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   user-select: none;
 
   border-radius: ${shape && getButtonShape(shape)};
-  padding: ${`${size && theme.components.buttonTheme.size[size]} ${
-    size && theme.components.buttonTheme.size[size]
+  padding: ${`${size && staticTheme.components.buttonTheme.size[size]} ${
+    size && staticTheme.components.buttonTheme.size[size]
   }`};
 
   opacity: ${loading && 0.4};
@@ -154,15 +160,15 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   :focus {
     outline: none;
     transform: none;
-    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+    box-shadow: 0 0 0 3px ${staticTheme.colors.blue[100]};
   }
 
   :disabled,
   :disabled:hover {
     cursor: not-allowed;
-    border: ${!loading && `1px solid ${theme.colors.gray[6]}`};
-    color: ${!loading && theme.colors.gray[8]};
-    background: ${!loading && theme.colors.gray[3]};
+    border: ${!loading && `1px solid ${staticTheme.colors.gray[6]}`};
+    color: ${!loading && staticTheme.colors.gray[8]};
+    background: ${!loading && staticTheme.colors.gray[3]};
     transform: none;
     text-decoration: none;
    }
@@ -175,20 +181,23 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
     transform: translateY(0px);
   }
   :active {
-    background: ${theme.colors.gray[4]};
+    background: ${staticTheme.colors.gray[4]};
   }
 `
 
-const StyledSolidButton = ({ buttonType, variant }: ButtonProps) =>
+const StyledSolidButton = ({ buttonType, theme, variant }: ButtonProps) =>
   buttonType === 'solid' &&
   css`
-    background: ${variant &&
-    theme.components.buttonTheme.variants[variant].default};
-    color: ${theme.colors.white};
+    background: ${variant && variant === 'primary'
+      ? theme?.primaryColor
+      : variant &&
+        staticTheme.components.buttonTheme.variants[variant].default};
+
+    color: ${staticTheme.colors.white};
 
     &:hover {
       background: ${variant &&
-      theme.components.buttonTheme.variants[variant].hover};
+      staticTheme.components.buttonTheme.variants[variant].hover};
     }
   `
 
@@ -197,19 +206,21 @@ const StyledOutlineButton = ({ buttonType, variant }: ButtonProps) =>
   css`
     background: inherit;
     border: 1px solid
-      ${variant && theme.components.buttonTheme.variants[variant].hover};
-    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
+      ${variant && staticTheme.components.buttonTheme.variants[variant].hover};
+    color: ${variant &&
+    staticTheme.components.buttonTheme.variants[variant].hover};
   `
 
 const StyledGhostButton = ({ buttonType, variant }: ButtonProps) =>
   buttonType === 'ghost' &&
   css`
     background: inherit;
-    border: 2px solid ${theme.colors.gray[3]};
-    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
+    border: 2px solid ${staticTheme.colors.gray[3]};
+    color: ${variant &&
+    staticTheme.components.buttonTheme.variants[variant].hover};
 
     :hover {
-      border-color: ${theme.colors.gray[4]};
+      border-color: ${staticTheme.colors.gray[4]};
     }
   `
 
@@ -218,7 +229,7 @@ const StyledLinkButton = ({ buttonType }: ButtonProps) =>
   css`
     background: none;
     padding: 0;
-    color: ${theme.colors.blue[400]};
+    color: ${staticTheme.colors.blue[400]};
 
     :hover {
       text-decoration: underline;

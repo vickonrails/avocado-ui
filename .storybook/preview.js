@@ -13,7 +13,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider>
+    <ThemeProvider theme={{ primaryColor: 'magenta' }}>
       <Story />
     </ThemeProvider>
   )
