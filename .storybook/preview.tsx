@@ -1,4 +1,4 @@
-import { ThemeProvider, theme, ThemeProps } from '../src/components'
+import { ThemeProvider } from '../src/components'
 import './styling.css'
 
 export const parameters = {
@@ -10,27 +10,6 @@ export const parameters = {
     }
   }
 }
-
-// const appTheme: ThemeProps = {
-//   ...theme,
-//   // components: {
-//   //   ...theme.components,
-//   //   buttonTheme: {
-//   //     ...theme.components.buttonTheme,
-//   //     variants: {
-//   //       ...theme.components.buttonTheme.variants,
-//   //       primary: {
-//   //         default: `red`,
-//   //         hover: `green`
-//   //       }
-//   //     }
-//   //   }
-//   // }
-//   colors: {
-//     ...theme.colors,
-//     primary: 'red'
-//   }
-// }
 
 const appTheme = {
   primaryColor: `green`,

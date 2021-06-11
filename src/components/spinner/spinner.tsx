@@ -1,9 +1,10 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
+import { keyframes, useTheme } from '@emotion/react'
 
-import { theme } from '../theme'
+import { AvocadoThemeProps } from '../../utils/types'
 import { ButtonVariant } from '../button'
+import { ThemeProps } from '../theme'
 
 const spin = keyframes`
     0% { -webkit-transform: rotate(0deg); }
@@ -11,21 +12,27 @@ const spin = keyframes`
 `
 /**
  *
- * Spinner - show a spinning loading to the user
+ * Spinner - show a loading spinning to the user
  *
  */
 
-const Spinner: FC<SpinnerProps> = ({ variant, ...props }) => {
+const Spinner: FC<SpinnerProps> = ({ theme, ...props }) => {
   const _className = props.className
     ? `avocado-spinner ${props.className}`
     : `avocado-spinner`
 
-  if (!variant) throw Error('<Spinner/> requires a variant. please supply one')
+  // bring in avocado theme
+  const avocadoTheme = useTheme() as ThemeProps
 
-  return <StyledSpinner {...props} variant={variant} className={_className} />
+  return (
+    <StyledSpinner {...props} theme={avocadoTheme} className={_className} />
+  )
 }
 
-export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
+// compose spinner props
+export interface SpinnerProps
+  extends HTMLAttributes<HTMLSpanElement>,
+    AvocadoThemeProps {
   variant?: ButtonVariant
   size?: SpinnerSize
 }
@@ -36,16 +43,16 @@ const StyledSpinner = styled.span<SpinnerProps>`
   border: 3px solid #fff;
   border-radius: 50%;
   border-top: 3px solid
-    ${(props) =>
-      props.variant &&
-      theme.components.buttonTheme.variants[props.variant].default};
+    ${({ variant, theme }) =>
+      variant && theme?.components.spinnerTheme.variants[variant]};
   border-right: 3px solid
-    ${(props) =>
-      props.variant &&
-      theme.components.buttonTheme.variants[props.variant].default};
-  width: ${({ size }) => size && theme.components.spinnerTheme.sizes[size]};
+    ${({ variant, theme }) =>
+      variant && theme?.components.spinnerTheme.variants[variant]};
+  width: ${({ size, theme }) =>
+    size && theme?.components.spinnerTheme.sizes[size]};
   display: inline-block;
-  height: ${({ size }) => size && theme.components.spinnerTheme.sizes[size]};
+  height: ${({ size, theme }) =>
+    size && theme?.components.spinnerTheme.sizes[size]};
   animation: ${spin} 0.4s linear infinite;
   box-sizing: border-box;
 `
@@ -55,4 +62,5 @@ Spinner.defaultProps = {
   variant: 'primary',
   size: 'md'
 }
+
 export { Spinner }

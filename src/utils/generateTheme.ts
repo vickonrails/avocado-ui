@@ -2,7 +2,9 @@ import { theme } from '../components'
 import { ThemeProps } from '../components/theme'
 import {
   buttonTheme as baseButtonTheme,
-  generateButtonTheme
+  spinnerTheme as baseSpinnerTheme,
+  generateButtonTheme,
+  generateSpinnerTheme
 } from '../components/theme/components'
 
 export interface UserTheme {
@@ -27,14 +29,16 @@ export const generateTheme = ({
   secondaryColor,
   focusColor
 }: UserTheme): ThemeProps => {
+  // generate button theme
   const buttonTheme = generateButtonTheme(
     { primaryColor, secondaryColor, focusColor },
     baseButtonTheme
   )
 
-  console.log(buttonTheme)
+  // generate spinner theme
+  const spinnerTheme = generateSpinnerTheme({ primaryColor }, baseSpinnerTheme)
 
-  const newTheme: ThemeProps = {
+  const compositeAppTheme: ThemeProps = {
     ...theme,
     colors: {
       ...theme.colors,
@@ -42,9 +46,10 @@ export const generateTheme = ({
     },
     components: {
       ...theme.components,
-      buttonTheme
+      buttonTheme,
+      spinnerTheme
     }
   }
 
-  return newTheme
+  return compositeAppTheme
 }
