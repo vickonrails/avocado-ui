@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/vickonrails/avocado-ui/compare/v0.1.24...v0.1.25) (2021-06-11)
+
+
+### Features
+
+* cracking theming with runtime values ([21b7569](https://github.com/vickonrails/avocado-ui/commit/21b7569232416f4430953d646218f969fa5feb38))
+
+
+### Bug Fixes
+
+* make variant prop on Spinner optional ([364e974](https://github.com/vickonrails/avocado-ui/commit/364e9748a5a531c25f1e6ac62e47f145468e04a9))
+
+
+### Refactors
+
+* add support for theming avatar ([619ff81](https://github.com/vickonrails/avocado-ui/commit/619ff8153546dd57b656715de1d11aef767214d8))
+* bake theming into Button component ([36a6d83](https://github.com/vickonrails/avocado-ui/commit/36a6d83d4e41dbd0ccb7a2b80f7a8dbc2fc88285))
+* bake theming into spinner ([8ae9739](https://github.com/vickonrails/avocado-ui/commit/8ae97394b9b8b1e897eab526716384df9e017f2e))
+* implement theming for input component ([f6c147c](https://github.com/vickonrails/avocado-ui/commit/f6c147cac4df66a4fa60b54c16998ce0b5210c82))
+* move theme props to seperate definition ([059a5a1](https://github.com/vickonrails/avocado-ui/commit/059a5a1e0de3e55f57693eb8a7a3a7d37607a61f))
+* new direction for theming ([32e47ba](https://github.com/vickonrails/avocado-ui/commit/32e47bafbd62a9a4984e14481bcc5508c933954e))
+
 ### [0.1.24](https://github.com/vickonrails/avocado-ui/compare/v0.1.23...v0.1.24) (2021-06-09)
 
 
