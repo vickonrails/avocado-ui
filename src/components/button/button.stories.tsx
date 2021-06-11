@@ -68,6 +68,22 @@ export const Shape: Story<ButtonProps> = () => (
   </>
 )
 
+export const Types: Story<ButtonProps> = () => (
+  <>
+    <Box mv={MARGIN}>
+      <Button buttonType='solid'>Solid Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button buttonType='outline'>Outline Button</Button>
+    </Box>
+
+    <Box mv={MARGIN}>
+      <Button buttonType='ghost'>Square Button</Button>
+    </Box>
+  </>
+)
+
 export const State: Story<ButtonProps> = () => (
   <>
     <Box mv={MARGIN}>
