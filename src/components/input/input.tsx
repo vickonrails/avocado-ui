@@ -1,12 +1,12 @@
 import React, { FC, InputHTMLAttributes } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import { theme } from '../theme'
+import { css, useTheme } from '@emotion/react'
+import { ThemeProps } from '../theme'
 import { getBorderRadius, getInputIconSize } from '../../utils/input'
 import InputIcon from './input-icon'
-import { Shape } from '../../utils/types'
+import { AvocadoThemeProps, Shape } from '../../utils/types'
 
-const { inputTheme } = theme.components
+// const { inputTheme } = theme.components
 
 // Something about this input component. We really want this component to only be used for inputs
 // Any other component apart from an input (checkbox, radiobutton, etc) should not even be allowed
@@ -20,6 +20,8 @@ const Input: FC<InputProps> = ({
   fullWidth,
   ...props
 }) => {
+  const avocadoTheme = useTheme() as ThemeProps
+
   if (variant === 'unstyled') return <input {...props} />
   const _className = props.className
     ? `${props.className} avocado-input__control avocado-input__control--${variant}`
@@ -29,6 +31,7 @@ const Input: FC<InputProps> = ({
     <StyledInput
       className='avocado-input'
       variant={variant}
+      theme={avocadoTheme}
       inputSize={inputSize}
       borderRadius={borderRadius}
       fullWidth={fullWidth}
@@ -47,7 +50,9 @@ export type BorderRadius = 'curve' | 'square' | 'round'
 
 type InputSize = 'sm' | 'md' | 'lg'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    AvocadoThemeProps {
   /**
    * set variant of input. Can be "filled", "unstyled", "outline"
    */
@@ -87,6 +92,7 @@ const StyledBaseInput = ({
   borderRadius,
   prefixIcon,
   fullWidth,
+  theme,
   suffixIcon
 }: InputProps) => css`
   position: relative;
@@ -95,21 +101,23 @@ const StyledBaseInput = ({
   width: ${fullWidth ? '100%' : 'auto'};
 
   .avocado-input__control {
-    border: 1px solid ${theme.colors.gray[5]};
+    border: 1px solid ${theme?.colors.gray[5]};
     font: inherit;
     font-size: ${inputSize === 'sm' && '14px'};
-    padding: ${inputSize && inputTheme.size[inputSize].verticalPadding}
-      ${inputSize && inputTheme.size[inputSize].horizontalPadding};
+    padding: ${inputSize &&
+      theme?.components.inputTheme.size[inputSize].verticalPadding}
+      ${inputSize &&
+      theme?.components.inputTheme.size[inputSize].horizontalPadding};
 
     padding-left: ${prefixIcon &&
     (inputSize === 'sm'
-      ? theme.spacing['3x-large']
-      : theme.spacing['3.3x-large'])};
+      ? theme?.spacing['3x-large']
+      : theme?.spacing['3.3x-large'])};
 
     padding-right: ${suffixIcon &&
     (inputSize === 'sm'
-      ? theme.spacing['3x-large']
-      : theme.spacing['3.3x-large'])};
+      ? theme?.spacing['3x-large']
+      : theme?.spacing['3.3x-large'])};
 
     transition: border-color, background;
     transition-duration: 0.25s;
@@ -119,17 +127,19 @@ const StyledBaseInput = ({
     transition-timing-function: ease-out;
 
     :hover {
-      border: ${!disabled && `1px solid ${theme.colors.blue[500]}`};
+      // border: ${!disabled && `1px solid ${theme?.colors.blue[500]}`};
+      border: ${!disabled &&
+      `1px solid ${theme?.components.inputTheme.outlineColor}`};
     }
 
     :focus {
       outline: none;
-      box-shadow: 0 0 0 2px ${theme.colors.blue[200]};
+      box-shadow: 0 0 0 2px ${theme?.components.inputTheme.focusColor};
     }
 
     :disabled {
       cursor: not-allowed;
-      background: ${theme.colors.gray[3]};
+      background: ${theme?.colors.gray[3]};
       border: none;
       user-select: none;
     }
@@ -145,7 +155,7 @@ const StyledBaseInput = ({
     height: ${inputSize && getInputIconSize(inputSize)};
 
     pointer-events: none;
-    color: ${theme.colors.gray[6]};
+    color: ${theme?.colors.gray[6]};
     > * {
       margin: auto;
     }
@@ -167,17 +177,17 @@ const StyledBaseInput = ({
   }
 `
 
-const StyledFilledInput = ({ variant, disabled }: InputProps) =>
+const StyledFilledInput = ({ variant, disabled, theme }: InputProps) =>
   variant === 'fill' &&
   css`
     .avocado-input__control {
       border: none;
-      background: ${theme.colors.gray[4]};
+      background: ${theme?.colors.gray[4]};
       border: 1px solid transparent;
 
       &:hover {
         border: none;
-        border: ${!disabled && `1px solid ${theme.colors.gray[5]}`};
+        border: ${!disabled && `1px solid ${theme?.colors.gray[5]}`};
       }
 
       &:active,

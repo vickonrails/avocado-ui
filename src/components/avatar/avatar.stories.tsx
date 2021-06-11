@@ -1,5 +1,4 @@
 import React from 'react'
-import { User } from 'react-feather'
 import { Story, Meta } from '@storybook/react'
 
 import { Avatar, AvatarProps } from '../../components'

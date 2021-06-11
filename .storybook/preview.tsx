@@ -13,7 +13,8 @@ export const parameters = {
 
 const appTheme = {
   primaryColor: `green`,
-  secondaryColor: `#00A400`
+  secondaryColor: `#00A400`,
+  focusColor: `#b7eb8f`
 }
 
 export const decorators = [

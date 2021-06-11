@@ -1,9 +1,12 @@
 // import { theme } from '..'
+import { UserTheme } from '../../../utils/generateTheme'
 import colors from '../colors'
 // import borders from '../borders'
 import spacing from '../spacing'
 
 const inputTheme = {
+  outlineColor: colors.blue[500],
+  focusColor: colors.blue[200],
   variants: {
     fill: {
       default: {
@@ -36,6 +39,26 @@ const inputTheme = {
       horizontalPadding: spacing.large
     }
   }
+}
+
+/**
+ * generateAvatarTheme - generates Avatar theme from UserTheme values
+ * @param {UserTheme} userTheme - theme variables entered by the user
+ * @param {AvatarTheme} avatarTheme - base avatar theme
+ */
+export const generateInputTheme = (
+  userTheme: UserTheme,
+  inputTheme: InputTheme
+): InputTheme => {
+  const { primaryColor, focusColor } = userTheme
+
+  const newInputTheme: InputTheme = {
+    ...inputTheme,
+    outlineColor: primaryColor || inputTheme.outlineColor,
+    focusColor: focusColor || inputTheme.focusColor
+  }
+
+  return newInputTheme
 }
 
 export type InputTheme = typeof inputTheme

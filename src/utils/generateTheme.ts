@@ -5,8 +5,10 @@ import {
   spinnerTheme as baseSpinnerTheme,
   avatarTheme as baseAvatarTheme,
   generateButtonTheme,
+  inputTheme as baseInputTheme,
   generateSpinnerTheme,
-  generateAvatarTheme
+  generateAvatarTheme,
+  generateInputTheme
 } from '../components/theme/components'
 
 export interface UserTheme {
@@ -40,6 +42,10 @@ export const generateTheme = ({
   // generate spinner theme
   const spinnerTheme = generateSpinnerTheme({ primaryColor }, baseSpinnerTheme)
   const avatarTheme = generateAvatarTheme({ primaryColor }, baseAvatarTheme)
+  const inputTheme = generateInputTheme(
+    { primaryColor, secondaryColor, focusColor },
+    baseInputTheme
+  )
 
   const compositeAppTheme: ThemeProps = {
     ...theme,
@@ -51,7 +57,8 @@ export const generateTheme = ({
       ...theme.components,
       buttonTheme,
       spinnerTheme,
-      avatarTheme
+      avatarTheme,
+      inputTheme
     }
   }
 
