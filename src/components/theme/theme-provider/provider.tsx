@@ -20,7 +20,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
   // @ts-ignore
   const { primaryColor, secondaryColor } = userTheme
   const mergedTheme = generateTheme({ primaryColor, secondaryColor })
-  console.log({ mergedTheme })
+
   return (
     <ThemeContext.Provider value={mergedTheme}>
       {children}

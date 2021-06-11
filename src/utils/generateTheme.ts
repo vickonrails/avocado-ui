@@ -3,8 +3,10 @@ import { ThemeProps } from '../components/theme'
 import {
   buttonTheme as baseButtonTheme,
   spinnerTheme as baseSpinnerTheme,
+  avatarTheme as baseAvatarTheme,
   generateButtonTheme,
-  generateSpinnerTheme
+  generateSpinnerTheme,
+  generateAvatarTheme
 } from '../components/theme/components'
 
 export interface UserTheme {
@@ -37,6 +39,7 @@ export const generateTheme = ({
 
   // generate spinner theme
   const spinnerTheme = generateSpinnerTheme({ primaryColor }, baseSpinnerTheme)
+  const avatarTheme = generateAvatarTheme({ primaryColor }, baseAvatarTheme)
 
   const compositeAppTheme: ThemeProps = {
     ...theme,
@@ -47,7 +50,8 @@ export const generateTheme = ({
     components: {
       ...theme.components,
       buttonTheme,
-      spinnerTheme
+      spinnerTheme,
+      avatarTheme
     }
   }
 
