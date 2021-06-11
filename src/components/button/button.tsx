@@ -7,7 +7,7 @@ import isValidProp from '@emotion/is-prop-valid'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
 import { Spinner } from '../spinner/spinner'
-import { Shape } from '../../utils/types'
+import { AvocadoThemeProps, Shape } from '../../utils/types'
 import { ThemeProps } from '../theme/theme-provider/provider'
 
 /**
@@ -61,7 +61,8 @@ export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    AvocadoThemeProps {
   /**
    * default type of button. Can be submit, button, reset
    */
@@ -100,8 +101,6 @@ export interface ButtonProps
    * ref. used for directly controlling dom element
    */
   ref?: Ref<HTMLButtonElement>
-
-  theme?: ThemeProps
 }
 
 /**

@@ -33,8 +33,8 @@ export const parameters = {
 // }
 
 const appTheme = {
-  primaryColor: `magenta`,
-  secondaryColor: `#f431f4`
+  primaryColor: `green`,
+  secondaryColor: `#00A400`
 }
 
 export const decorators = [
