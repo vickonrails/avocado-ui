@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css, useTheme } from '@emotion/react'
 import isValidProp from '@emotion/is-prop-valid'
 
-import { theme as theme } from '../theme'
+// import { theme as theme } from '../theme'
 import { getButtonShape, trimButtonText } from '../../utils/button'
 import ButtonIcon from './button-icon'
 import { Spinner } from '../spinner/spinner'
@@ -107,7 +107,7 @@ export interface ButtonProps
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
+const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
   shape &&
   css`
   padding: 0.5em 0.8em;
@@ -116,8 +116,8 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   cursor: pointer;
   border: none;
   box-sizing: border-box;
-  color: ${theme.colors.gray[8]};
-  background: ${theme.colors.gray[4]}
+  color: ${theme?.colors.gray[8]};
+  background: ${theme?.colors.gray[4]}
   user-select: none;
   transition: background, color, transform;
   transition-duration: 0.15s;
@@ -125,8 +125,8 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   user-select: none;
 
   border-radius: ${shape && getButtonShape(shape)};
-  padding: ${`${size && theme.components.buttonTheme.size[size]} ${
-    size && theme.components.buttonTheme.size[size]
+  padding: ${`${size && theme?.components.buttonTheme.size[size]} ${
+    size && theme?.components.buttonTheme.size[size]
   }`};
 
   opacity: ${loading && 0.4};
@@ -162,15 +162,15 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
   :focus {
     outline: none;
     transform: none;
-    box-shadow: 0 0 0 3px ${theme.colors.blue[100]};
+    box-shadow: 0 0 0 3px ${theme?.colors.blue[100]};
   }
 
   :disabled,
   :disabled:hover {
     cursor: not-allowed;
-    border: ${!loading && `1px solid ${theme.colors.gray[6]}`};
-    color: ${!loading && theme.colors.gray[8]};
-    background: ${!loading && theme.colors.gray[3]};
+    border: ${!loading && `1px solid ${theme?.colors.gray[6]}`};
+    color: ${!loading && theme?.colors.gray[8]};
+    background: ${!loading && theme?.colors.gray[3]};
     transform: none;
     text-decoration: none;
    }
@@ -183,7 +183,7 @@ const BaseButton = ({ shape, size, loading, disabled }: ButtonProps) =>
     transform: translateY(0px);
   }
   :active {
-    background: ${theme.colors.gray[4]};
+    background: ${theme?.colors.gray[4]};
   }
 `
 
@@ -201,33 +201,33 @@ const StyledSolidButton = ({ buttonType, theme, variant }: ButtonProps) =>
     }
   `
 
-const StyledOutlineButton = ({ buttonType, variant }: ButtonProps) =>
+const StyledOutlineButton = ({ buttonType, variant, theme }: ButtonProps) =>
   buttonType === 'outline' &&
   css`
     background: inherit;
     border: 1px solid
-      ${variant && theme.components.buttonTheme.variants[variant].hover};
-    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
+      ${variant && theme?.components.buttonTheme.variants[variant].hover};
+    color: ${variant && theme?.components.buttonTheme.variants[variant].hover};
   `
 
-const StyledGhostButton = ({ buttonType, variant }: ButtonProps) =>
+const StyledGhostButton = ({ buttonType, variant, theme }: ButtonProps) =>
   buttonType === 'ghost' &&
   css`
     background: inherit;
-    border: 2px solid ${theme.colors.gray[3]};
-    color: ${variant && theme.components.buttonTheme.variants[variant].hover};
+    border: 2px solid ${theme?.colors.gray[3]};
+    color: ${variant && theme?.components.buttonTheme.variants[variant].hover};
 
     :hover {
-      border-color: ${theme.colors.gray[4]};
+      border-color: ${theme?.colors.gray[4]};
     }
   `
 
-const StyledLinkButton = ({ buttonType }: ButtonProps) =>
+const StyledLinkButton = ({ buttonType, theme }: ButtonProps) =>
   buttonType === 'link' &&
   css`
     background: none;
     padding: 0;
-    color: ${theme.colors.blue[400]};
+    color: ${theme?.colors.blue[400]};
 
     :hover {
       text-decoration: underline;

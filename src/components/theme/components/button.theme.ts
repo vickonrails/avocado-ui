@@ -1,6 +1,7 @@
 import colors from '../colors'
 import borders from '../borders'
 import spacing from '../spacing'
+import { UserTheme } from '../../../utils/generateTheme'
 
 const buttonTheme = {
   variants: {
@@ -30,6 +31,31 @@ const buttonTheme = {
     md: `${spacing.small} ${spacing.medium}`,
     lg: `${spacing.medium} ${spacing.large}`
   }
+}
+
+/**
+ * generateButtonTheme - generates Button theme from UserTheme values
+ * @param {UserTheme} userTheme - theme variables entered by the user
+ * @param {ButtonTheme} buttonTheme - base button theme
+ */
+export const generateButtonTheme = (
+  userTheme: UserTheme,
+  buttonTheme: ButtonTheme
+): ButtonTheme => {
+  const { primaryColor, secondaryColor } = userTheme
+
+  const newButtonTheme: ButtonTheme = {
+    ...buttonTheme,
+    variants: {
+      ...buttonTheme.variants,
+      primary: {
+        default: primaryColor || buttonTheme.variants.primary.default,
+        hover: secondaryColor || buttonTheme.variants.primary.hover
+      }
+    }
+  }
+
+  return newButtonTheme
 }
 
 export type ButtonTheme = typeof buttonTheme
