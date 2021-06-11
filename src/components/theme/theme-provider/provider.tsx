@@ -2,24 +2,29 @@ import React from 'react'
 import { ThemeContext } from '@emotion/react'
 
 import { theme } from '../../theme'
+import { generateTheme, UserTheme } from '../../../utils/generateTheme'
 
 // export interface AvocadoThemeProps {
 //   primaryColor: string
 // }
 
 export interface ThemeProviderProps {
-  theme: Partial<ThemeProps> | ((outerTheme: ThemeProps) => ThemeProps)
+  theme: Partial<UserTheme> | ((outerTheme: UserTheme) => UserTheme)
   children?: React.ReactNode
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({
-  theme: appTheme,
+  theme: userTheme,
   children
 }) => {
-  console.log(`AppTheme: ${JSON.stringify(appTheme)}`)
-  console.log(`InnerTheme: ${JSON.stringify(theme)}`)
+  // @ts-ignore
+  const { primaryColor, secondaryColor } = userTheme
+  const mergedTheme = generateTheme({ primaryColor, secondaryColor })
+  console.log({ mergedTheme })
   return (
-    <ThemeContext.Provider value={appTheme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={mergedTheme}>
+      {children}
+    </ThemeContext.Provider>
   )
 }
 

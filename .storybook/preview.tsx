@@ -11,25 +11,30 @@ export const parameters = {
   }
 }
 
-const appTheme: ThemeProps = {
-  ...theme,
-  // components: {
-  //   ...theme.components,
-  //   buttonTheme: {
-  //     ...theme.components.buttonTheme,
-  //     variants: {
-  //       ...theme.components.buttonTheme.variants,
-  //       primary: {
-  //         default: `red`,
-  //         hover: `green`
-  //       }
-  //     }
-  //   }
-  // }
-  colors: {
-    ...theme.colors,
-    primary: 'red'
-  }
+// const appTheme: ThemeProps = {
+//   ...theme,
+//   // components: {
+//   //   ...theme.components,
+//   //   buttonTheme: {
+//   //     ...theme.components.buttonTheme,
+//   //     variants: {
+//   //       ...theme.components.buttonTheme.variants,
+//   //       primary: {
+//   //         default: `red`,
+//   //         hover: `green`
+//   //       }
+//   //     }
+//   //   }
+//   // }
+//   colors: {
+//     ...theme.colors,
+//     primary: 'red'
+//   }
+// }
+
+const appTheme = {
+  primaryColor: `magenta`,
+  secondaryColor: `#f431f4`
 }
 
 export const decorators = [
