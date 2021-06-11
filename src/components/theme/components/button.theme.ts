@@ -5,7 +5,7 @@ import spacing from '../spacing'
 const buttonTheme = {
   variants: {
     primary: {
-      default: colors.blue[500],
+      default: colors.primary,
       hover: colors.blue[400]
     },
     error: {

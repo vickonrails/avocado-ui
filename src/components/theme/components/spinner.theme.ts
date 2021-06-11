@@ -5,4 +5,5 @@ export const spinnerTheme = {
     lg: '1.5em'
   }
 }
+
 export type SpinnerTheme = typeof spinnerTheme
