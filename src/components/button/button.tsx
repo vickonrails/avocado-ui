@@ -106,86 +106,88 @@ export interface ButtonProps
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
-  shape &&
-  css`
-  padding: 0.5em 0.8em;
-  font: inherit;
-  font-size: ${size === 'sm' ? '14px' : `inherit`};
-  cursor: pointer;
-  border: none;
-  box-sizing: border-box;
-  color: ${theme?.colors.gray[8]};
-  background: ${theme?.colors.gray[4]}
-  user-select: none;
-  transition: background, color, transform;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-out;
-  user-select: none;
+const BaseButton = ({
+  shape
+}: /* size, theme, loading, disabled */
+ButtonProps) => shape && css``
 
-  border-radius: ${shape && getButtonShape(shape)};
-  padding: ${`${size && theme?.components.buttonTheme.size[size]} ${
-    size && theme?.components.buttonTheme.size[size]
-  }`};
+//   padding: 0.5em 0.8em;
+//   font: inherit;
+//   font-size: ${size === 'sm' ? '14px' : `inherit`};
+//   cursor: pointer;
+//   border: none;
+//   box-sizing: border-box;
+//   color: ${theme?.colors.gray[8]};
+//   background: ${theme?.colors.gray[4]}
+//   user-select: none;
+//   transition: background, color, transform;
+//   transition-duration: 0.15s;
+//   transition-timing-function: ease-out;
+//   user-select: none;
 
-  opacity: ${loading && 0.4};
+//   border-radius: ${shape && getButtonShape(shape)};
+//   padding: ${`${size && theme?.components.buttonTheme.size[size]} ${
+//     size && theme?.components.buttonTheme.size[size]
+//   }`};
 
-  display: inline-flex;
-  align-items: center;
+//   opacity: ${loading && 0.4};
 
-  .btn-icon--left,   
-  .btn-icon--right {
-    height: 15px;
-    width: 15px;
+//   display: inline-flex;
+//   align-items: center;
 
-    // display: inline-flex;
+//   .btn-icon--left,
+//   .btn-icon--right {
+//     height: 15px;
+//     width: 15px;
 
-    svg {
-      height: 100%;
-      width: 100%;
-      margin: auto;
-    }
-  }
+//     display: inline-flex;
 
-  .btn-icon--left {
-    // margin-right: .5em;
-  }
-  .btn-icon--right {
-    margin-left: .5em;
-  }
+//     svg {
+//       height: 100%;
+//       width: 100%;
+//       margin: auto;
+//     }
+//   }
 
-  .avocado-btn__spinner {
-    margin-right: .5em;
-  }
+//   .btn-icon--left {
+//     margin-right: 0.5em;
+//   }
+//   .btn-icon--right {
+//     margin-left: 0.5em;
+//   }
 
-  :focus {
-    outline: none;
-    transform: none;
-    box-shadow: 0 0 0 3px ${theme?.colors.blue[100]};
-  }
+//   .avocado-btn__spinner {
+//     margin-right: 0.5em;
+//   }
 
-  :disabled,
-  :disabled:hover {
-    cursor: not-allowed;
-    border: ${!loading && `1px solid ${theme?.colors.gray[6]}`};
-    color: ${!loading && theme?.colors.gray[8]};
-    // background: ${!loading && theme && theme?.colors.gray[3]};
-    transform: none;
-    text-decoration: none;
-   }
+//   :focus {
+//     outline: none;
+//     transform: none;
+//     box-shadow: 0 0 0 3px ${theme?.colors.blue[100]};
+//   }
 
-  :hover {
-    transform: ${!loading && !disabled && `translateY(-1px)`}; 
-  }
+//   :disabled,
+//   :disabled:hover {
+//     cursor: not-allowed;
+//     border: ${!loading && `1px solid ${theme?.colors.gray[6]}`};
+//     color: ${!loading && theme?.colors.gray[8]};
+//     background: ${!loading && theme && theme?.colors.gray[3]};
+//     transform: none;
+//     text-decoration: none;
+//   }
 
-  :hover:active {
-    transform: translateY(0px);
-  }
+//   :hover {
+//     transform: ${!loading && !disabled && `translateY(-1px)`};
+//   }
 
-  :active {
-    // background: ${theme?.colors.gray[4]};
-  }
-`
+//   :hover:active {
+//     transform: translateY(0px);
+//   }
+
+//   :active {
+//     background: ${theme?.colors.gray[4]};
+//   }
+// `
 
 const StyledSolidButton = ({ buttonType, theme, variant }: ButtonProps) =>
   buttonType === 'solid' &&
