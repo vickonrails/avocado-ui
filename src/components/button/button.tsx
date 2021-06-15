@@ -169,7 +169,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
     cursor: not-allowed;
     border: ${!loading && `1px solid ${theme?.colors.gray[6]}`};
     color: ${!loading && theme?.colors.gray[8]};
-    background: ${!loading && theme?.colors.gray[3]};
+    // background: ${!loading && theme && theme?.colors.gray[3]};
     transform: none;
     text-decoration: none;
    }
@@ -181,6 +181,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
   :hover:active {
     transform: translateY(0px);
   }
+
   :active {
     background: ${theme?.colors.gray[4]};
   }
