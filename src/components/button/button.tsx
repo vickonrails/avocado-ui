@@ -183,7 +183,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
   }
 
   :active {
-    background: ${theme?.colors.gray[4]};
+    // background: ${theme?.colors.gray[4]};
   }
 `
 
