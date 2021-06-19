@@ -1,5 +1,5 @@
 import React from 'react'
-import { User } from 'react-feather'
+import { User, GitHub } from 'react-feather'
 import { Story, Meta } from '@storybook/react'
 
 import { Button, ButtonProps, Box } from '../../components'
@@ -99,7 +99,7 @@ export const State: Story<ButtonProps> = () => (
 export const WithIcons: Story<ButtonProps> = () => (
   <>
     <Box mv={MARGIN}>
-      <Button prefixIcon={<User />}>With Left Icon</Button>
+      <Button prefixIcon={<GitHub />}>With Left Icon</Button>
     </Box>
 
     <Box mv={MARGIN}>

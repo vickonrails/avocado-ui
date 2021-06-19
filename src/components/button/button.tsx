@@ -18,8 +18,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { buttonType, trim, prefixIcon, suffixIcon, disabled, loading } = props
   const avocadoTheme = useTheme() as ThemeProps
 
-  // console.log(`avocadoTheme : ${JSON.stringify(avocadoTheme.colors.primary)}`)
-
   const _classNames = props.className
     ? `avocado-btn ${props.className}`
     : `avocado-btn`
@@ -116,7 +114,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
     border: none;
     box-sizing: border-box;
     color: ${theme?.colors.gray[8]};
-    background: ${theme?.colors.gray[4]}
+    background: ${theme?.colors.gray[4]};
     user-select: none;
     transition: background, color, transform;
     transition-duration: 0.15s;
@@ -148,10 +146,11 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
     }
 
     .btn-icon--left {
-      margin-right: 0.5em;
+      margin-right: 0.35em;
     }
+
     .btn-icon--right {
-      margin-left: 0.5em;
+      margin-left: 0.35em;
     }
 
     .avocado-btn__spinner {
