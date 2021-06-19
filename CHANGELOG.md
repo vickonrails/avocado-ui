@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/vickonrails/avocado-ui/compare/v0.1.25...v0.1.26) (2021-06-19)
+
+
+### Bug Fixes
+
+* add gatsby-browser for client side rendering ([2510a90](https://github.com/vickonrails/avocado-ui/commit/2510a90bfab7ee614efe15e399bb5e9b24187ee0))
+* add gatsby-srr to fix breaking build ([0ee56bf](https://github.com/vickonrails/avocado-ui/commit/0ee56bf4c74f80cd275d7e9dd582680258849650))
+* remove styling breaking build ([0976d67](https://github.com/vickonrails/avocado-ui/commit/0976d67f0837658c347ea6b73034dbc40d7eb494))
+* theme variables breaking build ([ae62fac](https://github.com/vickonrails/avocado-ui/commit/ae62facc3d70ec42f52f93d33015399334d75c5e))
+* theme variables breaking build ([c33a460](https://github.com/vickonrails/avocado-ui/commit/c33a46006e6e017cd3a72e48b7e2ddd594877229))
+* theme variables breaking build ([d235535](https://github.com/vickonrails/avocado-ui/commit/d235535eb120ef4e711bab1afadd2378ff4e1e81))
+* theme variables breaking build ([c43e26e](https://github.com/vickonrails/avocado-ui/commit/c43e26ec6884e708b2939d120a7907f8760040e4))
+* wrap whole app in ThemeProvider to prevent build fail ([e4520d7](https://github.com/vickonrails/avocado-ui/commit/e4520d73db547700f9cc12741da488491c809397))
+
 ### [0.1.25](https://github.com/vickonrails/avocado-ui/compare/v0.1.24...v0.1.25) (2021-06-11)
 
 
