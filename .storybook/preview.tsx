@@ -17,6 +17,8 @@ const appTheme = {
   // focusColor: `#b7eb8f`
 }
 
+console.log(ThemeProvider)
+
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={appTheme}>
