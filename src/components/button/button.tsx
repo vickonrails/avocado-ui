@@ -58,8 +58,8 @@ export type ButtonSize = 'sm' | 'md' | 'lg'
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+interface ButtonProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'css'>,
     AvocadoThemeProps {
   /**
    * default type of button. Can be submit, button, reset

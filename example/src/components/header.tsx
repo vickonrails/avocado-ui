@@ -1,38 +1,15 @@
-import React, { HTMLAttributes } from 'react'
-import { ThemeProps, Button, Text, Heading } from 'avocado-ui'
-
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+import React from 'react'
+import { Text, Heading, Button } from 'avocado-ui'
 
 // Header componet
-const Header: React.FC<Header> = (props) => {
+const Header: React.FC = () => {
   return (
-    <StyledHeader {...props}>
+    <div>
       <Text>component</Text>
-      <Button>Button</Button>
+      <Button>Hey</Button>
       <Heading level='h1'>Content</Heading>
-      <Button variant='error'>Button</Button>
-    </StyledHeader>
+    </div>
   )
 }
-
-interface Header extends HTMLAttributes<HTMLElement> {}
-
-// FIXME: Move this utility type to a separate file
-type StyledThemeProps<T> = { theme?: ThemeProps } & T
-
-// Styled component for Styled Header
-// Something to note here is how the theme is in the Styled element by default
-// This makes a lot of sense rather than having to take it out from a hook and passing down to the component like
-// const theme = emotion.useTheme();
-const StyledBaseHeader = ({ theme }: StyledThemeProps<Header>) => css`
-  background: ${theme?.colors.red[100]};
-  color: ${theme?.colors.white};
-  padding: ${theme?.spacing.large};
-`
-
-const StyledHeader = styled.header`
-  ${StyledBaseHeader}
-`
 
 export { Header }
