@@ -4,6 +4,9 @@ Experimental design system for building accessible, themeable and beautiful inte
 
 [![NPM](https://img.shields.io/npm/v/avocado-ui.svg)](https://www.npmjs.com/package/avocado-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+- 📚 [Storybook](https://avocado-ui-storybook.vercel.app/)
+- 🤓 [Documentation](https://avocado-ui.vercel.app/) | [Github](https://github.com/vickOnRails/avocado-docs)
+
 ## Quick Start
 
 - Installing with `npm`
@@ -28,23 +31,28 @@ yarn add @avocado-ui/react
 ## Usage
 
 ```tsx
-import { Button, Input, Select, ISelectOptions } from '@avocado-ui/react'
+import { ThemeProvider, Button, Flex } from '@avocado-ui/react'
+import './styles.css'
 
-const selectOptions: ISelectOptions = [
-  { value: 'female', displayText: 'Female' },
-  { value: 'male', displayText: 'Male' }
-]
+// basic theming with primary and secondary colors
+const theme = {
+  primaryColor: '#3f00ff',
+  secondaryColor: '#6330ff'
+}
 
-export const App = () => (
-  <form onSubmit={...}>
-    <Input shape='round' placeholder='name' name='name' />
-    <Select options={selectOptions} name='gender' />
-    <Button shape='round'>Send</Button>
-  </form>
-)
+export default function App() {
+  return (
+    <ThemeProvider className='App' theme={theme}>
+      <Flex gap={5}>
+        <Button>Welcome to Avocado</Button>
+        <Button buttonType='outline'>Welcome to Avocado</Button>
+      </Flex>
+    </ThemeProvider>
+  )
+}
 ```
 
-- Learn more on the [official documentation](https://avocado-ui-vickonrails.vercel.app/docs/)
+- Learn more on the [official documentation](https://avocado-ui.vercel.app/docs/)
 
 ## Roadmap
 
@@ -65,7 +73,7 @@ Layout
 
 Components
 
-- [ ] Accordion
+- [x] Accordion
 - [x] Avatar
 - [x] Button
 - [ ] Checkbox
