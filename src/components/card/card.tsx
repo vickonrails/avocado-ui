@@ -35,6 +35,10 @@ const StyledCard = styled.article<CardProps>`
   ${PaddingStyle};
 
   background-color: ${({ bgColor }) => bgColor};
+
+  border-radius: ${({ br }) => br && `${br}px`};
+
+  box-shadow: ${({ showShadow }) => showShadow && `0 0 6px 3px #F2F2F2`};
 `
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -77,6 +81,16 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
    * bgColor: set background color of Card
    */
   bgColor?: string
+
+  /**
+   * br - Set border radius of the Card
+   */
+  br?: number
+
+  /**
+   * showShadow - when set to `true`, shows shadow in Card component
+   */
+  showShadow?: boolean
 }
 
 Card.defaultProps = {

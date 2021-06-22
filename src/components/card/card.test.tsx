@@ -88,6 +88,7 @@ describe('Card', () => {
     expect(getByTestId(widthPx)).toHaveStyle(`width:10%`)
   })
 
+  // Test that Card renders correct background color
   test('Card renders correct background color', () => {
     const testIdBackgroundless = `card-bg-default`
     const testIdRed = `card-bg-reg`
@@ -105,5 +106,30 @@ describe('Card', () => {
       `background-color:#fff`
     )
     expect(getByTestId(testIdRed)).toHaveStyle(`background-color:red`)
+  })
+
+  // Test that br sets current border radius
+  test('br prop sets the correct border radius', () => {
+    const testIdBackgroundless = `card`
+
+    const { getByTestId } = render(
+      <Card data-testid={testIdBackgroundless} br={3}>
+        Card Content
+      </Card>
+    )
+
+    expect(getByTestId(testIdBackgroundless)).toHaveStyle(`border-radius:3px`)
+  })
+
+  test('Card has shadow when showShadows prop is set to true', () => {
+    const testId = `card`
+
+    const { getByTestId } = render(
+      <Card data-testid={testId} showShadow>
+        Card Content
+      </Card>
+    )
+
+    expect(getByTestId(testId)).toHaveStyle(`box-shadow:0 0 6px 3px #F2F2F2`)
   })
 })
