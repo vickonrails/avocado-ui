@@ -109,30 +109,30 @@ const StyledBoxCSS = ({
 }: BoxProps) => css`
   box-sizing: border-box;
 
-  margin: ${m && `${m}em`};
-  margin-top: ${mh && `${mh}em`};
-  margin-bottom: ${mh && `${mh}em`};
+  margin: ${m && `${m}px`};
+  margin-top: ${mh && `${mh}px`};
+  margin-bottom: ${mh && `${mh}px`};
 
-  margin-right: ${mv && `${mv}em`};
-  margin-left: ${mv && `${mv}em`};
+  margin-right: ${mv && `${mv}px`};
+  margin-left: ${mv && `${mv}px`};
 
-  margin-top: ${mt && `${mt}em`};
-  margin-bottom: ${mb && `${mb}em`};
-  margin-right: ${mr && `${mr}em`};
-  margin-left: ${ml && `${ml}em`};
+  margin-top: ${mt && `${mt}px`};
+  margin-bottom: ${mb && `${mb}px`};
+  margin-right: ${mr && `${mr}px`};
+  margin-left: ${ml && `${ml}px`};
 
   // Padding styles
-  padding: ${p && `${p}em`};
-  padding-top: ${ph && `${ph}em`};
-  padding-bottom: ${ph && `${ph}em`};
+  padding: ${p && `${p}px`};
+  padding-top: ${ph && `${ph}px`};
+  padding-bottom: ${ph && `${ph}px`};
 
-  padding-right: ${pv && `${pv}em`};
-  padding-left: ${pv && `${pv}em`};
+  padding-right: ${pv && `${pv}px`};
+  padding-left: ${pv && `${pv}px`};
 
-  padding-top: ${pt && `${pt}em`};
-  padding-bottom: ${pb && `${pb}em`};
-  padding-right: ${pr && `${pr}em`};
-  padding-left: ${pl && `${pl}em`};
+  padding-top: ${pt && `${pt}px`};
+  padding-bottom: ${pb && `${pb}px`};
+  padding-right: ${pr && `${pr}px`};
+  padding-left: ${pl && `${pl}px`};
 
   width: ${block ? `100%` : `auto`};
   display: ${block ? `block` : `inline-block`};
