@@ -33,7 +33,8 @@ function App() {
 - [x] width & fullWidth
 - [x] background color
 - [x] border radius & border radius, top and bottom
-- [ ] showShadow
+- [x] showShadow
+- [x] borderSize & borderColor
 
 ## Tests suites
 
@@ -44,3 +45,4 @@ function App() {
 - [x] `br` prop sets the correct border radius
 - [x] Card has shadow when `showShadows` prop is set to true
 - [x] Card renders correct background color
+- [x] Card renders correct borderSize & borderColor

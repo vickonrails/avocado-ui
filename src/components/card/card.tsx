@@ -23,23 +23,25 @@ const PaddingStyle = ({ pb, p, pl, pr, pt }: CardProps) => css`
 `
 
 const StyledCard = styled.article<CardProps>`
-  border: 1px solid red;
   width: auto;
   display: inline-block;
+  border-style: solid;
 
   // fullWidth should override the normal width prop
 
   width: ${({ fullWidth, width }) => getCardWidth({ fullWidth, width })};
 
   // padding styles
+
   ${PaddingStyle};
 
   background-color: ${({ bgColor }) => bgColor};
-
   border-radius: ${({ br }) => br && `${br}px`};
-
   box-shadow: ${({ showShadow }) =>
-    showShadow && `0 0 6px 3px rgba(0,0,0,0.1)`};
+    showShadow && `0 0 6px 3px rgba(0,0,0,0.05)`};
+
+  border-width: ${({ borderSize }) => borderSize && `${borderSize}px`};
+  border-color: ${({ borderColor }) => borderColor && borderColor};
 `
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -92,11 +94,24 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
    * showShadow - when set to `true`, shows shadow in Card component
    */
   showShadow?: boolean
+
+  /**
+   * borderSize - size of card border
+   */
+
+  borderSize?: number
+  /**
+   * borderColor - color of card border line
+   */
+
+  borderColor?: string
 }
 
 Card.defaultProps = {
   fullWidth: false,
-  bgColor: `#fff`
+  bgColor: `#fff`,
+  borderSize: 1,
+  borderColor: `#ebebeb`
 }
 
 export { Card }

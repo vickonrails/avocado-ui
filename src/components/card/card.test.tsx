@@ -121,15 +121,47 @@ describe('Card', () => {
     expect(getByTestId(testIdBackgroundless)).toHaveStyle(`border-radius:3px`)
   })
 
+  //
   test('Card has shadow when showShadows prop is set to true', () => {
-    const testId = `card`
+    const withShadow = `with-shadow`
+    const withoutShadow = `without-shadow`
 
     const { getByTestId } = render(
-      <Card data-testid={testId} showShadow>
-        Card Content
-      </Card>
+      <>
+        <Card data-testid={withShadow} showShadow>
+          Card Content
+        </Card>
+        <Card data-testid={withoutShadow}>Card Content</Card>
+      </>
     )
 
-    expect(getByTestId(testId)).toHaveStyle(`box-shadow:0 0 6px 3px #F2F2F2`)
+    expect(getByTestId(withShadow)).toHaveStyle(
+      `box-shadow:0 0 6px 3px rgba(0,0,0,0.05)`
+    )
+    expect(getByTestId(withoutShadow)).not.toHaveStyle(
+      `box-shadow:0 0 6px 3px rgba(0,0,0,0.05)`
+    )
+  })
+
+  // test that borderSize and borderColor render correctly
+  test('Card renders correct borderSize & borderColor', () => {
+    const withoutBorder = `without-border`
+    const withBorder = `with-border`
+
+    const { getByTestId } = render(
+      <>
+        <Card data-testid={withoutBorder}>Welcome Card</Card>
+        <Card data-testid={withBorder} borderColor='red' borderSize={3}>
+          Welcome Card
+        </Card>
+      </>
+    )
+
+    expect(getByTestId(withoutBorder)).toHaveStyle(
+      `border-style:solid;border-color:#ebebeb;border-width:1px`
+    )
+    expect(getByTestId(withBorder)).toHaveStyle(
+      `border-style:solid;border-color:red;border-width:3px`
+    )
   })
 })
