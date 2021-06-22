@@ -1,5 +1,10 @@
 import React, { FC } from 'react'
-import { render, RenderOptions } from '@testing-library/react'
+import {
+  render,
+  RenderOptions,
+  RenderResult,
+  queries
+} from '@testing-library/react'
 import { ThemeProvider } from '../components'
 
 // render app with all providers
@@ -14,8 +19,8 @@ const AppProviders: FC = ({ children }) => {
 
 const customRender = (
   ui: React.ReactElement,
-  options?: RenderOptions<any, any>
-) => render(ui, { wrapper: AppProviders, ...options })
+  options?: Omit<RenderOptions, 'queries'>
+): RenderResult => render(ui, { wrapper: AppProviders, ...options })
 
 // reexport everything from @testing-library/react
 export * from '@testing-library/react'

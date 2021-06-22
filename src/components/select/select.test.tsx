@@ -7,7 +7,7 @@ const options = [
   { value: 'male', displayText: 'Male' },
   { value: 'female', displayText: 'Female' }
 ]
-describe('Input', () => {
+describe('Select', () => {
   // Input should render correctly
   test('should render correctly', () => {
     const testId = 'input'
