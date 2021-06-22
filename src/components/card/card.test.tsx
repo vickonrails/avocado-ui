@@ -87,4 +87,23 @@ describe('Card', () => {
     expect(getByTestId(width10)).toHaveStyle(`width:10px`)
     expect(getByTestId(widthPx)).toHaveStyle(`width:10%`)
   })
+
+  test('Card renders correct background color', () => {
+    const testIdBackgroundless = `card-bg-default`
+    const testIdRed = `card-bg-reg`
+
+    const { getByTestId } = render(
+      <>
+        <Card data-testid={testIdBackgroundless}>Card</Card>
+        <Card data-testid={testIdRed} bgColor='red'>
+          Card
+        </Card>
+      </>
+    )
+
+    expect(getByTestId(testIdBackgroundless)).toHaveStyle(
+      `background-color:#fff`
+    )
+    expect(getByTestId(testIdRed)).toHaveStyle(`background-color:red`)
+  })
 })

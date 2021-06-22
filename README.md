@@ -87,6 +87,7 @@ Components
 - [x] Spinner
 - [ ] Tabs
 - [ ] Tooltip
+- [ ] Card
 
 ## License
 

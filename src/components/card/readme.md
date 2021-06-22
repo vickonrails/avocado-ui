@@ -43,3 +43,4 @@ function App() {
 - [x] `width` sets the horizontal size of the card
 - [ ] `br` prop sets the correct border radius
 - [ ] Card has shadow when `showShadows` prop is set to true
+- [ ] Card renders correct background color

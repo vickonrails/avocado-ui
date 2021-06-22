@@ -1,24 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-
-const getCardWidth = ({
-  fullWidth,
-  width
-}: Pick<CardProps, 'fullWidth' | 'width'>) => {
-  if (fullWidth) return `100%`
-
-  if (!width) return `auto`
-
-  switch (typeof width) {
-    case 'string':
-      return `${width}`
-    case 'number':
-      return `${width}px`
-    default:
-      throw new Error('Please pass in a valid width')
-  }
-}
+import { getCardWidth } from '../../utils/card'
 
 const Card: FC<CardProps> = ({ children, className, ...props }) => {
   const _className = className ? `${className} avocado-card` : `avocado-card`
@@ -48,7 +31,10 @@ const StyledCard = styled.article<CardProps>`
 
   width: ${({ fullWidth, width }) => getCardWidth({ fullWidth, width })};
 
+  // padding styles
   ${PaddingStyle};
+
+  background-color: ${({ bgColor }) => bgColor};
 `
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -83,13 +69,19 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   fullWidth?: boolean
 
   /**
-   *
+   * width - set width of Card component
    */
   width?: string | number
+
+  /**
+   * bgColor: set background color of Card
+   */
+  bgColor?: string
 }
 
 Card.defaultProps = {
-  fullWidth: false
+  fullWidth: false,
+  bgColor: `#fff`
 }
 
 export { Card }
