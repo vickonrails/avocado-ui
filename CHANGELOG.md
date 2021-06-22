@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/vickonrails/avocado-ui/compare/v0.1.27...v0.1.28) (2021-06-22)
+
+
+### Features
+
+* **card:** add borderStyle and borderSize props for controlling Card borders ([23548cc](https://github.com/vickonrails/avocado-ui/commit/23548cc42290eeca31249ef20d18b99e5bf81c2c))
+* **card:** create Card component ([257e232](https://github.com/vickonrails/avocado-ui/commit/257e232b83afeeeee6de60a10b4ccce2e0c23a07))
+* **card:** implement showShadow prop for controlling shadows ([442ca05](https://github.com/vickonrails/avocado-ui/commit/442ca05ac10fe07c469b4738bd3e43422883e265))
+
+
+### Bug Fixes
+
+* **box:** switch Box padding and margin to px ([986f450](https://github.com/vickonrails/avocado-ui/commit/986f450fd9be0e9ea412f6caf916bbf480cce041))
+
 ### [0.1.27](https://github.com/vickonrails/avocado-ui/compare/v0.1.26...v0.1.27) (2021-06-20)
 
 
