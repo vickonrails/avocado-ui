@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../utils/test-utils'
 import '@testing-library/jest-dom'
 import { Button, Modal, ModalContent, ModalOverlay, ModalTitle } from '../'
 

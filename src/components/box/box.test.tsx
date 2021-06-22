@@ -1,5 +1,6 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../utils/test-utils'
+import '@testing-library/jest-dom'
 
 import { Box, Button } from '../../components'
 
@@ -8,7 +9,7 @@ describe('Box', () => {
     const testId = 'box'
 
     const { getByTestId } = render(
-      <Box data-testId={testId}>
+      <Box data-testid={testId}>
         <Button>Button</Button>
       </Box>
     )
