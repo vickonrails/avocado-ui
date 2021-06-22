@@ -38,7 +38,8 @@ const StyledCard = styled.article<CardProps>`
 
   border-radius: ${({ br }) => br && `${br}px`};
 
-  box-shadow: ${({ showShadow }) => showShadow && `0 0 6px 3px #F2F2F2`};
+  box-shadow: ${({ showShadow }) =>
+    showShadow && `0 0 6px 3px rgba(0,0,0,0.1)`};
 `
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
