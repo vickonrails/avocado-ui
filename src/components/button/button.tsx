@@ -58,7 +58,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg'
 export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
-interface ButtonProps
+export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'css'>,
     AvocadoThemeProps {
   /**

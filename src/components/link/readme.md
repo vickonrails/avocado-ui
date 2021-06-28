@@ -14,9 +14,26 @@ function App() {
 
 ## Props
 
-| property | description | type | default |
-| -------- | ----------- | ---- | ------- |
+| property   | description | type                                   | default   |
+| ---------- | ----------- | -------------------------------------- | --------- |
+| size       | ----------- | `sm`, `md`, `lg`                       | `md`      |
+| shape      | ----------- | `square`, `round`, `curve`             | `default` |
+| type       | ----------- | `default`, `ghost`, `outline`, `solid` | `curve`   |
+| prefixIcon | ----------- | `ReactNode`                            | null      |
+| suffixIcon | ----------- | `ReactNode`                            | null      |
 
 ## Todo
 
+- [ ] type
+- [ ] size
+- [ ] shape
+- [ ] prefixIcon
+- [ ] suffixIcon
+
 ## Tests suites
+
+- [ ] should render correctly
+- [ ] Should render empty link without errors
+- [ ] should be inactive when `disabled === true`
+- [ ] should throw an error if `href` is undefined
+- [ ] should render appropriate link type

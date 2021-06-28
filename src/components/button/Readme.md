@@ -20,8 +20,8 @@ function App() {
 | -------- | -------------------------------------- | ----------------------------------------------------------- | ---------- |
 | size     | size of button                         | `sm`, `md`,`lg`                                             | `md`       |
 | shape    | shape of button                        | `rounded`, `bordered`,`square`                              | `bordered` |
-| prefix   | Component by the left of the button    | `none`                                                      |            |
-| suffix   | Component by the right of the button   | `none`                                                      |            |
+| prefix   | Component by the left of the button    | `ReactNode`                                                 |            |
+| suffix   | Component by the right of the button   | `ReactNode`                                                 |            |
 | trim     | trim text longer than a certain length | `number`                                                    |            |
 | variant  | variant of the button                  | `default`, `secondary`, `warning`, `error`, `link`, `ghost` |            |
 | loading  | set button state to loading            | `boolean`                                                   | `false`    |
