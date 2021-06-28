@@ -4,11 +4,13 @@ import {
   buttonTheme as baseButtonTheme,
   spinnerTheme as baseSpinnerTheme,
   avatarTheme as baseAvatarTheme,
+  linkTheme as baseLinkTheme,
   generateButtonTheme,
   inputTheme as baseInputTheme,
   generateSpinnerTheme,
   generateAvatarTheme,
-  generateInputTheme
+  generateInputTheme,
+  generateLinkTheme
 } from '../components/theme/components'
 
 export interface UserTheme {
@@ -46,6 +48,13 @@ export const generateTheme = ({
     { primaryColor, secondaryColor, focusColor },
     baseInputTheme
   )
+  const linkTheme = generateLinkTheme(
+    {
+      primaryColor,
+      secondaryColor
+    },
+    baseLinkTheme
+  )
 
   const compositeAppTheme: ThemeProps = {
     ...theme,
@@ -58,7 +67,8 @@ export const generateTheme = ({
       buttonTheme,
       spinnerTheme,
       avatarTheme,
-      inputTheme
+      inputTheme,
+      linkTheme
     }
   }
 

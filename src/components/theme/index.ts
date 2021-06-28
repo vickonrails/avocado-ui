@@ -8,7 +8,8 @@ import {
   inputTheme,
   avatarTheme,
   imageTheme,
-  spinnerTheme
+  spinnerTheme,
+  linkTheme
 } from './components'
 
 const theme = {
@@ -21,6 +22,7 @@ const theme = {
     inputTheme,
     avatarTheme,
     imageTheme,
+    linkTheme,
     spinnerTheme
   }
 }

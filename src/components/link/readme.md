@@ -19,21 +19,21 @@ function App() {
 | size       | ----------- | `sm`, `md`, `lg`                       | `md`      |
 | shape      | ----------- | `square`, `round`, `curve`             | `default` |
 | type       | ----------- | `default`, `ghost`, `outline`, `solid` | `curve`   |
-| prefixIcon | ----------- | `ReactNode`                            | null      |
-| suffixIcon | ----------- | `ReactNode`                            | null      |
+| prefixIcon | ----------- | `ReactNode`                            | -         |
+| suffixIcon | ----------- | `ReactNode`                            | -         |
 
 ## Todo
 
-- [ ] type
-- [ ] size
-- [ ] shape
-- [ ] prefixIcon
-- [ ] suffixIcon
+- [x] type
+- [x] size
+- [x] shape
+- [x] prefixIcon
+- [x] suffixIcon
 
 ## Tests suites
 
-- [ ] should render correctly
-- [ ] Should render empty link without errors
-- [ ] should be inactive when `disabled === true`
-- [ ] should throw an error if `href` is undefined
-- [ ] should render appropriate link type
+- [x] should render correctly
+- [x] Should render empty link without errors
+- [x] should throw an error if `href` is undefined
+- [x] should render appropriate link type
+- [x] should render prefix & suffix Icons correctly

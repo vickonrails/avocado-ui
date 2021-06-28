@@ -221,6 +221,7 @@ const StyledGhostButton = ({ buttonType, variant, theme }: ButtonProps) =>
     }
   `
 
+// FIXME: Completely take off the Link buttonType because we already have a link with type button
 const StyledLinkButton = ({ buttonType, theme }: ButtonProps) =>
   buttonType === 'link' &&
   css`
