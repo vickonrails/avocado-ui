@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/vickonrails/avocado-ui/compare/v0.1.29...v0.1.30) (2021-06-29)
+
+
+### Bug Fixes
+
+* **button:** add fullWidth prop to button component ([012c532](https://github.com/vickonrails/avocado-ui/commit/012c5320f3d0fd7c5933915834abc059d69b6bed))
+* **input:** add labelText prop for input label ([1219460](https://github.com/vickonrails/avocado-ui/commit/1219460a45c640f187cee0b1776e68636a9b167a))
+* **link:** override styling rules in documentation site ([8e34bfd](https://github.com/vickonrails/avocado-ui/commit/8e34bfdd67b185ffc76c6be50bd0335f5ef0b96d))
+* **select:** add labelText to select component ([03cdccc](https://github.com/vickonrails/avocado-ui/commit/03cdcccdfbb2c3c27a038b0455a6bc594f487a21))
+
 ### [0.1.29](https://github.com/vickonrails/avocado-ui/compare/v0.1.28...v0.1.29) (2021-06-28)
 
 
