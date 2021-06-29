@@ -1,6 +1,8 @@
 import React from 'react'
 import { fireEvent, render } from '../../utils/test-utils'
 import '@testing-library/jest-dom'
+import { User } from 'react-feather'
+
 import { Select } from './select'
 
 const options = [
@@ -18,21 +20,21 @@ describe('Select', () => {
     expect(node).toBeInTheDocument()
   })
 
-  // should render prefixIcon correctly
-  test('should render prefixIcon correctly', () => {
-    const testId = 'select'
+  // should render suffixIcon correctly
+  test('should render suffixIcon && prefixIcon correctly', () => {
+    const testIdPrefix = 'select-prefix'
+    const testIdSuffix = 'select-suffix'
 
-    // really no need to bring in an icon library here. So just use some vanilla element
     const { getByTestId } = render(
-      <Select data-testid={testId} options={options} />
+      <>
+        <Select options={[]} prefixIcon={<User data-testid={testIdPrefix} />} />
+        <Select options={[]} suffixIcon={<User data-testid={testIdSuffix} />} />
+      </>
     )
 
-    const node = getByTestId(testId)
-    expect(node).toBeInTheDocument()
+    expect(getByTestId(testIdPrefix)).toBeInTheDocument()
+    expect(getByTestId(testIdSuffix)).toBeInTheDocument()
   })
-
-  // should render suffixIcon correctly
-  test('should render suffixIcon correctly', () => false)
 
   // should respond to user input
   test('should respond to user input', () => {
@@ -50,19 +52,20 @@ describe('Select', () => {
     expect(node).toHaveValue(newValue)
   })
 
-  // should render with defaultValue
-  test('should render with defaultValue', () => false)
-
   // should render correct variant when `variant` prop is passed in
   test('should render correct variant when `variant` prop is passed in', () => {
     // simulate rendering the input with different variant prop values
-    const fillVariant = 'fill'
-    const outlineVariant = 'outline'
+    const fillVariant = 'avocado-select__fill'
+    const outlineVariant = 'avocado-select__outline'
 
     const { getByTestId: getByTestIdFill } = render(
       <>
-        <Select data-testid={fillVariant} options={options} />
-        <Select data-testid={outlineVariant} options={options} />
+        <Select data-testid={fillVariant} options={options} variant='fill' />
+        <Select
+          data-testid={outlineVariant}
+          options={options}
+          variant='outline'
+        />
       </>
     )
 
@@ -73,6 +76,39 @@ describe('Select', () => {
 
   // Don't know how to test these usecases without bringing in implementation details
   // Ideally, I wouldn't want to use something liks classNames to ensure the implementations are correct
-  test('should render correct size', () => false)
-  test('should render correct borderRadius', () => false)
+  test('should render correct size', () => {
+    const testIdsm = `select-sm`
+    const testIdmd = `select-md`
+    const testIdlg = `select-lg`
+
+    const { getByTestId } = render(
+      <>
+        <Select options={[]} data-testid={testIdsm} selectSize='sm' />
+        <Select options={[]} data-testid={testIdmd} selectSize='md' />
+        <Select options={[]} data-testid={testIdlg} selectSize='lg' />
+      </>
+    )
+
+    expect(getByTestId(testIdsm)).toHaveStyle(`font-size:87%`)
+    expect(getByTestId(testIdmd)).toHaveStyle(`font-size:inherit`)
+    expect(getByTestId(testIdlg)).toHaveStyle(`font-size:inherit`)
+  })
+
+  test('should render correct borderRadius', () => {
+    const testIdSquare = `select-square`
+    const testIdCurve = `select-curve`
+    const testIdRound = `select-round`
+
+    const { getByTestId } = render(
+      <>
+        <Select borderRadius='square' options={[]} data-testid={testIdSquare} />
+        <Select borderRadius='curve' options={[]} data-testid={testIdCurve} />
+        <Select borderRadius='round' options={[]} data-testid={testIdRound} />
+      </>
+    )
+
+    expect(getByTestId(testIdSquare)).toHaveStyle(`border-radius:0px`)
+    expect(getByTestId(testIdCurve)).toHaveStyle(`border-radius:4px`)
+    expect(getByTestId(testIdRound)).toHaveStyle(`border-radius:10000px`)
+  })
 })

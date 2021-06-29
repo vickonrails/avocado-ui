@@ -148,7 +148,8 @@ const StyledBaseInput = ({
   .avocado-input__control {
     border: 1px solid ${theme?.colors.gray[5]};
     font: inherit;
-    font-size: ${inputSize === 'sm' && '14px'};
+    // FIXME: switch this up for internal fontsize later
+    font-size: ${inputSize === 'sm' ? '87%' : `inherit`};
     padding: ${inputSize &&
       theme?.components.inputTheme.size[inputSize].verticalPadding}
       ${inputSize &&

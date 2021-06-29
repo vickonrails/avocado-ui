@@ -86,9 +86,9 @@ Components
 - [x] Separator
 - [x] Spinner
 - [ ] Tabs
-- [ ] Link
+- [x] Link
 - [ ] Tooltip
-- [ ] Card
+- [x] Card
 
 ## License
 

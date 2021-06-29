@@ -37,7 +37,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         <ButtonIcon className='btn-icon--left'>{prefixIcon}</ButtonIcon>
       )}
       {/* Render loading spinner */}
-      {loading && buttonType !== 'link' && (
+      {loading && (
         <Spinner className='avocado-btn__spinner' variant={props.variant} />
       )}
       {/* Truncate text as user specifies from the button */}
@@ -55,7 +55,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
-export type ButtonType = 'solid' | 'outline' | 'link' | 'ghost'
+export type ButtonType = 'solid' | 'outline' | 'ghost'
 export type ButtonVariant = 'primary' | 'warning' | 'error' | 'success'
 
 export interface ButtonProps
@@ -234,22 +234,6 @@ const StyledGhostButton = ({ buttonType, variant, theme }: ButtonProps) =>
     }
   `
 
-// FIXME: Completely take off the Link buttonType because we already have a link with type button
-const StyledLinkButton = ({ buttonType, theme }: ButtonProps) =>
-  buttonType === 'link' &&
-  css`
-    background: none;
-    padding: 0;
-    color: ${theme?.colors.blue[400]};
-
-    :hover {
-      text-decoration: underline;
-    }
-    :active {
-      text-decoration: none;
-    }
-  `
-
 const StyledButton = styled('button', {
   shouldForwardProp: (prop) =>
     isValidProp(prop) && prop !== 'loading' && prop !== 'shape'
@@ -258,7 +242,6 @@ const StyledButton = styled('button', {
   ${StyledSolidButton}
   ${StyledOutlineButton}
   ${StyledGhostButton}
-  ${StyledLinkButton}
 `
 
 Button.defaultProps = {

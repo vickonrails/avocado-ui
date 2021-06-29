@@ -13,6 +13,7 @@ const App = () => {
             { displayText: 'Male', value: 'male' },
             { displayText: 'Female', value: 'female' }
           ]}
+          selectSize='sm'
           labelText='Label Text'
         />
       </Box>

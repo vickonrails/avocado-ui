@@ -69,6 +69,4 @@ describe('Button', () => {
     fireEvent.click(getByTestId(testId))
     expect(count).toEqual(0)
   })
-  test('should render a link when `type` is set to link', () => false)
-  test('should not render as link when href is undefined', () => false)
 })

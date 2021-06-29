@@ -49,12 +49,11 @@ const App: FC = () => (
 
 ## Test Suites
 
-- [ ] should render correctly
+- [x] should render correctly
 - [ ] should render prefixIcon correctly
 - [ ] should render suffixIcon correctly
 - [ ] shouldn't receive input when disabled
 - [ ] should respond to user input
 - [ ] should render with defaultValue
-- [ ] should render correct variant when `variant` prop is passed in
 - [ ] should render correct size
 - [ ] should render correct borderRadius

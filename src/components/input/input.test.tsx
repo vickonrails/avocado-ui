@@ -84,8 +84,39 @@ describe('Input', () => {
     expect(getByTestIdFill(outlineVariant).className).toContain(outlineVariant)
   })
 
-  // Don't know how to test these usecases without bringing in implementation details
-  // Ideally, I wouldn't want to use something liks classNames to ensure the implementations are correct
-  test('should render correct size', () => false)
-  test('should render correct borderRadius', () => false)
+  test('should render correct size', () => {
+    const testIdsm = `input-sm`
+    const testIdmd = `input-md`
+    const testIdlg = `input-lg`
+
+    const { getByTestId } = render(
+      <>
+        <Input inputSize='sm' data-testid={testIdsm} />
+        <Input inputSize='md' data-testid={testIdmd} />
+        <Input inputSize='lg' data-testid={testIdlg} />
+      </>
+    )
+
+    expect(getByTestId(testIdsm)).toHaveStyle(`font-size:87%`)
+    expect(getByTestId(testIdmd)).toHaveStyle(`font-size:inherit`)
+    expect(getByTestId(testIdlg)).toHaveStyle(`font-size:inherit`)
+  })
+
+  test('should render correct borderRadius', () => {
+    const testIdSquare = `input-square`
+    const testIdCurve = `input-curve`
+    const testIdRound = `input-round`
+
+    const { getByTestId } = render(
+      <>
+        <Input data-testid={testIdSquare} borderRadius='square' />
+        <Input data-testid={testIdCurve} borderRadius='curve' />
+        <Input data-testid={testIdRound} borderRadius='round' />
+      </>
+    )
+
+    expect(getByTestId(testIdSquare)).toHaveStyle(`border-radius:0px`)
+    expect(getByTestId(testIdCurve)).toHaveStyle(`border-radius:4px`)
+    expect(getByTestId(testIdRound)).toHaveStyle(`border-radius:10000px`)
+  })
 })

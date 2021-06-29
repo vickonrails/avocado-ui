@@ -1,8 +1,8 @@
 import React, { FC, SelectHTMLAttributes } from 'react'
 import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 import { Variant } from '../input'
-import styled from '@emotion/styled'
 import { theme } from '../theme'
 import { getBorderRadius } from '../../utils/input'
 import { selectTheme } from '../theme/components/select.theme'
@@ -14,12 +14,14 @@ const Select: FC<Select> = ({
   fullWidth,
   labelText,
   borderRadius,
+  prefixIcon,
+  suffixIcon,
   selectSize,
   ...props
 }) => {
   const _className = className
-    ? `avocado-select__control avocado-select--${props.variant} ${className}`
-    : `avocado-select__control avocado-select--${props.variant}`
+    ? `avocado-select__control avocado-select__props.variant} ${className}`
+    : `avocado-select__control avocado-select__${props.variant}`
 
   if (props.variant === 'unstyled')
     return <select {...props} className={_className} />
@@ -33,6 +35,8 @@ const Select: FC<Select> = ({
         selectSize={selectSize}
         borderRadius={borderRadius}
         fullWidth={fullWidth}
+        prefixIcon={prefixIcon}
+        suffixIcon={suffixIcon}
       >
         <label className='avocado-select__label'>
           <span className='avocado-select__labeltext'>{labelText}</span>
@@ -54,6 +58,8 @@ const Select: FC<Select> = ({
       selectSize={selectSize}
       borderRadius={borderRadius}
       fullWidth={fullWidth}
+      prefixIcon={prefixIcon}
+      suffixIcon={suffixIcon}
     >
       <select className={_className} {...props}>
         {options.map((option) => (
@@ -125,7 +131,7 @@ const StyledBaseSelect = ({
     width: 100%;
     border: 1px solid ${theme.colors.gray[5]};
     font: inherit;
-    font-size: ${selectSize === 'sm' && '14px'};
+    font-size: ${selectSize === 'sm' ? '87%' : 'inherit'};
     padding: ${selectSize && selectTheme.size[selectSize].verticalPadding}
       ${selectSize && selectTheme.size[selectSize].horizontalPadding};
 
