@@ -78,10 +78,13 @@ export interface LinkProps
   suffixIcon?: React.ReactNode
 }
 
+// FIXME: currently making use of !important rule here because the documentation styles override Avocado's styles.
+// Remove immediately we switch to a different documentation template
+
 const BaseLink = ({ shape, theme, size, type }: LinkProps) =>
   shape &&
   css`
-    color: ${theme?.components.linkTheme.variants.primary.default};
+    color: ${theme?.components.linkTheme.variants.primary.default}!important;
 
     border-radius: ${type !== 'default' && getButtonShape(shape)};
 
@@ -90,7 +93,7 @@ const BaseLink = ({ shape, theme, size, type }: LinkProps) =>
     transition-duration: 0.15s;
     transition-timing-function: ease-out;
     user-select: none;
-    display: inline-block;
+    display: inline-block !important;
 
     font-size: ${size === 'sm' ? '14px' : `inherit`};
 
@@ -120,8 +123,8 @@ const BaseLink = ({ shape, theme, size, type }: LinkProps) =>
     }
 
     :hover {
-      color: ${theme?.components.linkTheme.variants.primary.hover};
-      text-decoration: none;
+      color: ${theme?.components.linkTheme.variants.primary.hover} !important;
+      text-decoration: none !important;
       transform: translateY(-1px);
     }
     :active,
@@ -136,12 +139,12 @@ const LinkTypeSolid = ({ type, theme }: LinkProps) =>
   type === 'solid' &&
   css`
     background: ${theme?.components.linkTheme.variants.primary.default};
-    color: ${theme?.colors.white};
-    text-decoration: none;
+    color: ${theme?.colors.white} !important;
+    text-decoration: none !important;
 
     :hover {
       background: ${theme?.components.linkTheme.variants.primary.hover};
-      color: ${theme?.colors.white};
+      color: ${theme?.colors.white} !important;
     }
   `
 
@@ -150,8 +153,8 @@ const LinkTypeGhost = ({ type, theme }: LinkProps) =>
   css`
     background: inherit;
     border: 2px solid ${theme?.colors.gray[3]};
-    text-decoration: none;
-    color: ${theme?.components.linkTheme.variants.primary.hover};
+    text-decoration: none !important;
+    color: ${theme?.components.linkTheme.variants.primary.hover} !important;
 
     :hover {
       border-color: ${theme?.colors.gray[4]};
@@ -162,9 +165,9 @@ const LinkTypeOutline = ({ type, theme }: LinkProps) =>
   type === 'outline' &&
   css`
     background: inherit;
-    text-decoration: none;
+    text-decoration: none !important;
     border: 1px solid ${theme?.components.linkTheme.variants.primary.hover};
-    color: ${theme?.components.linkTheme.variants.primary.hover};
+    color: ${theme?.components.linkTheme.variants.primary.hover} !important;
   `
 
 const LinkSize = ({ size, type, theme }: LinkProps) =>
