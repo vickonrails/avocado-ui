@@ -8,20 +8,60 @@ import { getBorderRadius } from '../../utils/input'
 import { selectTheme } from '../theme/components/select.theme'
 import { Shape } from '../../utils/types'
 
-const Select: FC<Select> = ({ className, options, ...props }) => {
+const Select: FC<Select> = ({
+  className,
+  options,
+  fullWidth,
+  labelText,
+  borderRadius,
+  selectSize,
+  ...props
+}) => {
   const _className = className
-    ? `avocado-select avocado-select--${props.variant} ${className}`
-    : `avocado-select avocado-select--${props.variant}`
+    ? `avocado-select__control avocado-select--${props.variant} ${className}`
+    : `avocado-select__control avocado-select--${props.variant}`
 
   if (props.variant === 'unstyled')
     return <select {...props} className={_className} />
+
+  // wrap the input in a label if labelText is provided
+  if (labelText)
+    return (
+      <StyledSelect
+        options={options}
+        className='avocado-select'
+        selectSize={selectSize}
+        borderRadius={borderRadius}
+        fullWidth={fullWidth}
+      >
+        <label className='avocado-select__label'>
+          <span className='avocado-select__labeltext'>{labelText}</span>
+          <select className={_className} {...props}>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.displayText}
+              </option>
+            ))}
+          </select>
+        </label>
+      </StyledSelect>
+    )
+
   return (
-    <StyledSelect {...props} className={_className} options={options}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.displayText}
-        </option>
-      ))}
+    <StyledSelect
+      className='avocado-select'
+      options={options}
+      selectSize={selectSize}
+      borderRadius={borderRadius}
+      fullWidth={fullWidth}
+    >
+      <select className={_className} {...props}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.displayText}
+          </option>
+        ))}
+      </select>
     </StyledSelect>
   )
 }
@@ -56,6 +96,11 @@ interface Select extends SelectHTMLAttributes<HTMLSelectElement> {
 
   // specifies the items to render as options of the select
   options: ISelectOptions[]
+
+  /**
+   * labelText - text to show at the top of Select
+   */
+  labelText?: string
 }
 
 const StyledBaseSelect = ({
@@ -64,33 +109,47 @@ const StyledBaseSelect = ({
   borderRadius,
   fullWidth
 }: Select) => css`
-  border: 1px solid ${theme.colors.gray[5]};
-  font: inherit;
-  font-size: ${selectSize === 'sm' && '14px'};
-  padding: ${selectSize && selectTheme.size[selectSize].verticalPadding}
-    ${selectSize && selectTheme.size[selectSize].horizontalPadding};
-
-  transition: border-color, background;
-  transition-duration: 0.25s;
-  border-radius: ${borderRadius && getBorderRadius(borderRadius)};
   width: ${fullWidth ? '100%' : 'auto'};
 
-  transition-timing-function: ease-out;
-
-  :hover {
-    border: ${!disabled && `1px solid ${theme.colors.blue[500]}`};
-  }
-
-  :focus {
-    outline: none;
-    box-shadow: 0 0 0 2px ${theme.colors.blue[200]};
-  }
-
-  :disabled {
-    cursor: not-allowed;
-    background: ${theme.colors.gray[3]};
-    border: none;
+  .avocado-select__labeltext {
     user-select: none;
+    margin-bottom: 0.3em;
+    display: inline-block;
+  }
+  .avocado-select__label {
+    display: block;
+    max-width: ${!fullWidth && `18em`};
+  }
+  .avocado-select__control {
+    display: block;
+    width: 100%;
+    border: 1px solid ${theme.colors.gray[5]};
+    font: inherit;
+    font-size: ${selectSize === 'sm' && '14px'};
+    padding: ${selectSize && selectTheme.size[selectSize].verticalPadding}
+      ${selectSize && selectTheme.size[selectSize].horizontalPadding};
+
+    transition: border-color, background;
+    transition-duration: 0.25s;
+    border-radius: ${borderRadius && getBorderRadius(borderRadius)};
+
+    transition-timing-function: ease-out;
+
+    :hover {
+      border: ${!disabled && `1px solid ${theme.colors.blue[500]}`};
+    }
+
+    :focus {
+      outline: none;
+      box-shadow: 0 0 0 2px ${theme.colors.blue[200]};
+    }
+
+    :disabled {
+      cursor: not-allowed;
+      background: ${theme.colors.gray[3]};
+      border: none;
+      user-select: none;
+    }
   }
 `
 
@@ -112,7 +171,7 @@ const StyledFilledSelect = ({ variant, disabled }: Select) =>
     }
   `
 
-const StyledSelect = styled.select`
+const StyledSelect = styled.span`
   ${StyledBaseSelect}
   ${StyledFilledSelect}
 `

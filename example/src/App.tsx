@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, CSSReset, Flex, FlexItem, Card, Link } from 'avocado-ui'
+import { ThemeProvider, CSSReset, Select, Box } from 'avocado-ui'
 
 import './index.css'
 
@@ -7,17 +7,26 @@ const App = () => {
   return (
     <ThemeProvider theme={{}}>
       <CSSReset />
-      <Flex gap={12} className='App' alignItems='center'>
-        <FlexItem>
-          <Card p={8} br={4} showShadow>
-            Something about a box that I know of
-          </Card>
-        </FlexItem>
+      <Box block>
+        <Select
+          options={[
+            { displayText: 'Male', value: 'male' },
+            { displayText: 'Female', value: 'female' }
+          ]}
+          labelText='Label Text'
+        />
+      </Box>
 
-        <FlexItem>
-          <Link href='/'>Link to wherever you want to go to</Link>
-        </FlexItem>
-      </Flex>
+      <Box block>
+        <Select
+          options={[
+            { displayText: 'Male', value: 'male' },
+            { displayText: 'Female', value: 'female' }
+          ]}
+          labelText='Label Text'
+          fullWidth
+        />
+      </Box>
     </ThemeProvider>
   )
 }
