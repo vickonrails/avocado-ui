@@ -154,7 +154,7 @@ const LinkTypeGhost = ({ type, theme }: LinkProps) =>
     background: inherit;
     border: 2px solid ${theme?.colors.gray[3]};
     text-decoration: none !important;
-    color: ${theme?.components.linkTheme.variants.primary.hover} !important;
+    color: ${theme?.components.linkTheme.variants.primary.default} !important;
 
     :hover {
       border-color: ${theme?.colors.gray[4]};
@@ -166,8 +166,8 @@ const LinkTypeOutline = ({ type, theme }: LinkProps) =>
   css`
     background: inherit;
     text-decoration: none !important;
-    border: 1px solid ${theme?.components.linkTheme.variants.primary.hover};
-    color: ${theme?.components.linkTheme.variants.primary.hover} !important;
+    border: 1px solid ${theme?.components.linkTheme.variants.primary.default};
+    color: ${theme?.components.linkTheme.variants.primary.default} !important;
   `
 
 const LinkSize = ({ size, type, theme }: LinkProps) =>

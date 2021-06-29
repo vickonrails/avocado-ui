@@ -12,7 +12,7 @@ export const parameters = {
 }
 
 const appTheme = {
-  // primaryColor: `green`,
+  primaryColor: `orange`
   // secondaryColor: `#00A400`,
   // focusColor: `#b7eb8f`
 }
