@@ -3,12 +3,14 @@ import { Story, Meta } from '@storybook/react'
 import { User, Lock } from 'react-feather'
 import styled from '@emotion/styled'
 
-import { Input, InputProps, Flex, Text } from '../../components'
+import { Input, InputProps, Flex } from '../../components'
 
 export default {
   title: 'Components/Input',
   component: Input
 } as Meta
+
+const GAP = 20
 
 const Template: Story<InputProps> = (args) => <Input {...args} />
 
@@ -18,99 +20,102 @@ Default.args = {
 }
 
 export const Variants = () => (
-  <Flex alignItems='flex-start' flexDirection='column'>
-    <StyledLabel>
-      <Text>Input in Filled Variant</Text>
-      <Input variant='fill' placeholder='Input Component' />
-    </StyledLabel>
+  <Flex alignItems='flex-start' flexDirection='column' gap={GAP}>
+    <Input
+      variant='fill'
+      placeholder='Input Component'
+      labelText='Input in Filled Variant'
+    />
 
-    <StyledLabel>
-      <Text>Input in Outline Variant</Text>
-      <Input variant='outline' placeholder='Input Component' />
-    </StyledLabel>
+    <Input
+      variant='outline'
+      placeholder='Input Component'
+      labelText='Input in Outline Variant'
+    />
 
-    <StyledLabel>
-      <Text>Input in Unstyled Variant</Text>
-      <Input variant='unstyled' placeholder='Input Component' />
-    </StyledLabel>
+    <Input variant='unstyled' placeholder='Input Component' />
   </Flex>
 )
 
 export const Sizes = () => (
-  <Flex flexDirection='column'>
-    <StyledLabel>
-      <Text>Small sized Input Component</Text>
-      <Input inputSize='sm' placeholder='Input Component' />
-    </StyledLabel>
+  <Flex flexDirection='column' gap={GAP}>
+    <Input
+      inputSize='sm'
+      placeholder='Input Component'
+      labelText='Small sized Input Component'
+    />
 
-    <StyledLabel>
-      <Text>Medium sized Input Component</Text>
-      <Input inputSize='md' placeholder='Input Component' />
-    </StyledLabel>
+    <Input
+      inputSize='md'
+      placeholder='Input Component'
+      labelText='Medium sized Input Component'
+    />
 
-    <StyledLabel>
-      <Text>Large sized Input Component</Text>
-      <Input placeholder='Input Component' inputSize='lg' />
-    </StyledLabel>
+    <Input
+      placeholder='Input Component'
+      inputSize='lg'
+      labelText='Large sized Input Component'
+    />
   </Flex>
 )
 
 export const Shapes = () => (
-  <Flex flexDirection='column'>
-    <StyledLabel>
-      <Text>Input with curved corners</Text>
-      <Input borderRadius='curve' placeholder='Input Component' />
-    </StyledLabel>
+  <Flex flexDirection='column' gap={GAP}>
+    <Input
+      borderRadius='curve'
+      placeholder='Input Component'
+      labelText='Input with curved corners'
+    />
 
-    <StyledLabel>
-      <Text>Input with round corners</Text>
-      <Input borderRadius='round' placeholder='Input Component' />
-    </StyledLabel>
+    <Input
+      borderRadius='round'
+      placeholder='Input Component'
+      labelText='Input with round corners'
+    />
 
-    <StyledLabel>
-      <Text>Input with squared corners</Text>
-      <Input placeholder='Input Component' borderRadius='square' />
-    </StyledLabel>
+    <Input
+      placeholder='Input Component'
+      borderRadius='square'
+      labelText='Input with squared corners'
+    />
   </Flex>
 )
 
 export const WithIcons = () => (
-  <Flex flexDirection='column'>
-    <StyledLabel>
-      <Text>Icon on Left Side</Text>
-      <Input placeholder='Input Component' prefixIcon={<User />} />
-    </StyledLabel>
+  <Flex flexDirection='column' gap={GAP}>
+    <Input
+      placeholder='Input Component'
+      prefixIcon={<User />}
+      labelText='Icon on Left Side'
+    />
 
-    <StyledLabel>
-      <Text>Icon on Right Side</Text>
-      <Input placeholder='Input Component' suffixIcon={<Lock />} />
-    </StyledLabel>
+    <Input
+      placeholder='Input Component'
+      suffixIcon={<Lock />}
+      // labelText='Icon on Right Side'
+      // fullWidth
+    />
 
-    <StyledLabel>
-      <Text>Icon on Both Sides</Text>
-      <Input
-        placeholder='Input Component'
-        prefixIcon={<User />}
-        suffixIcon={<Lock />}
-      />
-    </StyledLabel>
+    <Input
+      placeholder='Input Component'
+      prefixIcon={<User />}
+      suffixIcon={<Lock />}
+      labelText='Icon on Both Sides'
+    />
   </Flex>
+)
+
+export const FullWidth = () => (
+  <Input
+    placeholder='Input Component'
+    fullWidth //* labelText='Label Text Here' */
+  />
 )
 
 export const Disabled = () => (
-  <Flex flexDirection='column'>
-    <StyledLabel>
-      <Text>Disabled Input Component</Text>
-      <Input placeholder='Input Component' disabled />
-    </StyledLabel>
-  </Flex>
+  <Input
+    placeholder='Input Component'
+    disabled
+    labelText='Disabled Input Component'
+  />
 )
-
-const StyledLabel = styled.label`
-  display: block;
-  margin-bottom: 1em;
-
-  .avocado-text {
-    margin: 0.3em;
-  }
-`

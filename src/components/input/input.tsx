@@ -16,16 +16,45 @@ const Input: FC<InputProps> = ({
   suffixIcon,
   borderRadius,
   inputSize,
+  labelText,
   variant,
   fullWidth,
   ...props
 }) => {
   const avocadoTheme = useTheme() as ThemeProps
 
+  // return vanilla input for unstyled variant
   if (variant === 'unstyled') return <input {...props} />
+
   const _className = props.className
     ? `${props.className} avocado-input__control avocado-input__control--${variant}`
     : `avocado-input__control avocado-input__control--${variant}`
+
+  // wrap the input in a label if labelText is provided
+  if (labelText)
+    return (
+      <StyledInput
+        className='avocado-input'
+        variant={variant}
+        theme={avocadoTheme}
+        inputSize={inputSize}
+        borderRadius={borderRadius}
+        fullWidth={fullWidth}
+        prefixIcon={prefixIcon}
+        suffixIcon={suffixIcon}
+      >
+        <label>
+          <span className='avocado-input__label-text'>{labelText}</span>
+          <span className='avocado-input__control-container'>
+            {prefixIcon && <InputIcon className='left'>{prefixIcon}</InputIcon>}
+            <input {...props} className={_className} />
+            {suffixIcon && (
+              <InputIcon className='right'>{suffixIcon}</InputIcon>
+            )}
+          </span>
+        </label>
+      </StyledInput>
+    )
 
   return (
     <StyledInput
@@ -84,6 +113,11 @@ interface InputProps
 
   // FIXME: Change to shape prop
   borderRadius?: Shape
+
+  /**
+   * labelText - text to show at the top of Input
+   */
+  labelText?: string
 }
 
 const StyledBaseInput = ({
@@ -99,6 +133,17 @@ const StyledBaseInput = ({
   display: inline-flex;
   align-items: center;
   width: ${fullWidth ? '100%' : 'auto'};
+
+  .avocado-input__label-text {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+  .avocado-input__control-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
 
   .avocado-input__control {
     border: 1px solid ${theme?.colors.gray[5]};

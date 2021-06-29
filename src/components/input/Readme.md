@@ -41,6 +41,7 @@ const App: FC = () => (
 - [x] disabled
 - [x] inputSize
 - [x] borderRadius
+- [ ] labelText
 
 ## Test Suites
 
