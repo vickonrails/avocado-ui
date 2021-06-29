@@ -99,12 +99,24 @@ export interface ButtonProps
    * ref. used for directly controlling dom element
    */
   ref?: Ref<HTMLButtonElement>
+
+  /**
+   * fullWidth - control horizontal size of the Button. If set to true, button, spans full horizontal width
+   */
+  fullWidth?: boolean
 }
 
 /**
  * style for base button
  */
-const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
+const BaseButton = ({
+  shape,
+  size,
+  theme,
+  loading,
+  disabled,
+  fullWidth
+}: ButtonProps) =>
   shape &&
   css`
     padding: 0.5em 0.8em;
@@ -115,6 +127,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
     box-sizing: border-box;
     color: ${theme?.colors.gray[8]};
     background: ${theme?.colors.gray[4]};
+    width: ${fullWidth ? `100%` : `auto`};
     user-select: none;
     transition: background, color, transform;
     transition-duration: 0.15s;
@@ -128,7 +141,7 @@ const BaseButton = ({ shape, size, theme, loading, disabled }: ButtonProps) =>
 
     opacity: ${loading && 0.4};
 
-    display: inline-flex;
+    display: ${!fullWidth && `inline-flex`};
     align-items: center;
 
     .btn-icon--left,

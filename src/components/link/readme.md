@@ -14,13 +14,13 @@ function App() {
 
 ## Props
 
-| property   | description | type                                   | default   |
-| ---------- | ----------- | -------------------------------------- | --------- |
-| size       | ----------- | `sm`, `md`, `lg`                       | `md`      |
-| shape      | ----------- | `square`, `round`, `curve`             | `default` |
-| type       | ----------- | `default`, `ghost`, `outline`, `solid` | `curve`   |
-| prefixIcon | ----------- | `ReactNode`                            | -         |
-| suffixIcon | ----------- | `ReactNode`                            | -         |
+| property   | description                           | type                                   | default   |
+| ---------- | ------------------------------------- | -------------------------------------- | --------- |
+| size       | size of `Link`                        | `sm`, `md`, `lg`                       | `md`      |
+| shape      | shape of `Link`                       | `square`, `round`, `curve`             | `default` |
+| type       | type of `Link` component              | `default`, `ghost`, `outline`, `solid` | `curve`   |
+| prefixIcon | icon to the left of `Link` component  | `ReactNode`                            | -         |
+| suffixIcon | icon to the right of `Link` component | `ReactNode`                            | -         |
 
 ## Todo
 

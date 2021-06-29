@@ -52,6 +52,12 @@ export const Variants: Story<ButtonProps> = () => (
   </>
 )
 
+export const fullWidth: Story<ButtonProps> = () => (
+  <>
+    <Button fullWidth>Full Width Button</Button>
+  </>
+)
+
 export const Shape: Story<ButtonProps> = () => (
   <>
     <Box mv={MARGIN}>

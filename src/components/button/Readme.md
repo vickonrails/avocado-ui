@@ -36,6 +36,7 @@ function App() {
 - [x] variant
 - [x] loading
 - [x] disabled
+- [ ] fullWidth
 - [x] write tests
 
 ## Tests suites
